@@ -13,7 +13,7 @@
 :root{
   --page:#f6f3ec; --surface:#fffdf8; --surface2:#f1ede3; --ink:#1d1b17; --ink2:#5a564c; --muted:#8d887b; --line:#e3ddcc;
   --sea:#e9eef0; --land:#fbf8ef; --landline:#cfc8b4; --border:#ddd6c2;
-  --o:#eb6834; --h:#2a78d6; --b:#1baf7a; --s:#a846b0; --x:#b8860b; --accent:#c4472a; --ring:#1d1b17;
+  --o:#eb6834; --h:#2a78d6; --b:#1baf7a; --s:#a846b0; --x:#b8860b; --f:#d6336c; --accent:#c4472a; --ring:#1d1b17;
   --shadow:0 1px 2px rgba(40,30,10,.08),0 8px 24px rgba(40,30,10,.08);
 }
 @media (prefers-color-scheme:dark){
@@ -224,6 +224,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   <button class="chip" id="cH" aria-pressed="true"><i style="background:var(--h)"></i><span data-t="bH"></span> <small id="nH"></small></button>
   <button class="chip" id="cB" aria-pressed="true"><i style="background:var(--b)"></i><span data-t="bB"></span> <small id="nB"></small></button>
   <button class="chip" id="cS" aria-pressed="true"><i style="background:var(--s)"></i><span data-t="bS"></span> <small id="nS"></small></button>
+  <button class="chip" id="cF" aria-pressed="true"><i style="background:var(--f)"></i><span data-t="bF"></span> <small id="nF"></small></button>
   <button class="chip" id="cX" aria-pressed="false"><i style="background:var(--x)"></i><span data-t="bX"></span> <small id="nX"></small></button>
   <span class="sep"></span>
   <div class="seg" id="regSeg"></div>
@@ -251,7 +252,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
     </svg>
     <div class="ctrl"><button id="zi" aria-label="Zoom in">+</button><button id="zo" aria-label="Zoom out">−</button><button id="loc" aria-label="My location" title="My location">📍</button><button id="rl" aria-label="Train lines" title="Train lines" aria-pressed="true">🚆</button></div>
     <div id="toast" class="toast" role="status"></div>
-    <div class="legend"><div><i style="background:var(--o)"></i><span data-t="lO"></span></div><div><i style="background:var(--h)"></i><span data-t="lH"></span></div><div><i style="background:var(--b)"></i><span data-t="lB"></span></div><div><i style="background:var(--s)"></i><span data-t="lS"></span></div><div><i style="background:var(--x)"></i><span data-t="lX"></span></div><p data-t="lNote"></p></div>
+    <div class="legend"><div><i style="background:var(--o)"></i><span data-t="lO"></span></div><div><i style="background:var(--h)"></i><span data-t="lH"></span></div><div><i style="background:var(--b)"></i><span data-t="lB"></span></div><div><i style="background:var(--s)"></i><span data-t="lS"></span></div><div><i style="background:var(--f)"></i><span data-t="lF"></span></div><div><i style="background:var(--x)"></i><span data-t="lX"></span></div><p data-t="lNote"></p></div>
     <div class="card" id="card"></div>
   </div>
   <aside>
@@ -4241,37 +4242,139 @@ const SPC=`104003|東京|モードオフ吉祥寺店|35.70672|139.58090|11:00-21
 131003|新潟|アウトドア＆スポーツ長岡古正寺西店|37.45480|138.81820|10:00-20:00|長岡市|O|440.7|259.3
 131004|新潟|アウトドア＆スポーツ新潟新和店|37.90184|139.03865|10:00-20:00|新潟市|O|445.8|246.0
 231001|山梨|アウトドア＆スポーツ甲府国母店|35.62510|138.55156|10:30-19:30|甲府市|O|434.4|313.6`;
+const TFC=`10|T|吉川店|埼玉|吉川市|11:00-20:00|16|35.88621|139.84721|465.6|305.6
+13|T|相模原店|神奈川|相模原市||111|35.57938|139.36722|454.1|314.8
+14|T|横浜青葉店|神奈川|横浜市|11:00-21:00|63|35.56072|139.55628|458.7|315.4
+15|T|いわき鹿島店|福島|いわき市|10:00-20:00|26|36.98850|140.90487|490.2|272.4
+16|T|大宮店|埼玉|さいたま市||24|35.92427|139.61442|459.9|304.6
+17|T|郡山うねめ通り店|福島|郡山市|10:00-20:00|30|37.40657|140.37508|477.4|260.3
+18|T|町田店|東京|町田市||22|35.55245|139.43986|455.9|315.6
+19|T|千葉みつわ台店|千葉|千葉市|12:00-20:00|12|35.63898|140.13064|472.5|312.8
+24|T|東浦和店|埼玉|さいたま市||14|35.86802|139.70246|462.1|306.2
+25|T|桶川店|埼玉|桶川市|11:00-20:00|21|36.00605|139.56423|458.7|302.1
+26|T|上福岡店|埼玉|ふじみ野市||23|35.86665|139.50757|457.4|306.3
+27|T|入間店|埼玉|入間市||162|35.82679|139.39079|454.6|307.5
+28|T|川越店|埼玉|川越市|11:00-21:00|159|35.91771|139.49970|457.2|304.8
+29|T|鶴ヶ島店|埼玉|鶴ヶ島市|12:00-20:00|50|35.93884|139.42408|455.4|304.2
+31|T|立川日野橋店|東京|立川市||150|35.68590|139.41328|455.2|311.7
+34|T|北越谷店|埼玉|越谷市||41|35.91504|139.77337|463.8|304.8
+35|T|南大沢店|東京|八王子市||51|35.62156|139.39146|454.7|313.6
+36|T|東久留米店|東京|東久留米市||15|35.76287|139.53661|458.1|309.4
+37|T|川崎野川店|神奈川|川崎市||22|35.57219|139.61565|460.1|315.0
+38|T|中央林間店|神奈川|大和市||208|35.50921|139.44891|456.1|316.9
+39|T|上板橋店|東京|練馬区||22|35.76224|139.67020|461.3|309.3
+41|T|郡山安積店|福島|郡山市|10:00-20:00|90|37.36626|140.36938|477.3|261.5
+42|T|稲城若葉台店|東京|稲城市||214|35.61997|139.47266|456.6|313.6
+43|T|武蔵村山店|東京|武蔵村山市||40|35.74645|139.39172|454.6|309.9
+45|T|幕張店|千葉|千葉市||160|35.66789|140.03879|470.3|312.0
+46|T|大船店|神奈川|横浜市||35|35.36273|139.53218|458.1|321.2
+47|T|松戸店|千葉|松戸市||20|35.80761|139.91788|467.3|307.9
+53|T|南浦和店|埼玉|さいたま市||44|35.83487|139.66787|461.3|307.2
+54|T|市川店|千葉|市川市||15|35.71520|139.91627|467.3|310.7
+59|T|牛久店|茨城|牛久市||35|35.97722|140.15288|472.9|302.8
+61|T|いわき平店|福島|いわき市|10:00-20:00|60|37.04340|140.89387|489.9|270.8
+64|T|大和店|神奈川|大和市||49|35.46412|139.46743|456.5|318.2
+74|T|いわき泉店|福島|いわき市|10:00-20:00|39|36.94288|140.85414|489.0|273.8
+76|T|鎌ヶ谷店|千葉|鎌ケ谷市||28|35.77763|139.98887|469.0|308.8
+119|I|吉祥寺店|東京|武蔵野市|11:00-20:00||35.70401|139.57605|459.1|311.1
+127|T|岐阜宇佐店|岐阜|岐阜市||25|35.39447|136.73381|390.5|320.0
+134|T|二俣川店|神奈川|横浜市|10:00-20:00|364|35.46150|139.53254|458.1|318.3
+135|T|東大阪箕輪店|大阪|東大阪市||53|34.68887|135.61729|362.9|340.3
+137|T|福岡春日店|福岡|春日市||19|33.53367|130.45906|234.6|367.6
+145|T|寝屋川店|大阪|寝屋川市||26|34.78463|135.62106|363.0|337.5
+150|T|モラージュ佐賀店|佐賀|佐賀市|10:00-21:00||33.25280|130.31937|230.5|375.6
+183|T|太宰府店|福岡|太宰府市|11:00-20:00|34|33.50503|130.49546|235.4|368.5
+194|T|本庄店|埼玉|本庄市||37|36.22766|139.19831|449.9|295.6
+197|T|ハローパーク周船寺店|福岡|福岡市||550|33.56465|130.24197|229.3|366.2
+209|T|鶴川店|東京|町田市||143|35.58440|139.48091|456.8|314.7
+211|Y|立川フロム中武店|東京|立川市|10:00-20:00||35.69970|139.41496|455.2|311.3
+213|T|龍ヶ崎店|茨城|龍ケ崎市|11:00-20:00|105|35.93207|140.16974|473.3|304.1
+217|T|新座店|埼玉|新座市||18|35.79996|139.56045|458.7|308.3
+247|T|愛知蟹江店|愛知|海部郡|10:00-20:00|687|35.13929|136.79562|391.8|327.6
+260|T|名古屋鳴海店|愛知|名古屋市|11:00-20:00|18|35.07762|136.94703|395.5|329.5
+278|T|イオンモール新瑞橋店|愛知|名古屋市|10:00-21:00||35.11457|136.93211|395.1|328.4
+279|T|伊勢崎フォリオ安堀店|群馬|伊勢崎市|10:00-20:00|500|36.33836|139.18339|449.5|292.4
+281|T|ベイシア前橋モール店|群馬|前橋市|10:00-20:00|688|36.39752|139.09770|447.4|290.6
+292|T|柏花野井店|千葉|柏市||42|35.89375|139.97344|468.6|305.3
+301|T|宇都宮環状駒生店|栃木|宇都宮市||42|36.57077|139.84755|465.3|285.3
+305|T|高崎下之城店|群馬|高崎市||60|36.31035|139.02966|445.8|293.2
+311|T|イオンモール神戸南店|兵庫|神戸市||1400|34.66502|135.15506|351.6|340.7
+328|T|花見川作新台店|千葉|千葉市|10:00-20:00|60|35.69430|140.07903|471.2|311.2
+358|T|野田店|千葉|野田市|12:00-20:00|42|35.94592|139.87746|466.3|303.8
+372|T|館林店|群馬|館林市||120|36.23442|139.52060|457.6|295.4
+374|T|八女店|福岡|八女市|11:00-20:00|48|33.21726|130.54267|235.9|377.1
+391|T|神戸新長田店|兵庫|神戸市|10:00-20:00|141|34.65469|135.14479|351.3|341.0
+406|T|高槻店|大阪|高槻市||29|34.86379|135.65604|363.9|335.2
+409|T|秦野店|神奈川|秦野市||50|35.38094|139.22892|450.8|320.8
+412|T|フレッツガーデン姫路花田店|兵庫|姫路市||280|34.83704|134.73050|341.4|335.2
+417|T|小田原店|神奈川|小田原市||28|35.27972|139.17179|449.4|323.8
+418|T|イオンタウン上里店|埼玉|児玉郡|10:00-21:00||36.26036|139.13414|448.3|294.7
+423|T|宇都宮インターパークビレッジ店|栃木|宇都宮市|10:00-20:00||36.49408|139.90517|466.7|287.6
+439|T|守谷店|茨城|守谷市||51|35.95153|139.98773|468.9|303.6
+454|T|佐倉志津店|千葉|佐倉市||27|35.71969|140.14873|472.9|310.4
+461|T|京都宇治店|京都|宇治市|10:00-20:00|396|34.91609|135.76460|366.6|333.7
+469|T|ピエリ守山店|滋賀|守山市|10:00-20:00||35.12225|135.94257|371.1|327.7
+475|T|小平店|東京|小平市||38|35.73084|139.46420|456.4|310.3
+479|T|シュロアモール筑紫野店|福岡|筑紫野市||1580|33.44360|130.53693|236.3|370.4
+481|T|熊谷駅前店|埼玉|熊谷市||1000|36.13900|139.39212|454.5|298.2
+485|T|浦和中尾店|埼玉|さいたま市||75|35.87295|139.68114|461.6|306.1
+496|T|八王子めじろ台店|東京|八王子市||20|35.63769|139.30563|452.6|313.1
+510|T|つくば店|茨城|つくば市|11:00-20:00|24|36.07205|140.09192|471.3|300.0
+517|T|長久手店|愛知|長久手市|10:00-21:00|489|35.16208|137.02913|397.5|327.1
+530|T|ラパーク岸和田店|大阪|岸和田市||1454|34.47981|135.39218|357.2|346.4
+533|T|太田店|群馬|太田市||102|36.28538|139.37391|454.1|293.9
+542|T|名古屋徳重店|愛知|名古屋市||36|35.09069|137.00274|396.8|329.2
+553|T|滋賀草津店|滋賀|草津市||26|35.02741|135.95193|371.3|330.5
+569|T|岡山平井店|岡山|岡山市||75|34.63395|133.94808|322.1|340.4
+572|T|花小金井店|東京|小平市||38|35.73755|139.51837|457.7|310.1
+606|T|ミスターマックスおゆみ野店|千葉|千葉市|10:00-20:00||35.55585|140.16170|473.3|315.3
+610|T|イオンモール常滑店|愛知|常滑市|10:00-21:00||34.88392|136.82781|392.5|335.2
+617|T|伊勢崎宮子店|群馬|伊勢崎市||24|36.32928|139.15972|448.9|292.6
+626|T|八尾店|大阪|八尾市||50|34.61866|135.60897|362.6|342.4
+640|T|摂津店|大阪|摂津市||21|34.76164|135.55355|361.4|338.1
+644|T|リーフウォーク稲沢店|愛知|稲沢市|10:00-21:30||35.26098|136.81635|392.4|324.0
+674|T|トナリエ宇都宮店|栃木|宇都宮市|10:00-21:00|440|36.56069|139.89693|466.5|285.6
+700|T|千葉おゆみ野店|千葉|千葉市|11:00-19:00|167|35.54611|140.18068|473.7|315.6
+710|T|足立扇店|東京|足立区|10:00-20:00|290|35.77043|139.77107|463.8|309.1
+723|T|堺福田店|大阪|堺市||46|34.52576|135.52492|360.5|345.1
+725|T|藤沢店|神奈川|藤沢市||17|35.38516|139.47810|456.8|320.6
+733|T|横浜下永谷店|神奈川|横浜市||36|35.41195|139.56207|458.9|319.8
+734|T|ジョイホン小山駅前店|栃木|小山市|10:00-20:00||36.31340|139.80922|464.5|292.9
+753|T|東大阪店|大阪|東大阪市||20|34.67019|135.59504|362.3|340.9
+754|T|流山江戸川台店|千葉|流山市||40|35.89920|139.90290|466.9|305.2
+814|T|久喜店|埼玉|久喜市|11:00-20:00|396|36.07876|139.66604|461.1|300.0
+854|T|松原店|大阪|松原市||28|34.57506|135.54936|361.1|343.7`;
 const PREF=[["群馬","Gunma",0],["埼玉","Saitama",0],["千葉","Chiba",0],["東京","Tokyo",0],["神奈川","Kanagawa",0],["青森","Aomori",1],["岩手","Iwate",1],["宮城","Miyagi",1],["秋田","Akita",1],["山形","Yamagata",1],["福島","Fukushima",1],["茨城","Ibaraki",0],["栃木","Tochigi",0],["新潟","Niigata",2],["富山","Toyama",2],["石川","Ishikawa",2],["福井","Fukui",2],["山梨","Yamanashi",2],["長野","Nagano",2],["岐阜","Gifu",3],["静岡","Shizuoka",3],["愛知","Aichi",3],["三重","Mie",4],["滋賀","Shiga",4],["京都","Kyoto",4],["大阪","Osaka",4],["兵庫","Hyogo",4],["奈良","Nara",4],["和歌山","Wakayama",4],["鳥取","Tottori",5],["島根","Shimane",5],["岡山","Okayama",5],["広島","Hiroshima",5],["山口","Yamaguchi",5],["北海道","Hokkaido",6],["徳島","Tokushima",7],["香川","Kagawa",7],["愛媛","Ehime",7],["高知","Kochi",7],["福岡","Fukuoka",8],["佐賀","Saga",8],["長崎","Nagasaki",8],["熊本","Kumamoto",8],["大分","Oita",8],["宮崎","Miyazaki",8],["鹿児島","Kagoshima",8],["沖縄","Okinawa",9]];
 const REG=["Kanto","Tohoku","Hokuriku–Koshinetsu","Tokai","Kinki","Chugoku","Hokkaido","Shikoku","Kyushu","Okinawa"];
 const CANREP=/\.netlify\.app$/.test(location.hostname);
 function pinQ0(sp){return BR[sp.st[0].b].j+" "+sp.name+" "+sp.city}
 function pinQ(sp){return encodeURIComponent(pinQ0(sp))}
 function pinUrl(sp){return "https://www.google.com/maps/search/"+pinQ(sp)+"/@"+sp.lat+","+sp.lng+",17z"}
-const BR={O:{n:"Off House",v:"--o",j:"オフハウス"},H:{n:"Hard Off",v:"--h",j:"ハードオフ"},B:{n:"Book Off",v:"--b",j:"ブックオフ"},S:{n:"2nd Street",v:"--s",j:"セカンドストリート"},X:{n:"Specialty",v:"--x",j:"専門店"}};
-const ORDER=["O","H","B","S","X"];
+const BR={O:{n:"Off House",v:"--o",j:"オフハウス"},H:{n:"Hard Off",v:"--h",j:"ハードオフ"},B:{n:"Book Off",v:"--b",j:"ブックオフ"},S:{n:"2nd Street",v:"--s",j:"セカンドストリート"},X:{n:"Specialty",v:"--x",j:"専門店"},F:{n:"Treasure Factory",v:"--f",j:"トレジャーファクトリー トレファク"}};
+const ORDER=["O","H","B","S","F","X"];
 
 
 const ZH=["群马","埼玉","千叶","东京","神奈川","青森","岩手","宫城","秋田","山形","福岛","茨城","栃木","新潟","富山","石川","福井","山梨","长野","岐阜","静冈","爱知","三重","滋贺","京都","大阪","兵库","奈良","和歌山","鸟取","岛根","冈山","广岛","山口","北海道","德岛","香川","爱媛","高知","福冈","佐贺","长崎","熊本","大分","宫崎","鹿儿岛","冲绳"];
 const REGZ=["关东","东北","北陆·甲信越","东海","近畿","中国","北海道","四国","九州","冲绳"];
 const TX={
-en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",lX:"Specialty (off by default) — Hobby Off, Mode Off luxury resale, cameras, instruments, tools, outdoor, Garage Off",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street — clothes-led general second-hand, many tax-free",filters:"Filters",rev:"Photos & reviews ↗",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
+en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",bF:"Treasure Factory",lF:"Treasure Factory — big general reuse stores: furniture, appliances, clothes, toys (Kanto, Kansai, Chubu, Kyushu)",lX:"Specialty (off by default) — Hobby Off, Mode Off luxury resale, cameras, instruments, tools, outdoor, Garage Off",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street — clothes-led general second-hand, many tax-free",filters:"Filters",rev:"Photos & reviews ↗",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
  lO:"Off House — clothes, furniture, housewares, odds and ends",lH:"Hard Off — electronics, audio, instruments, tools",lB:"Book Off — books, comics, CDs, games",
  hunt:"What to hunt for",walk:"Near a station (≤10 min walk)",pk:n=>"Parking for "+n+" cars",wk:m=>m+" min walk from ",car:"No station within 1.5 km — car or taxi advised",est:"estimated",wkend:h=>"Sat/Sun/holidays from "+h,catNote:"Based on each store's listed product categories. Luxury brand / jewelry / watch categories are not shown.",lNote:"Split circles = several shops under one roof. Bigger = more shops. Specialty shops (incl. Mode Off luxury resale) are hidden until you switch them on.",
  tHubs:"Pick a town",helpB:"Help",hT:"How to use this map",hw1t:"Plan your days",hw1:"Open Trip plan, choose where you are staying and how many days. Nearby shops are grouped into day routes. Tap the hotel button to mark your own hotel.",hw2t:"Open a shop",hw2:"Tap a dot on the map or a row in the list. Navigate opens Google Maps with directions; WhatsApp sends the shop to family so you can meet there.",hw3t:"Find what you want",hw3:"Use the 📍 button to sort shops nearest to you. Search an item (camera, kimono, guitar), a station or a town. Pick a town lists areas with many shops together.",hOk:"Got it",oN:t=>`Open now · until ${t} (Japan time)`,oC:t=>`Closed now · opens ${t} (Japan time)`,oX:"Closed now (Japan time)",gDay:"Open day in Google Maps",footT:"Unofficial map, not affiliated with Hard Off or Book Off.",aboutL:"About & privacy",abT:"About this map",abSrc:"Source code, data and problem reports on GitHub ↗",ab1:"A free, non-commercial and unofficial map. It is not affiliated with or endorsed by Hard Off Corporation, Book Off Group or 2nd Street. Hard Off, Off House, Book Off and 2nd Street are trademarks of their owners and are used only to say which shops are shown.",ab2:"Shop names, locations and opening hours come from the companies’ public store pages, collected in November 2026. Every shop card links to its official page. Please check it for current hours, holidays and closures, and note that map pins can be slightly off. Use the ⚑ button on a shop to report a problem.",ab3:"Privacy: no accounts, no ads, no analytics and no cookies. Your shortlist, hotel, language and location stay in your own browser and are not sent to us. A report contains only the shop and the note you type, so please do not put personal details in it.",ab4:"Train lines are approximate: JR lines come from 2017 data and the bullet trains are drawn by hand. Use Google Maps for real directions.",hotelSet:"Set my hotel on map",hotelMove:"Move my hotel",hotelTap:"Tap the map where your hotel is",hotelSaved:"Hotel saved. Plans now start from it.",pDayBase:"Starting point for this day",rep:"Wrong location? Report",repT:"What is wrong? (optional)",repSend:"Send",repOk:"Thanks. Report sent.",repFail:"Could not send. Try again later.",tPlan:"Trip plan",locNo:"This browser cannot share your location.",locDenied:"Location is blocked. Allow location for this page in your browser settings. (Inside WhatsApp or other chat apps, open the link in your normal browser first.)",locFail:"Could not get your location. Check that location services are on and try again.",locFar:n=>"You seem to be far from Japan (nearest shop ~"+n.toLocaleString()+" km away), so the list is sorted by distance but the map was not moved.",nearOn:"📍 Nearest first (straight-line distance)",nearOff:"Sort by region",nearBack:"📍 Sort by distance",myLoc:"📍 My location",planGuide:"Pick where you are staying and how many shopping days. Nearby shops are grouped into day routes, using your current filters (brands, items, near-station).",pBase:"Staying in",pDays:"Days",pTrain:"🚆 Train + walk",pCar:"🚗 Car / taxi",pDay:n=>"Day "+n,pShopsN:n=>n+(n===1?" stop":" stops"),pShopT:"shopping",pTravelT:"travel",pShow:"Show on map",pAddAll:"Add day to shortlist",pPrint:"🖨 Print plan",pNote:"Times are rough estimates from straight-line distances. Check store hours and train times before you go. Shops are chosen by how many stores share a stop and how close they are to each other.",pNone:"No shops fit here with the current filters. Try car mode, a different base, or clear some filters.",pBack:m=>"back to your base ~"+m+" min",pStart:"from your base",tList:"Search shops",tShort:"Shortlist",search:"Search town, store, item (e.g. camera)",allPref:"All prefectures",all:"All",
  none:"No stores match these filters.",guide:"<b>Where to spend your days.</b> Each row is a town with several shops close together — the more shops, the less time you lose on trains. Tap one to zoom in.",
  rank:"Rank by",rStops:"Most stops",rO:"Off House",rC:"Combos",stops:"stops",shops:"shops",more:"Show more",
  smaller:n=>n+" smaller towns not listed — search or filter by prefecture to find them.",
- src:"Locations come from the official Hard Off and Book Off store finders (about 1,470 shops across Japan, 47 prefectures, plus about 260 specialty shops). 2nd Street shows only 106 shops so far — its site blocked further lookups. Hours are as listed on each store page when collected (Nov 2026); stores open and close, so check before going. Nearest-station distances marked ≈ are straight-line estimates from a 2017 station list. This is an unofficial guide, not affiliated with Hard Off, Book Off or 2nd Street.",
+ src:"Locations come from the official Hard Off, Book Off and Treasure Factory store finders (about 1,570 shops across Japan, plus about 260 specialty shops). Treasure Factory shows only its general stores so far. 2nd Street shows only 106 shops so far — its site blocked further lookups. Hours are as listed on each store page when collected (Nov 2026); stores open and close, so check before going. Nearest-station distances marked ≈ are straight-line estimates from a 2017 station list. This is an unofficial guide, not affiliated with Hard Off, Book Off or 2nd Street.",
  nothing:"Nothing yet.<br>Tap a dot on the map and press “Add to shortlist”.",remove:"remove",copy:"Copy list",copied:"Copied ✓",nocopy:"Copy not allowed here",clear:"Clear",
  page:"store page ↗",hrs:"check hours",inone:n=>" · "+n+" shops in one stop",inS:"✓ In shortlist",addS:"+ Add to shortlist",gmaps:"Google Maps ↗",close:"Close"},
-zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",lX:"专门店（默认关闭）— Hobby Off 玩具模型、Mode Off 名牌二手、相机、乐器、工具、户外、Garage Off",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street — 以服饰为主的综合二手，多数可退税",filters:"筛选",rev:"照片与评价 ↗",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
+zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",bF:"Treasure Factory",lF:"Treasure Factory — 大型综合二手：家具、家电、服饰、玩具（关东、关西、中部、九州）",lX:"专门店（默认关闭）— Hobby Off 玩具模型、Mode Off 名牌二手、相机、乐器、工具、户外、Garage Off",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street — 以服饰为主的综合二手，多数可退税",filters:"筛选",rev:"照片与评价 ↗",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
  lO:"Off House — 衣物、家具、家居用品、杂货",lH:"Hard Off — 电器、音响、乐器、工具",lB:"Book Off — 书籍、漫画、CD、游戏",
  hunt:"想淘什么",walk:"车站附近（步行≤10分钟）",pk:n=>"可停 "+n+" 辆车",wk:m=>"步行 "+m+" 分钟到 ",car:"1.5 公里内没有车站，建议自驾或打车",est:"估算",wkend:h=>"周末假日 "+h+" 起",catNote:"依据各店官方列出的商品类别。名牌 / 珠宝 / 手表类别不显示。",lNote:"分色圆圈 = 同一地点有多家店。圆圈越大 = 店越多。专门店（含 Mode Off 名牌二手）需手动打开才会显示。",
  tHubs:"挑选城镇",helpB:"帮助",hT:"如何使用这张地图",hw1t:"规划行程",hw1:"打开“行程规划”，选择你住的地方和天数，附近的店会被排成每天的路线。点酒店按钮可标出你自己的酒店。",hw2t:"打开一间店",hw2:"点地图上的圆点或列表里的一行。“导航”会打开谷歌地图带路；“WhatsApp”可把店发给家人，方便约在那里碰面。",hw3t:"找你想要的",hw3:"点 📍 按钮，按离你的远近排序。可搜索物品（相机、和服、吉他）、车站或城镇。“挑选城镇”会列出店铺集中的地区。",hOk:"知道了",oN:t=>`营业中 · 至 ${t}（日本时间）`,oC:t=>`已打烊 · ${t} 开门（日本时间）`,oX:"已打烊（日本时间）",gDay:"在谷歌地图打开当天路线",footT:"非官方地图，与 Hard Off、Book Off 无任何关联。",aboutL:"关于与隐私",abT:"关于这张地图",abSrc:"源代码、数据与问题反馈（GitHub）↗",ab1:"这是一张免费、非商业、非官方的地图，与 Hard Off Corporation、Book Off 集团及 2nd Street 没有关联，也未获其认可。Hard Off、Off House、Book Off、2nd Street 是各自所有者的商标，此处仅用于说明所显示的是哪些店铺。",ab2:"店铺名称、位置和营业时间来自各公司公开的门店页面，收集于 2026 年 11 月。每张店铺卡片都链接到官方页面，请以官方页面的最新营业时间、假日和关店信息为准；地图上的定位可能有些偏差，发现问题请点店铺上的 ⚑ 反馈。",ab3:"隐私：没有账号、广告、统计分析或 Cookie。你的收藏、酒店、语言和位置只保存在你自己的浏览器里，不会发送给我们。反馈只包含店铺和你输入的文字，请不要填写个人信息。",ab4:"铁路线仅为大致位置：JR 线路来自 2017 年的数据，新干线为手工绘制。实际路线请用谷歌地图。",hotelSet:"在地图上标出我的酒店",hotelMove:"重新标酒店位置",hotelTap:"请点击地图上你酒店的位置",hotelSaved:"酒店已保存，行程将从酒店出发。",pDayBase:"这一天的出发点",rep:"位置不对？反馈",repT:"哪里有问题？（可不填）",repSend:"发送",repOk:"谢谢，已收到反馈。",repFail:"发送失败，请稍后再试。",tPlan:"行程规划",locNo:"此浏览器无法获取你的位置。",locDenied:"位置权限被关闭。请在浏览器设置中允许本页面使用位置。（如果在 WhatsApp 等聊天软件里打开，请先改用手机自带浏览器打开链接。）",locFail:"无法获取你的位置，请确认已开启定位后再试。",locFar:n=>"你似乎不在日本附近（最近的店约 "+n.toLocaleString()+" 公里），列表已按距离排序，但地图没有移动。",nearOn:"📍 由近到远（直线距离）",nearOff:"改回按地区排序",nearBack:"📍 按距离排序",myLoc:"📍 我的位置",planGuide:"选择住宿的城市和购物天数，系统会把相近的店分成每天的路线，并遵守你当前的筛选条件（品牌、物品、车站附近）。",pBase:"住在",pDays:"天数",pTrain:"🚆 电车+步行",pCar:"🚗 自驾/打车",pDay:n=>"第 "+n+" 天",pShopsN:n=>n+" 个地点",pShopT:"逛店",pTravelT:"路上",pShow:"在地图上看",pAddAll:"整天加入收藏",pPrint:"🖨 打印行程",pNote:"时间按直线距离粗略估算，出发前请确认营业时间和电车时间。地点按“同一地点店数多”和“彼此距离近”来挑选。",pNone:"当前筛选下这里没有合适的店。可以试试自驾模式、换一个住宿城市或清除部分筛选。",pBack:m=>"返回住处约 "+m+" 分钟",pStart:"从住处出发",tList:"搜索店铺",tShort:"收藏清单",search:"搜索城镇、店名、物品（如 相机）",allPref:"全部县",all:"全部",
  none:"没有符合条件的门店。",guide:"<b>时间花在哪里最划算。</b>每一行是一个门店集中的城镇——店越多，花在交通上的时间越少。点击即可放大。",
  rank:"排序",rStops:"地点最多",rO:"Off House",rC:"多店合一",stops:"个地点",shops:"家店",more:"显示更多",
  smaller:n=>"另有 "+n+" 个较小的城镇未列出——请搜索或按县筛选。",
- src:"位置数据来自 Hard Off 与 Book Off 官方门店查询（全日本约 1,470 家店，47 个都道府县，另有约 260 家专门店）。2nd Street 目前只收录 106 家（官网限制了后续查询）。数据收集于 2026 年 11 月，门店可能有变动，出发前请查看门店页面。标有 ≈ 的车站距离为直线估算（车站数据为 2017 年版）。本页为非官方指南，与 Hard Off、Book Off、2nd Street 无关联。",
+ src:"位置数据来自 Hard Off、Book Off 与 Treasure Factory 官方门店查询（全日本约 1,570 家店，另有约 260 家专门店；Treasure Factory 目前仅收录综合店）。2nd Street 目前只收录 106 家（官网限制了后续查询）。数据收集于 2026 年 11 月，门店可能有变动，出发前请查看门店页面。标有 ≈ 的车站距离为直线估算（车站数据为 2017 年版）。本页为非官方指南，与 Hard Off、Book Off、2nd Street 无关联。",
  nothing:"还没有收藏。<br>点击地图上的圆点，再按“加入收藏”。",remove:"移除",copy:"复制清单",copied:"已复制 ✓",nocopy:"此处无法复制",clear:"清空",
  page:"门店页面 ↗",hrs:"请查看营业时间",inone:n=>" · 同一地点 "+n+" 家店",inS:"✓ 已收藏",addS:"+ 加入收藏",gmaps:"谷歌地图 ↗",close:"关闭"}
 };
@@ -4293,6 +4396,8 @@ function cleanHours(s){
 }
 const stores0=RAW.trim().split("\n").map(l=>{const p=l.split("|");return{id:p[0],b:p[1],pi:+p[2],name:p[3],lat:+p[4],lng:+p[5],hrs:cleanHours(p[6]),city:p[7],x:+p[8],y:+p[9]}});
 const stores=stores0.slice();
+const FC={T:"FCKHE",I:"M",Y:"Y"};
+TFC.trim().split("\n").forEach(l=>{const p=l.split("|");const pi=PREF.findIndex(q=>q[0]===p[3]);if(pi<0)return;stores.push({id:"F"+p[0],b:"F",pi,name:p[2],lat:+p[7],lng:+p[8],hrs:cleanHours(p[5]),city:p[4],x:+p[9],y:+p[10],ty:p[1],cat:FC[p[1]]||"FCKHE",walk:null,stn:"",pk:+p[6]||null,xs:1})});
 const XC={M:"",G:"",Y:"Y",I:"M",T:"T",P:"E",C:"A",O:"OS"};
 SPC.trim().split("\n").forEach(l=>{const p=l.split("|");const pi=PREF.findIndex(q=>q[0]===p[1]);if(pi<0)return;stores.push({id:"X"+p[0],b:"X",pi,name:p[2],lat:+p[3],lng:+p[4],hrs:cleanHours(p[5]),city:p[6],x:+p[8],y:+p[9],ty:p[7],cat:XC[p[7]]||"",walk:null,stn:"",pk:null,xs:1})});
 S2.trim().split("\n").forEach(l=>{const p=l.split("|");const pi=PREF.findIndex(q=>q[0]===p[3]);if(pi<0)return;stores.push({id:"S"+p[0],b:"S",pi,name:p[2],lat:+p[8],lng:+p[9],hrs:p[6].replace("-","–"),city:p[4],x:+p[10],y:+p[11],ty:p[1],tf:p[5]==="1",pk:+p[7]||null,walk:null,stn:"",cat:p[1]==="T"?"FCKHE":"C",s2:1})});
@@ -4319,7 +4424,7 @@ spots.forEach(sp=>{sp.br=ORDER.filter(b=>sp.st.some(s=>s.b===b));const o=sp.st.f
 
 const CF={};stores.forEach(s=>(s.cat||"").split("").forEach(k=>CF[k]=(CF[k]||0)+1));
 // ---- state -------------------------------------------------------------
-const S={cat:new Set(),walk:false,br:new Set(["O","H","B","S"]),reg:-1,pref:-1,q:"",tab:"plan",sel:null,sort:"spots",short:[],more:150};
+const S={cat:new Set(),walk:false,br:new Set(["O","H","B","S","F"]),reg:-1,pref:-1,q:"",tab:"plan",sel:null,sort:"spots",short:[],more:150};
 try{S.short=JSON.parse(localStorage.getItem("hsm_short")||"[]")}catch(e){}
 const $=id=>document.getElementById(id);
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -4490,7 +4595,7 @@ function card0(){
   const c=$("card");
   if(!S.sel){c.className="card";return}
   const sp=spots.find(q=>q.k===S.sel);const inS=S.short.includes(sp.k);
-  const rows=sp.st.map(s=>`<div class="st"><i style="background:var(${BR[s.b].v})"></i><b>${s.b==="X"?tr("x"+s.ty):BR[s.b].n}</b><a href="${s.s2?"https://www.2ndstreet.jp/shop/details?shopsId="+s.id.slice(1):(s.b==="B"?"https://www.bookoff.co.jp/shop/shop"+s.id.slice(1)+".html":"https://www.hardoff.co.jp/shop/detail/?p="+s.id)}" target="_blank" rel="noopener">${tr("page")}</a>${s.tf?`<span class="badge">${tr("tf")}</span>`:""}${s.s2?`<span class="badge">${tr(s.ty==="T"?"tyT":"tyA")}</span>`:""}<span>${s.hrs||tr("hrs")}${s.hrsW?"<small class=\"wkh\"> · "+tr("wkend")(s.hrsW)+"</small>":""}</span></div>`).join("");
+  const rows=sp.st.map(s=>`<div class="st"><i style="background:var(${BR[s.b].v})"></i><b>${s.b==="X"?tr("x"+s.ty):BR[s.b].n}</b><a href="${s.s2?"https://www.2ndstreet.jp/shop/details?shopsId="+s.id.slice(1):(s.b==="B"?"https://www.bookoff.co.jp/shop/shop"+s.id.slice(1)+".html":(s.b==="F"?"https://www.treasure-f.com/shop/"+s.id.slice(1)+"/":"https://www.hardoff.co.jp/shop/detail/?p="+s.id))}" target="_blank" rel="noopener">${tr("page")}</a>${s.tf?`<span class="badge">${tr("tf")}</span>`:""}${s.s2?`<span class="badge">${tr(s.ty==="T"?"tyT":"tyA")}</span>`:""}<span>${s.hrs||tr("hrs")}${s.hrsW?"<small class=\"wkh\"> · "+tr("wkend")(s.hrsW)+"</small>":""}</span></div>`).join("");
   const hit=[...S.cat];
   const ck=sp.cat?sp.cat.split("").sort((a,b)=>(hit.includes(b)?1:0)-(hit.includes(a)?1:0)||(CF[a]||0)-(CF[b]||0)):[];
   const tags=ck.length?`<div class="tags">${ck.slice(0,6).map(k=>`<span class="tag${hit.includes(k)?" hit":""}">${CAT[k][0]} ${cn(k)}</span>`).join("")}${ck.length>6?`<span class="tag more">+${ck.length-6}</span>`:""}</div>`:"";
@@ -4666,8 +4771,8 @@ function panel(){
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{S.tab=b.dataset.tab;panel()});
 
 // ---- toolbar -----------------------------------------------------------
-function counts(){["O","H","B","S","X"].forEach(b=>$("n"+b).textContent=stores.filter(s=>s.b===b).length)}
-["O","H","B","S","X"].forEach(b=>$("c"+b).onclick=()=>{
+function counts(){["O","H","B","S","F","X"].forEach(b=>$("n"+b).textContent=stores.filter(s=>s.b===b).length)}
+["O","H","B","S","F","X"].forEach(b=>$("c"+b).onclick=()=>{
   if(S.br.has(b)){if(S.br.size>1)S.br.delete(b)}else S.br.add(b);
   $("c"+b).setAttribute("aria-pressed",S.br.has(b));refresh(true)});
 const rs=$("regSeg");

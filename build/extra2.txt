@@ -1,0 +1,954 @@
+101019|前橋|1757|maebashiamakawa
+101033|高崎|1383|takasakitakazeki
+103026|高崎|1383|takasakitakazeki
+103072|前橋|1757|maebashiamakawa
+201015|岩宿|2847|50goukiryuunishi
+201016|西小泉|1175|ooizumi oizumi
+201179|群馬総社|2646|17goumaebashikita
+201223|剛志|939|isesakimoro
+201265|小俣|2126|50goukiryuuhirosawa
+201296|伊勢崎|3051|suupaamooruisesaki
+201310|高崎問屋町|1025|takamaebaipasutakasakimidori
+203006|西小泉|1175|ooizumi oizumi
+203059|群馬総社|2646|17goumaebashikita
+203099|剛志|939|isesakimoro
+203137|成島|911|tatebayashi
+203145|小俣|2126|50goukiryuuhirosawa
+203176|伊勢崎|3051|suupaamooruisesaki
+203192|高崎問屋町|1025|takamaebaipasutakasakimidori
+101024|新座|1719|niiza
+101040|東松山|1325|saitamahigashimatsuyama
+101054|本庄|1832|honjou
+101056|新三郷|2138|misato
+101064|西所沢|330|nishitokorozawa
+103034|東松山|1325|saitamahigashimatsuyama
+103040|西所沢|330|nishitokorozawa
+103050|本庄|1832|honjou
+103051|新三郷|2138|misato
+201004|新狭山|460|16gousayama
+201024|南桜井|943|16goushouwa
+201073|羽生|899|hanyuu
+201077|久喜|1545|kuki
+201081|上尾|965|ageohoncho ageohoncho
+201107|白岡|1273|shiraoka
+201109|北上尾|504|kitakamio
+201115|大宮|1622|saitamauekomachi
+201124|加須|917|kazo
+201130|深谷|2142|fukaya
+201131|幸手|1010|satte
+201144|坂戸|1310|tsurukeshimaintaa
+201146|北越谷|1773|koshigayahanada
+201163|鳩ヶ谷|1239|kawaguchiueaoki
+201167|南浦和|1187|saitamaurawaminami
+201184|豊春|944|kasukabe
+201196|指扇|1670|saitamaoomiyanishi saitamaomiyanishi
+201214|七里|1859|saitamafukasaku
+201240|武蔵藤沢|954|irumafujisawa
+201255|越谷|1208|koshigayasokabaipasu koshigayasokabaipasu
+201279|ふじみ野|793|fujimino
+201305|東所沢|394|higashitokorozawa
+201308|桶川|1582|okegawa
+201317|さいたま新都心|2490|oomiyahigashi omiyahigashi
+201320|谷塚|969|sokasezaki sokasezaki
+201322|見沼代親水公園|2068|sokanishi sokanishi
+201334|戸田|343|todaekinishiguchi
+201347|石原|144|kumagayatsukimi
+201355|東武動物公園|632|sugito
+201363|東大宮|83|audiodigitalkantodaimiyaekimae audiodigitalkantodaimiyaekimae
+201365|南大塚|2048|kawagoeimafuku
+201366|鶴瀬|1745|miyoshimachi
+201377|新田|1199|koshigayaminami
+201384|加茂宮|600|saitamamiyahara
+201388|若葉|673|sakato
+201394|桶川|1791|kitamoto
+201403|栗橋|1482|kazohigashi
+201407|吉川|1041|yoshikawa
+201409|川越市|1823|kawagoeshinmeicho kawagoeshimmeicho
+201412|東行田|415|gyouda
+203032|深谷|2142|fukaya
+203040|上尾|965|ageohoncho ageohoncho
+203056|幸手|1010|satte
+203063|加須|1165|kazo
+203064|豊春|944|kasukabe
+203079|久喜|1545|kuki
+203080|指扇|1670|saitamaoomiyanishi saitamaomiyanishi
+203092|七里|1859|saitamafukasaku
+203104|鴻巣|2041|konosu konosu
+203119|武蔵藤沢|954|irumafujisawa
+203129|東岩槻|970|iwatsuki
+203160|ふじみ野|793|fujimino
+203164|越谷|1382|higashikoshigaya
+203187|東所沢|394|higashitokorozawa
+203189|桶川|1582|okegawa
+203190|南与野|1275|urawaeiwa
+203195|鳩ヶ谷|1366|kawaguchiueaoki
+203198|新狭山|460|16gousayama
+203207|一ノ割|770|kasukabe4gou
+203210|谷塚|969|sokasezaki sokasezaki
+203213|見沼代親水公園|2068|sokanishi sokanishi
+203228|鉄道博物館|1482|saitamamitsuhashi
+203231|戸田|343|todaekinishiguchi
+203241|羽生|899|hanyuu
+203248|石原|144|kumagayatsukimi
+203251|さいたま新都心|2490|oomiyahigashi omiyahigashi
+203255|上尾|2736|ageonishi
+203258|東武動物公園|632|sugito
+203269|南大塚|2048|kawagoeimafuku
+203271|鶴瀬|1745|miyoshimachi
+203272|武蔵浦和|1329|berukusumooruurawaminami
+203275|鶴ヶ島|604|kawagoeamanuma
+203282|新田|1199|koshigayaminami
+203290|加茂宮|600|saitamamiyahara
+203293|若葉|673|sakato
+203298|桶川|1791|kitamoto
+203306|栗橋|1482|kazohigashi
+203311|川越市|1823|kawagoeshinmeicho kawagoeshimmeicho
+201422|南浦和|1432|urawaootakubo urawaotakubo
+201429|高麗川|315|komagawa
+201453|獨協大学前駅〈草加松原〉|817|soka soka
+203320|高麗川|315|komagawa
+101021|塚田|813|funabashinatsumidai
+101057|松戸|1346|matsudokokesaki
+101060|動物公園|1744|chibafuresupoinage
+101066|公津の杜|1932|tomisatointaa
+101086|八千代中央|1259|yachiyo
+102035|動物公園|1744|chibafuresupoinage
+103053|松戸|1346|matsudokokesaki
+103056|動物公園|1744|chibafuresupoinage
+103062|公津の杜|1932|tomisatointaa
+103078|八千代中央|1259|yachiyo
+201026|上総村上|1497|ichihara
+201122|豊四季|806|kashiwayutakashiki
+201185|市川大野|1558|ichikawaoono ichikawaono
+201188|安食|783|agui
+201291|千葉ニュータウン中央|612|chibanyuutaunchuuo chibanyuutaunchuo
+201318|馬込沢|1250|kamaketanimichinobe
+201353|浜野|951|chibahamano
+201364|増尾|2615|16goukashiwashounan
+201371|長浦|741|chibasodekeura
+201375|高柳|97|kashiwatakayanagiekimae
+201385|君津|2874|127goukimitsu
+201395|京成臼井|518|sakuraojidai sakuraojidai
+201402|祇園|1051|kisarazu
+201404|四街道|1594|yotsukaidou
+202003|京成臼井|575|sakuraojidai sakuraojidai
+202004|四街道|1594|yotsukaidou
+202005|高根木戸|239|funabashitakanekido
+202006|柏|882|16goukashiwa
+202007|増尾|2615|16goukashiwashounan
+202008|君津|2874|127goukimitsu
+202010|ちはら台|2556|ichiharatatsumidai
+202015|市川大野|1048|ichikawaminamioono ichikawaminamiono
+202017|鎌ヶ谷大仏|1323|shiraifuji
+202018|馬込沢|1250|kamaketanimichinobe
+202022|高柳|97|kashiwatakayanagiekimae
+203027|豊四季|806|kashiwayutakashiki
+203068|安食|783|agui
+203155|浜野|951|chibahamano
+203171|千葉ニュータウン中央|612|chibanyuutaunchuuo chibanyuutaunchuo
+203205|馬込沢|1250|kamaketanimichinobe
+203276|長浦|741|chibasodekeura
+203278|高柳|97|kashiwatakayanagiekimae
+203284|野田市|1104|nodasakuradai
+203299|ちはら台|2556|ichiharatatsumidai
+203305|祇園|1051|kisarazu
+203307|四街道|1594|yotsukaidou
+101107|稲毛海岸|146|chibaionmarinpiasenmonkan chibaiommarimpiasemmonkan
+101120|船橋|839|koonankeiyoufunabashiintaa
+101129|行徳|642|yukinori
+102042|稲毛海岸|146|chibaionmarinpiasenmonkan chibaiommarimpiasemmonkan
+102043|柏|193|don・kihootekashiwaekimae
+102045|行徳|642|yukinori
+102046|成東|1705|chibanaruto chibanaruto
+103093|稲毛海岸|146|chibaionmarinpiasenmonkan chibaiommarimpiasemmonkan
+103102|成東|1705|chibanaruto chibanaruto
+201431|北習志野|894|funabashinarashinodai
+201437|求名|1474|chibanaruto chibanaruto
+201448|おゆみ野|461|chibaoyumino
+203317|君津|2905|127goukimitsu
+203325|おゆみ野|461|chibaoyumino
+101020|大泉学園|1225|ooizumigakuen oizumigakuen
+101023|下赤塚|816|itabashiakatsuka
+101062|末広町|292|akihabara1gou
+101077|武蔵小山|429|musashikoyamaparumu
+101079|吉祥寺|430|oodiosaronkichijoji oodeiosaronkichijoji
+101082|吉祥寺|418|tokyorabokichijouji
+101084|上野御徒町|92|uenookachimachi
+101096|高円寺|154|koenjijunjoshomachi koenjijunjoshomachi
+103012|大泉学園|1225|ooizumigakuen oizumigakuen
+201028|京王八王子|991|hachiojioowada hachiojiowada
+201072|京王堀之内|299|hachiojihorinochi hachiojihorinochi
+201133|西武立川|948|tachikawanishisuna
+201254|めじろ台|456|hachiojimejirodai hachiojimejirodai
+201271|東大和市|1400|higashiyamato
+201313|小作|880|hamura
+201323|武蔵小金井|1665|koganei
+201335|久米川|855|higashimurayama
+201338|立飛|1039|tachikawasakae
+201343|花小金井|845|hanakoganei
+201350|矢野口|495|inagiyanoguchi
+201354|大塚・帝京大学|1382|tamawada
+201360|秋川|371|akiruno
+201367|古淵|1124|machidakiso
+201386|東久留米|391|higashikurume
+201418|恋ヶ窪|763|kodairakamimizu
+202016|小岩|1152|edogawahigashikoiwa
+203010|西武立川|948|tachikawanishisuna
+203012|京王八王子|1026|hachiojioowada hachiojiowada
+203153|東大和市|1400|higashiyamato
+203167|西八王子|3434|hachiojinarahara hachiojinarahara
+203175|小作|880|hamura
+203184|立飛|1039|tachikawasakae
+203188|秋川|359|akiruno
+203199|六町|1248|adachinakahatake
+203215|武蔵小金井|1665|koganei
+203242|花小金井|845|hanakoganei
+203247|小作|485|omeshinmachi omeshimmachi
+203257|大塚・帝京大学|1382|tamawada
+203291|東久留米|391|higashikurume
+203316|恋ヶ窪|763|kodairakamimizu
+101104|末広町|139|akihabara2gou
+101126|学芸大学|156|gakugeidaigakuekimae
+101131|錦糸町|204|kinshichomarui kinshichomarui
+101136|渋谷|407|maboroshinoshibuya
+101139|新宿三丁目|226|shinjukumaruimen
+101144|京成上野|71|uenoekimae
+101147|金町|1307|katsushikamizumoto
+201424|羽村|1026|hamurajinmeidai hamurajimmeidai
+201432|新小金井|1179|mitakajindaiji
+101030|鴨宮|1384|odawarakamonomiya
+101072|小田栄|207|koonankawasakiodasakaemooru
+101075|京急富岡|619|yokohamakanazawatomioka
+103063|鴨宮|1453|odawarakamonomiyashiteiimooru
+103067|小田栄|207|koonankawasakiodasakaemooru
+103070|京急富岡|619|yokohamakanazawatomioka
+201065|都筑ふれあいの丘|1143|yokohamashikeo
+201142|渋沢|843|hadanoshibusawa
+201168|南万騎が原|497|yokohamaryokuentoshi
+201198|北茅ケ崎|561|chigasaki
+201199|平塚|2526|hiratsukashinomiya
+201285|田奈|754|yokohamanagatsuda
+201294|鶴巻温泉|1302|isehara
+201328|矢部|824|sagamiharayabe
+201342|中央林間|833|chuuorinkanrinkanmooru chuorinkanrinkanmooru
+201370|高座渋谷|304|kozashibuya kozashibuya
+201381|藤沢|324|fujisawa
+201382|富士見町|1145|kamakuraoofunamooru kamakuraofunamooru
+201393|つきみ野|790|tsukimino
+203124|寒川|2807|shounanhiratsuka
+203135|渋沢|1150|hadano
+203166|田奈|754|yokohamanagatsuda
+203193|上溝|2095|sagamiharatana
+203238|中央林間|839|chuuorinkanrinkanmooru chuorinkanrinkanmooru
+203246|本厚木|1963|atsugitomuro
+203265|センター南|197|koonankohokusentaaminami koonankohokusentaaminami
+203274|高座渋谷|304|kozashibuya kozashibuya
+203287|藤沢|324|fujisawa
+203288|富士見町|1145|kamakuraoofunamooru kamakuraofunamooru
+203297|つきみ野|790|tsukimino
+103092|橋本|1198|sanwanishihashihon
+201426|橋本|550|azumabashihon
+201430|南橋本|745|sagamiharashimokuzawa
+201446|番田|3480|aikawa
+201447|本厚木|1963|atsugitomuro
+201454|小田急相模原|1306|zama
+201459|愛甲石田|916|aikoishida aikoishida
+201464|恩田|857|yokohamaaoba
+203331|愛甲石田|916|aikoishida aikoishida
+203334|恩田|857|yokohamaaoba
+201259|筒井|2306|aomorichuuo aomorichuo
+201266|||towada
+201406|小中野|1254|hachinohe
+203133|運動公園前|1298|hirosaki
+203140|筒井|2306|aomorichuuo aomorichuo
+203147|||towada
+203309|小中野|1254|hachinohe
+201425|撫牛子|1638|hirosaki
+201436|下北|770|mutsu
+101052|青山|443|moriokakamidou
+103048|青山|443|moriokakamidou
+201270|水沢|1159|oshuumizusawa oshuumizusawa
+201329|山ノ目|1327|ichinoseki
+203152|水沢|1159|oshuumizusawa oshuumizusawa
+203224|山ノ目|1327|ichinoseki
+201140|葛岡|1615|sendainishi
+201213|泉中央|3387|sendaikita
+201332|大河原|1468|oogawara ogawara
+201357|杜せきのした|497|natorimorisekinoshita
+201390|六丁の目|1046|sendaiarai
+203035|葛岡|1615|sendainishi
+203090|泉中央|3387|sendaikita
+203229|大河原|1468|oogawara ogawara
+203261|杜せきのした|497|natorimorisekinoshita
+203295|六丁の目|1046|sendaiarai
+201433|古川|700|furukawahigashi
+201441|川内|962|sendaihachiman
+201450|蛇田|506|ishinomaki
+201469|岩沼|1425|iwanuma
+203321|川内|1017|sendaihachiman
+203327|蛇田|506|ishinomaki
+203332|塚目|1067|furukawabaipasu
+102038|東大館|2253|oodate odate
+103060|東大館|2253|oodate odate
+201086|横手|1410|yokote
+201215|羽後牛島|3458|akita
+201227|秋田|1675|akitakomen akitakomen
+203015|横手|1410|yokote
+203093|羽後牛島|3458|akita
+203103|秋田|1675|akitakomen akitakomen
+101025|西米沢|1869|yonezawa
+101048|羽前千歳|960|yamagatakita
+101059|鶴岡|1839|tsuruoka7goubaipasu
+102033|鶴岡|1839|tsuruoka7goubaipasu
+103016|西米沢|1869|yonezawa
+103044|羽前千歳|960|yamagatakita
+103055|鶴岡|1839|tsuruoka7goubaipasu
+201118|酒田|1569|sakata
+201358|山形|1834|yamagataminami
+203026|酒田|1569|sakata
+203262|山形|1834|yamagataminami
+201444|寒河江|1235|sagae
+203323|寒河江|1235|sagae
+101017|笹谷|619|fukushimasasaya
+101043|郡山富田|2166|koriyamashitakameda koriyamashitakameda
+103008|笹谷|619|fukushimasasaya
+103039|郡山富田|2166|koriyamashitakameda koriyamashitakameda
+201090|いわき|1507|iwakitaira
+201098|安積永盛|1729|koriyamaasaka koriyamaasaka
+201191|会津若松|1330|aizuwakamatsu
+201246|原ノ町|1830|haramachi
+203017|いわき|1501|iwakitaira
+203020|安積永盛|1729|koriyamaasaka koriyamaasaka
+203072|会津若松|1330|aizuwakamatsu
+203123|原ノ町|1830|haramachi
+203126|新白河|579|shinshirakawa
+201458|南福島|1354|fukushimaminami
+101063|鹿島神宮|5036|kamisu
+101073|研究学園|927|tsukubakenkyuugakuen
+103058|鹿島神宮|5036|kamisu
+103068|研究学園|927|tsukubakenkyuugakuen
+201035|玉戸|802|shimodate
+201053|野木|3148|125goukogahigashi
+201113|牛久|1056|ushiku
+201152|常陸多賀|1838|6gouhitachikanazawa
+201190|東水戸|4037|mitominamiintaa
+201383|||iontaunmitominami
+202009|竜ヶ崎|1664|ryuugasakimidorimachi
+203038|野木|3148|125goukogahigashi
+203044|常陸多賀|1838|6gouhitachikanazawa
+203070|東水戸|4037|mitominamiintaa
+203132|玉戸|802|shimodate
+203289|||iontaunmitominami
+101125|戸頭|879|foresutomoorutoride fuoresutomoorutoride
+102047|竜ヶ崎|1713|ryuukesaki
+201471|竜ヶ崎|1713|ryuukesaki
+203336|竜ヶ崎|1713|ryuukesaki
+201010|小山|2564|oyama
+201034|佐野|1370|sano
+201038|真岡|480|mooka
+201050|宇都宮|3232|utsunomiyaekihigashi
+201084|石橋|1569|4goutochigiishibashi
+201128|西那須野|874|nishinasuno
+201200|西川田|615|utsunomiyanishikawata
+201336|鶴田|2079|utsunomiyakanjoutsuruta
+203001|東武宇都宮|3425|utsunomiyakomatsuri
+203002|宇都宮|3232|utsunomiyaekihigashi
+203003|小山|1510|50gouoyama
+203005|七井|617|123goumashiko
+203008|佐野|1212|sano
+203031|西那須野|874|nishinasuno
+203082|西川田|615|utsunomiyanishikawata
+203114|足利|1069|ashikaga
+203146|黒磯|955|kuroiso
+203148|栃木|1622|tochigisonobe
+203157|鹿沼|2436|kanuma
+203233|鶴田|2079|utsunomiyakanjoutsuruta
+203239|氏家|1102|sakuraujiie
+201423|小山|1513|oyamahanakaki
+201438|氏家|1102|sakuraujiie
+201443|江曽島|1912|utsunomiyaueyokota
+201460|鹿沼|2430|kanuma
+203322|江曽島|1912|utsunomiyaueyokota
+203337|間々田|3170|oyamaawamiya
+101006|西新発田|1241|shibata
+102005|西新発田|1241|shibata
+103002|西新発田|1201|shibata
+101004|村上|2442|murakami
+103033|村上|2442|murakami
+102003|村上|2468|murakami
+101068|中条|1095|chuujo chujo
+103025|中条|1095|chuujo chujo
+102018|中条|1095|chuujo chujo
+103022|豊栄|1014|toyosakaintaa
+102023|豊栄|1014|toyosakaintaa
+101037|大形|1912|niigatamatsuzaki
+103030|大形|1912|niigatamatsuzaki
+102028|東新潟|2716|niigatakawawatari
+103005|東新潟|1172|niigatatakeo
+102012|東新潟|1072|niigatatakeo
+101001|新潟|1436|oodiosaronniigatashichikuyama oodeiosaronniigatashichikuyama
+101050|新潟|822|niigataminamimandai
+103046|新潟|822|niigataminamimandai
+102030|新潟|822|niigataminamimandai
+103006|関屋|419|niigatasekiya
+102013|関屋|419|niigatasekiya
+101055|白山|2498|niigatameike
+103003|白山|2498|niigatameike
+102031|白山|2498|niigatameike
+101099|越後石山|2269|niigatakamedaintaa
+103088|越後石山|2269|niigatakamedaintaa
+102041|越後石山|2269|niigatakamedaintaa
+101071|小針|3109|niigatakurosakiintaa
+103066|小針|3109|niigatakurosakiintaa
+102039|小針|3109|niigatakurosakiintaa
+101028|新潟大学前|897|niigatashintoori
+103021|新潟大学前|897|niigatashintoori
+102022|新潟大学前|897|niigatashintoori
+102002|寺尾|1032|niigatateraomaetoori
+101018|古津|1442|niitsu
+103011|古津|1442|niitsu
+102016|古津|1442|niitsu
+103036|五泉|1282|gosen
+102027|五泉|1282|gosen
+101051|北三条|988|sanjou
+103047|北三条|988|sanjou
+102017|北三条|881|sanjou
+101011|燕三条|990|tsubamesanjou
+102010|燕三条|969|tsubamesanjou
+103010|燕三条|950|tsubamesanjou
+101013|北長岡|1327|nagaokakawasaki
+102011|北長岡|1327|nagaokakawasaki
+103007|北長岡|1202|nagaokakawasaki
+101026|長岡|3075|nagaokakoseitera
+103018|長岡|3075|nagaokakoseitera
+102020|長岡|3075|nagaokakoseitera
+102004|長岡|3366|nishinagaoka
+101008|東柏崎|1119|kashiwazaki
+102007|東柏崎|1119|kashiwazaki
+103001|東柏崎|571|kashiwazaki
+101007|春日山|1397|jouetsukyouikudaimae
+102006|春日山|1397|jouetsukyouikudaimae
+103009|春日山|1846|jouetsuintaa
+101016|六日町|1500|muikamachiintaa
+103013|六日町|1500|muikamachiintaa
+102014|六日町|1500|muikamachiintaa
+103071|十日町|991|tookamachitsumarisc
+102015|十日町|991|tookamachitsumarisc
+103019|||sadosawata
+102021|||sadosawata
+191003|新潟|632|kaitorisaronniigataisetan
+101089|南富山駅前|1433|toyamakakario
+101090|越中中島|1088|toyamatoyoda
+101093|新高岡|1742|niitakaoka
+103082|新高岡|1742|niitakaoka
+101108|大泉|1569|toyamanakagawara
+103094|大泉|1569|toyamanakagawara
+103100|東新庄|1814|iontauntoyamaueiino
+101088|磯部|495|kanazawamoroe
+101095|小松|2194|komatsuhigashi
+103079|磯部|495|kanazawamoroe
+103084|小松|2194|komatsuhigashi
+101110|野々市工大前|1582|kanazawaterachi
+101115|乙丸|877|nonoichi
+103096|乙丸|877|nonoichi
+201030|ベル前|679|fukuiminami
+201087|越前新保|889|fukuikita
+201182|水落|633|sabae
+203141|越前新保|920|fukuikita
+201468|敦賀|2604|tsurugakizaki
+201085|国母|2291|kofuarupusutori kofuarupusutori
+201105|河口湖|1124|kawaguchiko
+201170|山梨市|1184|akurosupurazayamanashi
+201359|塩崎|1157|kaifutaba
+201368|南甲府|1110|kofusatokichi kofusatokichi
+201415|酒折|1644|kofumukaimachi kofumukaimachi
+203021|河口湖|1124|kawaguchiko
+203036|国母|1804|kofushowa kofushowa
+203053|山梨市|1184|akurosupurazayamanashi
+203227|南甲府|1110|kofusatokichi kofusatokichi
+203264|塩崎|1157|kaifutaba
+203315|酒折|1644|kofumukaimachi kofumukaimachi
+101039|上田|1493|ueda
+101053|桐原|1187|naganokita
+101101|鼎|1001|iidakanae
+103032|上田|1484|ueda
+103049|桐原|1187|naganokita
+103052|平田|168|matsumotohirata
+201007|長野|211|naganoekimae
+201088|今井|1013|naganokawanakashima
+201315|平田|168|matsumotohirata
+101111|平原|1437|sakukomoro
+103095|平原|1437|sakukomoro
+201150|西岐阜|1328|gifuusa
+201154|多治見|693|tajimi
+201158|美濃太田|640|minokamo
+203047|美濃太田|640|minokamo
+203111|||mitahora
+201420|鵜沼宿|407|kakamigaharaunuma
+201465|関|1222|kan
+201474|美濃青柳|1791|oogaki ogaki
+201027|さぎの宮|514|hamamatsuaritama
+201041|入江岡|862|shimizuokacho shimizuokacho
+201043|静岡|879|shizuokamabuchi
+201117|大岡|1219|numazu
+201135|竪堀|1097|fujichuuo fujichuo
+201221|三島二日町|730|shizuokamishima
+201258|舞阪|2411|hamamatsushitoro
+201282|藤枝|1413|fujieda
+201326|西掛川|294|kakegawa
+201330|助信|710|hamamatsutakabayashi
+201344|古庄|1727|shizuokahigashi
+201376|富士宮|1721|fujinomiyahibarigaoka
+201397|浜松|854|hamamatsukitaterashima
+201405|六合|6857|yoshidaintaa
+201414|原|1325|numazuharamachi
+203134|大岡|1219|numazu
+203139|舞阪|2411|hamamatsushitoro
+203163|藤枝|1413|fujieda
+203218|入江岡|862|shimizuokacho shimizuokacho
+203221|西掛川|294|kakegawa
+203226|助信|710|hamamatsutakabayashi
+203243|古庄|1727|shizuokahigashi
+203279|富士宮|1721|fujinomiyahibarigaoka
+203300|浜松|854|hamamatsukitaterashima
+203308|六合|6857|yoshidaintaa
+203314|原|1325|numazuharamachi
+201439|袋井|1246|fukuroi
+201442|御殿場|567|gotenba gotemba
+201455|鷲津|1476|kosai
+203329|竪堀|1097|fujichuuo fujichuo
+103028|江南|2224|konan konan
+103085|杁ヶ池公園|1344|nagakuteminami
+201002|南栄|196|toyohashi
+201013|知立|738|chiryuu
+201023|津島|526|tsushima
+201046|徳重|743|tokushige
+201048|尾張一宮|1854|ichinomiya
+201055|六名|172|okazakirokumei
+201061|開明|671|bisai
+201069|碧南中央|327|hekinan
+201093|左京山|909|midori
+201094|比良|1912|nagoyakuukotoori nagoyakuukotoori
+201134|鳴子北|1584|shimadaminami
+201145|高蔵寺|2097|takakuratera
+201153|八幡|510|toyokawa
+201160|大門|1205|okazakiuesato
+201164|三郷|556|owariasahi
+201216|池下|282|nagoyakakuozan nagoyakakuozan
+201237|喜多山|619|chiyoda
+201262|西尾|1365|nishio
+201281|米野木|3806|miyoshi
+201286|緒川|377|higashiura
+201309|三河安城|624|mikawaanjou
+201341|蟹江|491|aichikanie
+203004|開明|671|bisai
+203037|尾張一宮|1854|ichinomiya
+203100|比良|1901|nagoyakuukotoori nagoyakuukotoori
+203127|新瀬戸|682|seto
+203143|西尾|1365|nishio
+203162|米野木|3806|miyoshi
+203191|三河安城|624|mikawaanjou
+203200|津島|521|tsushima
+203214|徳重|743|tokushige
+101134|豊田市|532|toyodahinode
+101142|小牧原|1542|komakipawaazu
+201467|一社|2151|nagoyatakabari
+101044|高茶屋|598|tsunanko tsunanko
+101045|上野市|1040|igaueno
+101046|日永|727|mieyokkaichi
+101047|宮川|1304|isenakasu
+101065|鈴鹿サーキット稲生|470|suzukasaakittotori suzukasaakittotori
+101070|蓮花寺|945|iontaunkuwanashinzaihou
+101097|穴太|1057|kuwanasanshipaaku
+101100|松阪|1566|pawaasentaamatsusaka
+102029|宮川|1304|isenakasu
+102036|上野市|1040|igaueno
+102037|高茶屋|598|tsunanko tsunanko
+103041|上野市|1040|igaueno
+103042|日永|727|mieyokkaichi
+103043|宮川|1304|isenakasu
+103059|高茶屋|598|tsunanko tsunanko
+103061|鈴鹿サーキット稲生|470|suzukasaakittotori suzukasaakittotori
+103065|蓮花寺|945|iontaunkuwanashinzaihou
+103086|穴太|1057|kuwanasanshipaaku
+103089|松阪|1566|pawaasentaamatsusaka
+201095|草津|1632|kusatsurittou
+201162|大津京|407|nishiootsu nishiotsu
+201226|長浜|1951|nagahama
+203102|長浜|1951|nagahama
+203203|草津|1648|kusatsurittou
+201244|福知山|587|fukuchiyamaekiminamimachi
+201331|長岡京|787|nagaokakyou
+201374|上桂|819|kyoutokatsura
+203240|福知山|587|fukuchiyamaekiminamimachi
+101137|藤森|220|kyoutofujinomori
+101143|大久保|287|ujiookubo ujiokubo
+101027|和泉砂川|939|oosakasennan osakasennan
+101036|星田|1248|barooneyagawa
+101041|和泉中央|891|oosakaizumi osakaizumi
+101069|新金岡|406|sakaishinkaneoka
+101074|北千里|1876|171gouminoo
+101083|古川橋|832|kadomashikenjoumae
+101094|南摂津|157|minamisettsuekimae
+101102|長尾|1049|hirakatanagao
+103020|和泉砂川|939|oosakasennan osakasennan
+103029|和泉中央|891|oosakaizumi osakaizumi
+103064|新金岡|406|sakaishinkaneoka
+103069|北千里|1876|171gouminoo
+103075|星田|1248|barooneyagawa
+103076|古川橋|832|kadomashikenjoumae
+103083|南摂津|157|minamisettsuekimae
+103090|長尾|1058|hirakatanagao
+101105|萩原天神|1990|sakaibibamoorumiharaminamiintaa
+101106|柏原|1516|yaominami
+101109|深井|1174|sakaifukai
+101116|近鉄八尾|972|yaokayashin
+101118|久米田|726|kishiwada
+101123|津守|1093|oosakadaisei osakadaisei
+101128|八戸ノ里|1258|higashioosakawakae higashiosakawakae
+101130|淡路|1048|higashiyodogawa
+101132|少路|835|toyonakamidorigaoka
+101138|宮之阪|2072|edionhirakata edeionhirakata
+101141|服部天神|1055|toyonakashousone
+101145|矢田|611|oosakayuzato osakayuzato
+101146|近義の里|244|kaizuka
+103091|萩原天神|1990|sakaibibamoorumiharaminamiintaa
+103103|近義の里|244|kaizuka
+101032|甲子園口|838|nishinomiya
+101034|仁川|2623|itamiikejiri
+103024|甲子園口|838|nishinomiya
+103027|仁川|2623|itamiikejiri
+201165|明石|2031|kobetamatsu kobetamatsu
+201316|山陽垂水|2085|kobeseiryodai kobeseiryodai
+203025|新三田|640|mita
+203204|山陽垂水|2085|kobeseiryodai kobeseiryodai
+203212|野里|229|himejinozato
+203256|余部|1634|himejioritsu
+203304|別府|465|kakogawabeppu
+101119|仁川|2399|ionmooruitamikonyo iommooruitamikonyo
+101127|清荒神|423|takarazuka
+101133|石屋川|280|kobenada kobenada
+103098|仁川|2399|ionmooruitamikonyo iommooruitamikonyo
+201419|余部|1634|himejioritsu
+201456|網干|2241|hyougotaishi
+201461|砥堀|226|himejitohori
+201462|新三田|640|mita
+201466|西鈴蘭台|281|kobesuzurandai kobesuzurandai
+101038|新ノ口|1110|narakashihara
+101085|西ノ京|1504|narakashiwagi
+103031|新ノ口|1110|narakashihara
+103077|西ノ京|1504|narakashiwagi
+101042|東松江|916|wakayamajiroumaru
+103038|東松江|916|wakayamajiroumaru
+101135|船戸|1309|iwade
+101140|紀伊中ノ島|515|koonanwakayamanakayukishima
+103101|船戸|1309|iwade
+201132|鳥取|439|tottori
+201176|博労町|724|yonago
+203033|三本松口|1354|yonago
+203270|湖山|609|tottorikoyamahigashi
+201387|乃木|1062|matsuehamanogi
+203016|松江しんじ湖温泉|1236|matsuekuroda
+203121|乃木|1062|matsuehamanogi
+201440|高浜|1076|izumotakaoka
+201040|北長瀬|1125|okayamanoda
+201187|院庄|328|tsuyamainnoshou
+201268|中庄|150|kurashikinakashou
+201398|弥生|474|kurashikikitaune
+203066|院庄|328|tsuyamainnoshou
+203149|中庄|150|kurashikinakashou
+201075|万能倉|668|fukuyamaekiie
+201116|東福山|2608|fukuyamaakebono
+101103|矢賀|1220|foreohiroshimahigashi fuoreohiroshimahigashi
+101112|梅林|664|hiroshimayagi
+101113|寺家|1030|higashihiroshimasaijou
+101117|坂|214|hiroshimasaka
+101121|尾道|691|onomichiniihama
+101124|河戸帆待川|973|hiroshimakabe
+103097|坂|214|hiroshimasaka
+103099|河戸帆待川|973|hiroshimakabe
+201096|山口|1680|yamaguchiyumetaun
+201194|宇部岬|447|ube
+201220|徳山|2010|shuunanakizuki
+201340|新下関|592|shinshimonoseki
+203018|山口|1680|yamaguchiyumetaun
+203076|宇部岬|447|ube
+203097|徳山|2010|shuunanakizuki
+203223|南中川|623|onoda
+203237|新下関|592|shinshimonoseki
+201449|長府|1423|chofu chofu
+203326|長府|1423|chofu chofu
+101022|宮の沢|1448|sapporonishinomiyanosawa
+101035|環状通東|1280|sapporofukuko
+101049|手稲|4602|ishikari
+103014|宮の沢|1448|sapporonishinomiyanosawa
+103037|平和|648|sapporohokuto
+103045|手稲|4602|ishikari
+201018|板野|1973|aizumi
+201052|春日川|1059|takamatsuyashima
+201058|宮田町|73|matsuyamaekimae
+201060|香西|591|takamatsusatohigashi
+201082|伊予三島|1556|iyomishima
+201083|五稜郭|2091|hakodateshouwa
+201091|高田|4049|nagasakitokitsu
+201102|宇多津|353|utatsu
+201104|高知|542|kochiizumi kochiizumi
+201110|文化の森|784|tokushimaokihama
+201112|久米|42|matsuyamakume
+201139|葛島橋東詰|246|kochitakasu kochitakasu
+201143|新宮中央|698|shinguu
+201147|善導寺|597|kurumezendoutera
+201148|土井|3239|toriasuhisayama
+201149|八代|1711|kumamotoyatsushiro
+201177|小野本町|717|isahaya
+201180|北見|2220|kitamiminamioodoori kitamiminamiodoori
+201181|桂台|1985|abashiri
+201192|平成|438|minamikumamoto
+201195|今治|1836|imabarikatayama
+201225|真駒内|2122|sapporokawaen
+201232|古国府|972|ooitafurugo oitafurugo
+201241|伊予大洲|411|ehimedaisu
+201243|沼ノ端|4237|tomakomai
+201249|竹松|1810|nagasakidaimura
+201251|佐賀|4914|ionsaga
+201253|帯広|2435|obihironishi5jou
+201256|隼人|455|kirishimakentsugi
+201260|岩見沢|2314|iwamizawa
+201264|宮崎|1819|miyazakiichinomiya
+201269|新旭川|589|asahikawaparupu
+201273|平和|648|sapporohokuto
+201278|東室蘭|1502|muroran
+201283|東釧路|1435|kushirokiba
+201287|金蔵寺|2151|marugame
+201292|市布|693|nagasakitarami
+201293|東海学園前|1622|kumamotoobiyama
+201295|滝川|2895|takikawa
+201297|恵庭|1360|eniwa
+201302|新居浜|949|niihamanishiyoshimitsuchi
+201311|高砂|686|ebetsu
+201312|日宇|576|sasebo
+201324|南郷１８丁目|248|sapporonango20chome sapporonango20chome
+201325|あいの里教育大|203|sapporoainosato
+201333|大牟田|2656|oomuta omuta
+201339|南久留米|1408|kurumekokubun
+201346|上塩屋|449|kakoshimahigashikaimachi
+201348|宇土|450|kumamotouto
+201349|帯広|4442|otofuke
+201351|新富士|1388|kushirotottorioodoori kushirotottoriodoori
+201356|||kanoyahisashi
+201369|新鳥栖|1361|raifugaadentosu
+201373|羽犬塚|1560|yumemooruchikugo
+201378|市立病院前|7440|haninsuginowan
+201379|栗林公園|360|takamatsusakuramachi
+201389|池田|420|kumamotokita
+201392|阿波山川|2241|awaazu
+201396|小禄|380|nahaoroku
+201408|近文|389|asahikawanishi
+201410|中の島|468|sapporonakanoshima
+201411|行橋|426|fukuokayukuhashi
+201417|阿波富田|1491|tokushimasuehiro
+201421|笹原|1179|hakatamisuto
+201427|川内|677|satsumasendai
+201428|博多南|1535|kasugashirouzu
+201434|首里|5104|okinawanakagusuku
+201435|筑豊中間|191|fukuokachuukan fukuokachukan
+201445|西都城|853|tomishirodaio tomishirodaio
+201451|大谷地|3799|sapporokiyoda
+201452|||iontaunawase
+201457|下曽根|2411|oguranumashinmachi oguranumashimmachi
+201463|南延岡|636|nobeokaheigen
+201470|枝光|493|guddeiyahatahigashi
+201472|千歳|1834|chitose
+201473|白木原|2282|ionotsukin
+202013|道ノ尾|234|nagasakihayama
+202014|現川|3922|higashinagasaki
+202019|小野本町|717|isahaya
+202023|南郷１８丁目|248|sapporonango20chome sapporonango20chome
+202024|環状通東|1364|sapporofukuko
+202025|南郷１３丁目|1023|sapporotsukisamuhigashi
+202026|栄町|1112|sapporokita41jou
+202027|東区役所前|716|sapporohikarihoshi
+202028|大谷地|1975|sapporohiraoka
+202029|中の島|468|sapporonakanoshima
+202030|平和|775|sapporokawashimo
+202031|白石|1536|sapporokikusuimotomachi
+202032|帯広|2435|obihironishi5jou
+202033|岩見沢|2314|iwamizawa
+202034|滝川|2895|takikawa
+202035|高砂|686|ebetsu
+202036|南小樽|747|otaruintaa
+202037|あいの里教育大|203|sapporoainosato
+202038|帯広|4442|otofuke
+203011|大谷地|1975|sapporohiraoka
+203013|伊予三島|1556|iyomishima
+203014|五稜郭|2091|hakodateshouwa
+203024|久米|42|matsuyamakume
+203030|環状通東|1315|sapporofukuko
+203034|葛島橋東詰|246|kochitakasu kochitakasu
+203039|善導寺|597|kurumezendoutera
+203041|土井|3239|toriasuhisayama
+203042|八代|1711|kumamotoyatsushiro
+203051|衣山|549|matsuyamachuuo matsuyamachuo
+203057|小野本町|717|isahaya
+203060|北見|2220|kitamiminamioodoori kitamiminamiodoori
+203061|桂台|1985|abashiri
+203067|栄町|1112|sapporokita41jou
+203073|平成|438|minamikumamoto
+203109|古国府|972|ooitafurugo oitafurugo
+203116|板野|1973|aizumi
+203117|今治|1836|imabarikatayama
+203120|五郎|1677|todaisu todaisu
+203122|沼ノ端|4237|tomakomai
+203128|竹松|1810|nagasakidaimura
+203131|佐賀|4914|ionsaga
+203136|帯広|2435|obihironishi5jou
+203138|隼人|455|kirishimakentsugi
+203142|岩見沢|2314|iwamizawa
+203144|宮崎|1819|miyazakiichinomiya
+203150|別府大学|1305|beppukankominatomae beppukankominatomae
+203151|新旭川|589|asahikawaparupu
+203159|東室蘭|1502|muroran
+203165|東釧路|1435|kushirokiba
+203169|金蔵寺|2151|marugame
+203172|市布|693|nagasakitarami
+203173|東海学園前|1622|kumamotoobiyama
+203174|滝川|2895|takikawa
+203177|恵庭|1360|eniwa
+203182|新居浜|949|niihamanishiyoshimitsuchi
+203186|松前|787|iyomatsumae
+203196|高砂|686|ebetsu
+203197|日宇|576|sasebo
+203202|南小樽|747|otaruintaa
+203208|中津|2275|ooitanakatsu oitanakatsu
+203216|南郷１８丁目|248|sapporonango20chome sapporonango20chome
+203217|高田|4049|nagasakitokitsu
+203220|あいの里教育大|203|sapporoainosato
+203230|大牟田|2656|oomuta omuta
+203235|南久留米|1408|kurumekokubun
+203244|上塩屋|449|kakoshimahigashikaimachi
+203245|阿波山川|2241|awaazu
+203249|宇土|450|kumamotouto
+203250|帯広|4442|otofuke
+203253|新富士|1388|kushirotottorioodoori kushirotottoriodoori
+203273|新鳥栖|1372|raifugaadentosu
+203277|羽犬塚|1568|yumemooruchikugo
+203283|市立病院前|7440|haninsuginowan
+203285|栗林公園|360|takamatsusakuramachi
+203294|池田|420|kumamotokita
+203310|近文|389|asahikawanishi
+203312|中の島|468|sapporonakanoshima
+203318|川内|677|satsumasendai
+203319|筑豊中間|191|fukuokachuukan fukuokachukan
+203324|西都城|853|tomishirodaio tomishirodaio
+203328|||iontaunawase
+203330|下曽根|2411|oguranumashinmachi oguranumashimmachi
+203333|南延岡|636|nobeokaheigen
+203335|||kanoyahisashi
+203338|千歳|1834|chitose
+203339|白木原|2282|ionotsukin
+S30032|南柏|1074|minamikashiwa
+S30164|新潟|2395|niigatasakuragi
+S30184|楽々園|768|itsukaichi
+S30192|古川橋|634|furukawahashi
+S30196|蓮田|1688|hasudatsubakiyama
+S30197|南与野|2445|urawasaidaitori urawasaidaitori
+S30242|寒川|2470|hiratsukashinomiya
+S30251|淀川|191|fukushima
+S30254|河辺|622|ome ome
+S30255|富士|1148|fuji
+S30259|越谷|1202|koshigayayanaka
+S30298|大阪狭山市|1051|sayama
+S30300|鴻巣|1016|konosu konosu
+S30308|安積永盛|2649|koriyamaasaka koriyamaasaka
+S30310|薬師堂|574|miyachiyo
+S30311|武蔵新城|1794|kawasakisennen
+S30326|常盤|697|mizushima
+S30327|野々市|1195|nonoichihoncho nonoichihoncho
+S30329|北三条|920|sanjou
+S30380|天神川|1526|hiroshimashinonome
+S30434|岩沼|1621|iwanuma
+S30444|黒松|2643|matsumori
+S30527|明峰|1148|komatsu
+S30529|高槻市|1239|takatsuki
+S30539|春日山|2134|jouetsu
+S30548|西条|1289|saijochuuo saijochuo
+S30553|杁ヶ池公園|823|nagakute
+S30555|長岡|2947|nagaoka
+S30556|堅田|438|katata
+S30564|六名|901|okazaki
+S30566|蛇田|957|ishinomaki
+S30567|砺波|930|tonami
+S30570|古川|2378|furukawa
+S30574|前後|1232|toyoake
+S30575|宮川|1096|iseomata
+S30576|松阪|530|matsusaka
+S30577|敦賀|2596|tsuruga
+S30586|向日町|671|kuze
+S30588|北府|1438|takefu
+S30589|船橋競馬場|233|funabashi14gou
+S30600|高茶屋|1870|tsunan
+S30601|盛岡|870|morioka
+S30604|福山|4082|fukuyamanishishingai
+S30605|関屋|1710|dekishima
+S30607|東新庄|1432|tenshoutera
+S30608|勝川|1584|kasugai
+S30609|甲東園|744|nishinomiya171gou
+S30617|北茅ケ崎|925|chigasaki
+S30618|七里|1959|fukasaku16gou
+S30621|小杉|828|kosugi
+S30624|高鷲|1446|habikino
+S30625|速星|1443|fuchuu fuchu
+S30627|新津|1510|niitsu
+S30628|南仙台|858|nakada
+S30680|小鶴新田|184|nittahigashi
+S30683|伊勢崎|2348|isesaki
+S30685|美濃青柳|1742|oogaki ogaki
+S30686|戸出|1060|takaoka
+S30687|遙堪|2168|izumo
+S30690|久喜|1470|akurosupurazakuki
+S30692|草加|1043|soka soka
+S30700|寝屋川市|1483|neyagawa
+S30704|今井|1271|kawanakashima
+S30705|鶴ヶ峰|2255|yokohamaimajuku
+S30708|ひたち野うしく|518|hitachinoushiku
+S30714|幸手|869|satte
+S30715|東金沢|559|takayanagi
+S30717|三ツ屋|2590|kuratsuki
+S30718|西富井|2380|kurashikisasaoki
+S30721|高須|331|hiroshimakanoeuma
+S30722|つつじヶ丘|274|chofutsutsujikeoka chofutsutsujikeoka
+S30723|豊川|1765|minoo
+S30727|北柏|1843|iontaunkashiwamatsugasaki
+S30728|春日部|1255|kasukabe
+S30730|小手指|915|tokorozawa
+S30731|大津京|769|nishiootsu nishiotsu
+S30732|大江|194|nagoyadaiko nagoyadaiko
+S30737|久米田|879|kishiwada
+S30738|中島|1208|nakagawa
+S30739|竹ノ塚|1083|adachihokima
+S30741|新潟大学前|514|niigatadaigakumae
+S30756|長岡|1041|akurosupurazanagaoka
+S30757|卸町|2275|fukushimamatsuyama
+S30758|上鳥羽口|736|kyoutouetoba
+S30759|泉中央|215|sendaiizumichuuo sendaiizumichuo
+S30760|平林|639|oosakasuminoe osakasuminoe
+S30761|祇園|1576|kisarazu
+S30763|南安城|1858|anjoumomoishi
+S30764|阿久比|186|agui
+S30765|黒川|372|nagoyakurokawa
+S30773|瀬谷|1230|seya
+S30774|新井宿|607|kawaguchiakayama
+S30781|平城|1913|naraokuma naraokuma
+S30783|土師ノ里|917|fujiideraintaa
+S30784|福山|1837|fukuyamamidorimachi
+S30800|武蔵新城|2184|kawasakinogawa
+S30801|勢野北口|1274|ikaruga
+S30805|つくば|894|tsukubagakuen
+S30806|赤塚|733|mitoakatsuka
+S30807|細畑|772|ginan
+S30813|鳴尾|378|naruo
+S30814|会津若松|991|aizuwakamatsuintaa
+S30816|泉佐野|679|izumisano
+S30818|神領|2063|kasugaiintaa
+S30819|妙法寺|788|kitasuma
+S30821|千種|377|chigusaekiminami

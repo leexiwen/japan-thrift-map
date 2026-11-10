@@ -12,7 +12,6 @@
 203006|西小泉|1175|ooizumi oizumi
 203059|群馬総社|2646|17goumaebashikita
 203099|剛志|939|isesakimoro
-203137|成島|911|tatebayashi
 203145|小俣|2126|50goukiryuuhirosawa
 203176|伊勢崎|3051|suupaamooruisesaki
 203192|高崎問屋町|1025|takamaebaipasutakasakimidori
@@ -95,7 +94,6 @@
 203258|東武動物公園|632|sugito
 203269|南大塚|2048|kawagoeimafuku
 203271|鶴瀬|1745|miyoshimachi
-203272|武蔵浦和|1329|berukusumooruurawaminami
 203275|鶴ヶ島|604|kawagoeamanuma
 203282|新田|1199|koshigayaminami
 203290|加茂宮|600|saitamamiyahara
@@ -210,7 +208,6 @@
 101104|末広町|139|akihabara2gou
 101126|学芸大学|156|gakugeidaigakuekimae
 101131|錦糸町|204|kinshichomarui kinshichomarui
-101136|渋谷|407|maboroshinoshibuya
 101139|新宿三丁目|226|shinjukumaruimen
 101144|京成上野|71|uenoekimae
 101147|金町|1307|katsushikamizumoto
@@ -321,7 +318,6 @@
 203020|安積永盛|1729|koriyamaasaka koriyamaasaka
 203072|会津若松|1330|aizuwakamatsu
 203123|原ノ町|1830|haramachi
-203126|新白河|579|shinshirakawa
 201458|南福島|1354|fukushimaminami
 101063|鹿島神宮|5036|kamisu
 101073|研究学園|927|tsukubakenkyuugakuen
@@ -518,7 +514,6 @@
 201455|鷲津|1476|kosai
 203329|竪堀|1097|fujichuuo fujichuo
 103028|江南|2224|konan konan
-103085|杁ヶ池公園|1344|nagakuteminami
 201002|南栄|196|toyohashi
 201013|知立|738|chiryuu
 201023|津島|526|tsushima
@@ -615,12 +610,9 @@
 103091|萩原天神|1990|sakaibibamoorumiharaminamiintaa
 103103|近義の里|244|kaizuka
 101032|甲子園口|838|nishinomiya
-101034|仁川|2623|itamiikejiri
 103024|甲子園口|838|nishinomiya
-103027|仁川|2623|itamiikejiri
 201165|明石|2031|kobetamatsu kobetamatsu
 201316|山陽垂水|2085|kobeseiryodai kobeseiryodai
-203025|新三田|640|mita
 203204|山陽垂水|2085|kobeseiryodai kobeseiryodai
 203212|野里|229|himejinozato
 203256|余部|1634|himejioritsu
@@ -646,7 +638,6 @@
 201132|鳥取|439|tottori
 201176|博労町|724|yonago
 203033|三本松口|1354|yonago
-203270|湖山|609|tottorikoyamahigashi
 201387|乃木|1062|matsuehamanogi
 203016|松江しんじ湖温泉|1236|matsuekuroda
 203121|乃木|1062|matsuehamanogi
@@ -788,7 +779,6 @@
 203039|善導寺|597|kurumezendoutera
 203041|土井|3239|toriasuhisayama
 203042|八代|1711|kumamotoyatsushiro
-203051|衣山|549|matsuyamachuuo matsuyamachuo
 203057|小野本町|717|isahaya
 203060|北見|2220|kitamiminamioodoori kitamiminamiodoori
 203061|桂台|1985|abashiri

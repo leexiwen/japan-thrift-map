@@ -167,6 +167,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 #mapt{display:none}
 @media (max-width:900px){
   .seg{max-width:100%;overflow-x:auto}.seg button{white-space:nowrap}
+  #reset{display:none}
   .tb2{flex-wrap:wrap}.tb2 .lbl{display:none}.cats{flex-basis:100%;order:2}
   header{padding:14px 16px 10px}.toolbar{padding:8px 14px}
   .app{height:auto}
@@ -178,7 +179,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   #ftog{display:inline-block}.app.fo #ftog{background:var(--ink);color:var(--page)}
   header{padding:10px 14px 8px;gap:8px 12px;align-items:center}
   h1{font-size:20px}h1 small{display:none}
-  .kpis,.kline{display:none}
+  .kpis{display:none}
   .hctl{gap:6px}.hctl .ghost{padding:5px 9px;font-size:13px}
   .ctrl button{width:44px;height:44px;font-size:22px}
   .btn,.ghost,.chip,.cat,.seg button,.tabs button{min-height:40px}
@@ -231,9 +232,16 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 <div class="app">
 <header>
   <h1><small id="h1s"></small><span id="h1t"></span></h1>
-  <div class="kline" id="kline"></div>
+  <div class="kpis">
+    <div class="kpi"><b id="kS">0</b><span data-t="kStores"></span></div>
+    <div class="kpi"><b id="kP">0</b><span data-t="kLoc"></span></div>
+    <div class="kpi"><b id="kC">0</b><span data-t="kCombo"></span></div>
+    <div class="kpi"><b id="kH">0</b><span data-t="kTown"></span></div>
+  </div>
   <div class="hctl">
     <button class="ghost" id="ftog" data-t="filters"></button>
+    <button class="ghost" id="reset" data-t="reset"></button>
+    <button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button>
     <button class="ghost" id="lang" aria-label="Language">EN</button>
     <button class="ghost" id="helpb" aria-label="Help" data-t="helpB"></button>
   </div>
@@ -289,7 +297,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 </div>
 <div class="tip" id="tip"></div>
 
-<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><div class="hbtns"><button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button><button class="ghost" id="reset" data-t="reset"></button></div><p class="fine" style="padding:0 0 12px"><a href="#about" data-about data-t="aboutL"></a></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
+<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><p class="fine" style="padding:0 0 12px"><a href="#about" data-about data-t="aboutL"></a></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
 <div class="help" id="about" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="abT"></h2><div class="abody"><p data-t="ab1"></p><p data-t="ab2"></p><p data-t="ab3"></p><p data-t="ab4"></p><p><a href="https://github.com/leexiwen/japan-thrift-map" target="_blank" rel="noopener" data-t="abSrc"></a></p></div><button class="btn pri" id="abok" data-t="hOk"></button></div></div>
 <form name="report" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="form-name" value="report"><input name="store"><input name="coords"><input name="note"><input name="bot-field"></form>
 <script>
@@ -789,7 +797,6 @@ function fillPref(){
 }
 $("prefSel").onchange=e=>{S.pref=+e.target.value;refresh(true)};
 $("ftog").onclick=()=>document.querySelector(".app").classList.toggle("fo");
-["reset"].forEach(i=>$(i).addEventListener("click",()=>{$("help").hidden=true}));
 $("taxf").onclick=()=>{S.tax=!S.tax;$("taxf").setAttribute("aria-pressed",S.tax);refresh(true)};
 function fcount(){}
 let qt;$("q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();S.pv=false;refresh(true)},180)};
@@ -799,7 +806,7 @@ $("theme").onclick=()=>{
 };
 function refresh(refit){
   const v=view();
-  $("kline").textContent=tr("kline")(v.reduce((t,e)=>t+e.st.length,0));
+  $("kS").textContent=v.reduce((t,e)=>t+e.st.length,0);$("kP").textContent=v.length;$("kC").textContent=v.filter(e=>e.br.length>1).length;$("kH").textContent=hubsOf(v).length;
   S.more=30;fcount();
   if(S.sel&&!v.some(e=>e.sp.k===S.sel)){S.sel=null;card()}
   if(refit)resetView();else draw();

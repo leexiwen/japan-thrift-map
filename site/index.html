@@ -5505,7 +5505,6 @@ $("walk").onclick=()=>{S.walk=!S.walk;$("walk").setAttribute("aria-pressed",S.wa
 function mapLabel(){const a=document.querySelector(".app"),b=$("mapt");if(b)b.textContent=tr(a.classList.contains("nomap")?"mapS":"mapH")}
 function showMap(on){const a=document.querySelector(".app");if(!NAR)return;const was=a.classList.contains("nomap");a.classList.toggle("nomap",!on);mapLabel();if(on&&was){void $("map").clientWidth;resetView();try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}}}
 $("mapt").onclick=()=>showMap(document.querySelector(".app").classList.contains("nomap"));
-if(NAR)document.querySelector(".app").classList.add("nomap");
 function applyLang(){
   mapLabel();
   document.documentElement.lang=LANG==="zh"?"zh-CN":"en";

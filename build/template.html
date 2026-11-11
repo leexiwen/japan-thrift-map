@@ -34,10 +34,9 @@
 html,body{margin:0;height:100%}
 body{background:var(--page);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
 button,select,input{font:inherit;color:inherit}
-.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);height:100vh;min-height:620px}
+.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);height:100vh;min-height:620px}
 .hctl{display:flex;gap:8px}
 .filters{display:contents}
-#ftog{display:none}
 header{padding:18px 22px 12px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line)}
 h1{margin:0;font:700 26px/1.1 "Iowan Old Style",Georgia,"Hiragino Mincho ProN",serif;letter-spacing:-.01em}
 h1 small{display:block;font:500 12px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
@@ -174,8 +173,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   aside{border-left:0;border-top:1px solid var(--line);max-height:70vh}
   .legend{display:none}
   main{grid-template-rows:46svh auto}
-  .filters{display:none}.app.fo .filters{display:block}
-  #ftog{display:inline-block}.app.fo #ftog{background:var(--ink);color:var(--page)}
+  .sbar{padding:8px 12px}
   header{padding:10px 14px 8px;gap:8px 12px;align-items:center}
   h1{font-size:20px}h1 small{display:none}
   .kpis{display:none}
@@ -190,17 +188,50 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   .card .tag{white-space:nowrap;flex:none}
   .card .acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
   .card .btn{text-align:center;padding:8px 6px;font-size:13px;min-height:38px;display:flex;align-items:center;justify-content:center}
-  .toolbar:not(.tb2) .chip{font-size:12px;padding:4px 6px;gap:5px}
-  .toolbar:not(.tb2) .chip{flex:1 1 calc(50% - 8px);font-size:13px;padding:4px 8px;min-width:0}
-  .toolbar:not(.tb2) .chip small{margin-left:auto}
-  .toolbar:not(.tb2) .sep{display:none}
-  #prefSel{flex:1 1 40%}#q{flex:1 1 50%}
   .btn{padding:9px 14px}
   input,select{font-size:16px}
-  .foot{padding:6px 14px 34px}
   #mapt{display:block;width:calc(100% - 24px);margin:8px 12px 0}
   .app.nomap .mapwrap{display:none}.app.nomap main{grid-template-rows:auto}.app.nomap aside{max-height:none;border-top:0}
 }
+
+.kpis[hidden],#reset[hidden],#h1s{display:none}
+header{padding:12px 22px;align-items:center;flex-wrap:nowrap}
+h1{font-size:22px}
+.sbar{display:flex;gap:8px;padding:10px 22px;border-bottom:1px solid var(--line);background:var(--surface);align-items:center}
+.sbar input[type=search]{flex:1;width:auto;max-width:620px;padding:10px 14px;border-radius:12px;font-size:15px}
+#ftog{display:inline-block;padding:9px 14px;border-radius:12px;white-space:nowrap}
+#ftog.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
+.hero{padding:18px 16px 4px}.hero h2{margin:0 0 4px;font:700 24px/1.2 "Iowan Old Style",Georgia,serif}.hero p{margin:0;color:var(--muted);font-size:14px}
+.lbl.pad{padding:14px 16px 6px}
+.buy{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 4px}
+.hub{grid-template-columns:1fr auto;padding:11px 16px}
+.hub .n{display:none}
+.hub .bar{grid-column:1/3}
+.fine{padding:14px 16px 20px;color:var(--muted);font-size:12px}.fine a{color:var(--ink2);text-decoration:underline;cursor:pointer}
+.rh{display:flex;align-items:center;gap:10px;padding:10px 16px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--surface);z-index:2}
+.rh span{min-width:0}
+.tripseg{padding:10px 16px;border-bottom:1px solid var(--line)}
+.tripseg .seg{display:flex}.tripseg .seg button{flex:1}
+.acts2{display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:8px;font-size:12.5px}
+.acts2 a,.acts2 button{background:none;border:0;padding:2px 0;color:var(--ink2);text-decoration:underline;cursor:pointer;font-size:12.5px}
+.nb{margin-top:8px;padding-top:8px;border-top:1px solid var(--line);font-size:12.5px;color:var(--ink2)}
+.nb b{display:block;margin-bottom:4px;color:var(--ink)}
+.nb a{display:block;padding:3px 0;color:var(--ink);cursor:pointer;text-decoration:none}
+.nb a small{color:var(--muted)}
+.sheet{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;display:flex;align-items:flex-end;justify-content:center}
+.sheet[hidden]{display:none}
+.sbox{background:var(--page);width:100%;max-width:560px;max-height:88vh;border-radius:18px 18px 0 0;display:flex;flex-direction:column;box-shadow:0 -8px 40px rgba(0,0,0,.25)}
+.sh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 8px;font-size:18px}
+.sbody{overflow:auto;padding:4px 18px 10px;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
+.sg .lbl{margin-bottom:8px}
+.sg .chips{display:flex;flex-wrap:wrap;gap:8px}
+.sg .cats{flex-wrap:wrap;overflow:visible}
+.sg .seg{max-width:100%;overflow-x:auto}.sg select{margin-top:8px;width:100%}
+.sg .snote{margin-top:6px;color:var(--muted);font-size:12px}
+.sf{display:flex;gap:10px;padding:12px 18px 18px;border-top:1px solid var(--line)}.sf .pri{flex:1;padding:11px}
+@media (min-width:901px){.sheet{align-items:flex-start;justify-content:flex-end;padding:112px 22px 0}.sbox{border-radius:16px;max-height:calc(100vh - 140px)}}
+.legend p{display:none}
+@media print{html.pp .sbar,html.pp .tripseg,html.pp .sheet{display:none!important}}
 </style>
 </head>
 <body>
@@ -208,40 +239,39 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 <div class="app">
 <header>
   <h1><small id="h1s"></small><span id="h1t"></span></h1>
-  <div class="kpis">
-    <div class="kpi"><b id="kS">0</b><span data-t="kStores"></span></div>
-    <div class="kpi"><b id="kP">0</b><span data-t="kLoc"></span></div>
-    <div class="kpi"><b id="kC">0</b><span data-t="kCombo"></span></div>
-    <div class="kpi"><b id="kH">0</b><span data-t="kTown"></span></div>
-  </div>
+  <div class="kpis" hidden><b id="kS">0</b><b id="kP">0</b><b id="kC">0</b><b id="kH">0</b></div>
   <div class="hctl">
-    <button class="ghost" id="ftog" data-t="filters"></button>
-    <button class="ghost" id="reset" data-t="reset"></button>
-    <button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button>
+    <button class="ghost" id="reset" hidden></button>
     <button class="ghost" id="lang" aria-label="Language">EN</button>
     <button class="ghost" id="helpb" aria-label="Help" data-t="helpB"></button>
   </div>
 </header>
-<div class="filters">
-<div class="toolbar">
-  <button class="chip" id="cO" aria-pressed="true"><i style="background:var(--o)"></i><span data-t="bO"></span> <small id="nO"></small></button>
-  <button class="chip" id="cH" aria-pressed="true"><i style="background:var(--h)"></i><span data-t="bH"></span> <small id="nH"></small></button>
-  <button class="chip" id="cB" aria-pressed="true"><i style="background:var(--b)"></i><span data-t="bB"></span> <small id="nB"></small></button>
-  <button class="chip" id="cS" aria-pressed="true"><i style="background:var(--s)"></i><span data-t="bS"></span> <small id="nS"></small></button>
-  <button class="chip" id="cF" aria-pressed="true"><i style="background:var(--f)"></i><span data-t="bF"></span> <small id="nF"></small></button>
-  <button class="chip" id="cX" aria-pressed="false"><i style="background:var(--x)"></i><span data-t="bX"></span> <small id="nX"></small></button>
-  <span class="sep"></span>
-  <div class="seg" id="regSeg"></div>
-  <select id="prefSel" aria-label="Prefecture"></select>
+<div class="sbar">
   <input type="search" id="q" aria-label="Search">
+  <button class="ghost" id="ftog" type="button"></button>
 </div>
-<div class="toolbar tb2">
-  <span class="lbl" data-t="hunt"></span>
-  <div class="cats" id="cats"></div>
-  <button class="chip walk" id="walk" aria-pressed="false"><span>🚶</span><span data-t="walk"></span></button>
-  <button class="chip walk" id="openn" aria-pressed="false"><span>🕒</span><span data-t="openN"></span></button>
-</div>
-</div>
+<div class="sheet" id="sheet" hidden><div class="sbox" role="dialog" aria-modal="true">
+  <div class="sh"><b data-t="filters"></b><button class="ghost" id="sclose" data-t="done"></button></div>
+  <div class="sbody">
+    <div class="sg"><div class="lbl" data-t="gShops"></div><div class="chips">
+      <button class="chip" id="cO" aria-pressed="true"><i style="background:var(--o)"></i><span data-t="bO"></span> <small id="nO"></small></button>
+      <button class="chip" id="cH" aria-pressed="true"><i style="background:var(--h)"></i><span data-t="bH"></span> <small id="nH"></small></button>
+      <button class="chip" id="cB" aria-pressed="true"><i style="background:var(--b)"></i><span data-t="bB"></span> <small id="nB"></small></button>
+      <button class="chip" id="cS" aria-pressed="true"><i style="background:var(--s)"></i><span data-t="bS"></span> <small id="nS"></small></button>
+      <button class="chip" id="cF" aria-pressed="true"><i style="background:var(--f)"></i><span data-t="bF"></span> <small id="nF"></small></button>
+      <button class="chip" id="cX" aria-pressed="false"><i style="background:var(--x)"></i><span data-t="bX"></span> <small id="nX"></small></button>
+    </div></div>
+    <div class="sg"><div class="lbl" data-t="gWhere"></div><div class="seg" id="regSeg"></div><select id="prefSel" aria-label="Prefecture"></select></div>
+    <div class="sg"><div class="lbl" data-t="hunt"></div><div class="cats" id="cats"></div></div>
+    <div class="sg"><div class="lbl" data-t="gMore"></div><div class="chips">
+      <button class="chip walk" id="openn" aria-pressed="false"><span>🕒</span><span data-t="openN"></span></button>
+      <button class="chip walk" id="walk" aria-pressed="false"><span>🚶</span><span data-t="walk"></span></button>
+      <button class="chip walk" id="taxf" aria-pressed="false"><span>🧾</span><span data-t="taxF"></span></button>
+    </div><div class="snote" data-t="taxN"></div></div>
+    <div class="sg"><button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button></div>
+  </div>
+  <div class="sf"><button class="ghost" id="sreset" data-t="sReset"></button><button class="btn pri" id="sdone"></button></div>
+</div></div>
 <main>
   <div class="mapwrap" id="mapwrap">
     <svg id="map" role="img" aria-label="Map of Hard Off, Off House and Book Off stores across Japan">
@@ -263,19 +293,16 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   <aside>
     <button class="ghost" id="mapt" type="button"></button>
     <div class="tabs" role="tablist">
-      <button role="tab" aria-selected="true" data-tab="hubs" data-t="tHubs"></button>
-      <button role="tab" aria-selected="false" data-tab="list" data-t="tList"></button>
-      <button role="tab" aria-selected="false" data-tab="plan" data-t="tPlan"></button>
-      <button role="tab" aria-selected="false" data-tab="short"><span data-t="tShort"></span> <span id="sc"></span></button>
+      <button role="tab" aria-selected="true" data-tab="hubs" data-t="tExplore"></button>
+      <button role="tab" aria-selected="false" data-tab="trip"><span data-t="tTrip"></span> <span id="sc"></span></button>
     </div>
     <div class="panel" id="panel"></div>
-    <div class="foot"><span data-t="footT"></span> <a href="#about" id="aboutb" data-t="aboutL"></a></div>
   </aside>
 </main>
 </div>
 <div class="tip" id="tip"></div>
 
-<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
+<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><p class="fine" style="padding:0 0 12px"><a href="#about" data-about data-t="aboutL"></a></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
 <div class="help" id="about" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="abT"></h2><div class="abody"><p data-t="ab1"></p><p data-t="ab2"></p><p data-t="ab3"></p><p data-t="ab4"></p><p><a href="https://github.com/leexiwen/japan-thrift-map" target="_blank" rel="noopener" data-t="abSrc"></a></p></div><button class="btn pri" id="abok" data-t="hOk"></button></div></div>
 <form name="report" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="form-name" value="report"><input name="store"><input name="coords"><input name="note"><input name="bot-field"></form>
 <script>
@@ -299,26 +326,26 @@ const ORDER=["O","H","B","S","F","X"];
 const ZH=["群马","埼玉","千叶","东京","神奈川","青森","岩手","宫城","秋田","山形","福岛","茨城","栃木","新潟","富山","石川","福井","山梨","长野","岐阜","静冈","爱知","三重","滋贺","京都","大阪","兵库","奈良","和歌山","鸟取","岛根","冈山","广岛","山口","北海道","德岛","香川","爱媛","高知","福冈","佐贺","长崎","熊本","大分","宫崎","鹿儿岛","冲绳"];
 const REGZ=["关东","东北","北陆·甲信越","东海","近畿","中国","北海道","四国","九州","冲绳"];
 const TX={
-en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",bF:"Treasure Factory",lF:"Treasure Factory — big general reuse stores: furniture, appliances, clothes, toys (Kanto, Kansai, Chubu, Kyushu)",lX:"Specialty (off by default) — Hobby Off, Mode Off luxury resale, cameras, instruments, tools, outdoor, Garage Off",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street — clothes-led general second-hand, many tax-free",filters:"Filters",rev:"Photos & reviews ↗",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
- lO:"Off House — clothes, furniture, housewares, odds and ends",lH:"Hard Off — electronics, audio, instruments, tools",lB:"Book Off — books, comics, CDs, games",
- hunt:"What to hunt for",openN:"Open now (Japan time)",walk:"Near a station (≤10 min walk)",pk:n=>"Parking for "+n+" cars",wk:m=>m+" min walk from ",car:"No station within 1.5 km — car or taxi advised",est:"estimated",wkend:h=>"Sat/Sun/holidays from "+h,catNote:"Based on each store's listed product categories. Luxury brand / jewelry / watch categories are not shown.",lNote:"Split circles = several shops under one roof. Bigger = more shops. Specialty shops (incl. Mode Off luxury resale) are hidden until you switch them on.",
- tHubs:"Pick a town",helpB:"Help",hT:"How to use this map",hw1t:"Pick a town",hw1:"Choose a town to see its shops on the map. Towns with the most shops are listed first.",hw2t:"Browse or search",hw2:"Shop list lets you pick a prefecture or search an item (camera, kimono, guitar), a station or a town. Turn on Open now to hide closed shops. The 📍 button sorts by distance from you.",hw3t:"Plan your trip",hw3:"Tap a shop for Navigate (Google Maps) or WhatsApp. Save favourites to the Shortlist, or open Trip plan to group nearby shops into day routes.",hOk:"Got it",oN:t=>`Open now · until ${t} (Japan time)`,oC:t=>`Closed now · opens ${t} (Japan time)`,oX:"Closed now (Japan time)",gDay:"Open day in Google Maps",footT:"Unofficial map, not affiliated with Hard Off or Book Off.",aboutL:"About & privacy",abT:"About this map",abSrc:"Source code, data and problem reports on GitHub ↗",ab1:"A free, non-commercial and unofficial map. It is not affiliated with or endorsed by Hard Off Corporation, Book Off Group or 2nd Street. Hard Off, Off House, Book Off and 2nd Street are trademarks of their owners and are used only to say which shops are shown.",ab2:"Shop names, locations and opening hours come from the companies’ public store pages, collected in November 2026. Every shop card links to its official page. Please check it for current hours, holidays and closures, and note that map pins can be slightly off. Use the ⚑ button on a shop to report a problem.",ab3:"Privacy: no accounts, no ads, no analytics and no cookies. Your shortlist, hotel, language and location stay in your own browser and are not sent to us. A report contains only the shop and the note you type, so please do not put personal details in it.",ab4:"Train lines are approximate: JR lines come from 2017 data and the bullet trains are drawn by hand. Use Google Maps for real directions. Store data last collected 11 Nov 2026 — shops open and close, so check the store page before a long trip.",hotelSet:"Set my hotel on map",hotelMove:"Move my hotel",hotelTap:"Tap the map where your hotel is",hotelSaved:"Hotel saved. Plans now start from it.",pDayBase:"Starting point for this day",rep:"Wrong location? Report",repT:"What is wrong? (optional)",repSend:"Send",repOk:"Thanks. Report sent.",repFail:"Could not send. Try again later.",tPlan:"Trip plan",locNo:"This browser cannot share your location.",locDenied:"Location is blocked. Allow location for this page in your browser settings. (Inside WhatsApp or other chat apps, open the link in your normal browser first.)",locFail:"Could not get your location. Check that location services are on and try again.",locFar:n=>"You seem to be far from Japan (nearest shop ~"+n.toLocaleString()+" km away), so the list is sorted by distance but the map was not moved.",nearOn:"📍 Nearest first (straight-line distance)",nearOff:"Sort by region",nearBack:"📍 Sort by distance",myLoc:"📍 My location",planGuide:"Pick where you are staying and how many shopping days. Nearby shops are grouped into day routes, using your current filters (brands, items, near-station).",pBase:"Staying in",pDays:"Days",pTrain:"🚆 Train + walk",pCar:"🚗 Car / taxi",pDay:n=>"Day "+n,pShopsN:n=>n+(n===1?" stop":" stops"),pShopT:"shopping",pTravelT:"travel",pShow:"Show on map",pAddAll:"Add day to shortlist",pPrint:"🖨 Print plan",pNote:"Times are rough estimates from straight-line distances. Check store hours and train times before you go. Shops are chosen by how many stores share a stop and how close they are to each other.",pNone:"No shops fit here with the current filters. Try car mode, a different base, or clear some filters.",pBack:m=>"back to your base ~"+m+" min",pStart:"from your base",tList:"Shop list",dataNotes:"Data notes & sources",fOn:"Filters are on, so some towns are hidden.",fClr:"Show all",listHint:"Pick a prefecture, or type a shop or town in the search box above.",tShort:"Shortlist",search:"Search town, store, item (e.g. camera)",allPref:"All prefectures",all:"All",
+en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",bF:"Treasure Factory",lF:"Treasure Factory",lX:"Specialty (off by default)",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street",filters:"Filter",rev:"Photos & reviews",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
+ lO:"Off House",lH:"Hard Off",lB:"Book Off",
+ hunt:"What to buy",openN:"Open now",walk:"Near a station",pk:n=>"Parking for "+n+" cars",wk:m=>m+" min walk from ",car:"No station within 1.5 km — car or taxi advised",est:"estimated",wkend:h=>"Sat/Sun/holidays from "+h,catNote:"Based on each store's listed product categories. Luxury brand / jewelry / watch categories are not shown.",lNote:"Split circles = several shops under one roof. Bigger = more shops. Specialty shops (incl. Mode Off luxury resale) are hidden until you switch them on.",
+ tHubs:"Pick a town",helpB:"Help",hT:"How to use this map",hw1t:"Pick a town or search",hw1:"Tap a town, or type a shop, station or item (camera, kimono, guitar) in the search box.",hw2t:"Tap a shop",hw2:"Tap a dot on the map or a row in the list. Navigate opens Google Maps. Save keeps it for your trip.",hw3t:"Plan your trip",hw3:"Open My trip to see saved shops, or let it build day routes from where you are staying.",hOk:"Got it",oN:t=>`Open now · until ${t} (Japan time)`,oC:t=>`Closed now · opens ${t} (Japan time)`,oX:"Closed now (Japan time)",gDay:"Open day in Google Maps",footT:"Unofficial map, not affiliated with Hard Off or Book Off.",aboutL:"About & privacy",abT:"About this map",abSrc:"Source code, data and problem reports on GitHub ↗",ab1:"A free, non-commercial and unofficial map. It is not affiliated with or endorsed by Hard Off Corporation, Book Off Group or 2nd Street. Hard Off, Off House, Book Off and 2nd Street are trademarks of their owners and are used only to say which shops are shown.",ab2:"Shop names, locations and opening hours come from the companies’ public store pages, collected in November 2026. Every shop card links to its official page. Please check it for current hours, holidays and closures, and note that map pins can be slightly off. Use the ⚑ button on a shop to report a problem.",ab3:"Privacy: no accounts, no ads, no analytics and no cookies. Your shortlist, hotel, language and location stay in your own browser and are not sent to us. A report contains only the shop and the note you type, so please do not put personal details in it.",ab4:"Train lines are approximate: JR lines come from 2017 data and the bullet trains are drawn by hand. Use Google Maps for real directions. Store data last collected 11 Nov 2026 — shops open and close, so check the store page before a long trip.",hotelSet:"Set my hotel on map",hotelMove:"Move my hotel",hotelTap:"Tap the map where your hotel is",hotelSaved:"Hotel saved. Plans now start from it.",pDayBase:"Starting point for this day",rep:"Wrong location? Report",repT:"What is wrong? (optional)",repSend:"Send",repOk:"Thanks. Report sent.",repFail:"Could not send. Try again later.",tPlan:"Trip plan",locNo:"This browser cannot share your location.",locDenied:"Location is blocked. Allow location for this page in your browser settings. (Inside WhatsApp or other chat apps, open the link in your normal browser first.)",locFail:"Could not get your location. Check that location services are on and try again.",locFar:n=>"You seem to be far from Japan (nearest shop ~"+n.toLocaleString()+" km away), so the list is sorted by distance but the map was not moved.",nearOn:"📍 Nearest first (straight-line distance)",nearOff:"Sort by region",nearBack:"📍 Sort by distance",myLoc:"📍 My location",planGuide:"Pick where you are staying and how many days. Nearby shops are grouped into day routes.",pBase:"Staying in",pDays:"Days",pTrain:"🚆 Train + walk",pCar:"🚗 Car / taxi",pDay:n=>"Day "+n,pShopsN:n=>n+(n===1?" stop":" stops"),pShopT:"shopping",pTravelT:"travel",pShow:"Show on map",pAddAll:"Save this day",pPrint:"🖨 Print plan",pNote:"Times are rough estimates from straight-line distances. Check store hours and train times before you go. Shops are chosen by how many stores share a stop and how close they are to each other.",pNone:"No shops fit here with the current filters. Try car mode, a different base, or clear some filters.",pBack:m=>"back to your base ~"+m+" min",pStart:"from your base",tList:"Shop list",dataNotes:"Data notes & sources",fOn:"Filters are on, so some towns are hidden.",fClr:"Show all",listHint:"Pick a prefecture, or type a shop or town in the search box above.",tShort:"Shortlist",search:"Search a town, shop or item",allPref:"All prefectures",all:"All",
  none:"No stores match these filters.",guide:"<b>Where to spend your days.</b> Each row is a town with several shops close together — the more shops, the less time you lose on trains. Tap one to zoom in.",
  rank:"Rank by",rStops:"Most shops",rO:"Most Off House",rC:"Multi-shop spots",rHs:"Towns where many shops are close together — less time on trains.",rHO:"Towns with the most Off House stores (clothes, furniture, housewares).",rHc:"Towns with the most buildings that hold several shops under one roof.",mapS:"🗺 Show map",mapH:"Hide map",stops:"locations",shops:"shops",more:"Show more",
  smaller:n=>n+" smaller towns not listed — search or filter by prefecture to find them.",
  src:"Locations come from the official Hard Off, Book Off and Treasure Factory store finders (about 2,340 shops across Japan, plus about 260 specialty shops). Treasure Factory shows only its general stores so far. 2nd Street does not yet include Hokkaido and most of Tohoku and north Kanto, and only its main clothing and general stores are shown. Hours are as listed on each store page when collected (Nov 2026); stores open and close, so check before going. Nearest-station distances marked ≈ are straight-line estimates from a 2017 station list. This is an unofficial guide, not affiliated with Hard Off, Book Off or 2nd Street.",
- nothing:"Nothing yet.<br>Tap a dot on the map and press “Add to shortlist”.",remove:"remove",copy:"Copy list",copied:"Copied ✓",nocopy:"Copy not allowed here",clear:"Clear",
- page:"store page ↗",hrs:"check hours",inone:n=>" · "+n+" shops in one stop",inS:"✓ In shortlist",addS:"+ Add to shortlist",gmaps:"Google Maps ↗",close:"Close"},
-zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",bF:"Treasure Factory",lF:"Treasure Factory — 大型综合二手：家具、家电、服饰、玩具（关东、关西、中部、九州）",lX:"专门店（默认关闭）— Hobby Off 玩具模型、Mode Off 名牌二手、相机、乐器、工具、户外、Garage Off",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street — 以服饰为主的综合二手，多数可退税",filters:"筛选",rev:"照片与评价 ↗",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
- lO:"Off House — 衣物、家具、家居用品、杂货",lH:"Hard Off — 电器、音响、乐器、工具",lB:"Book Off — 书籍、漫画、CD、游戏",
- hunt:"想淘什么",openN:"现在营业（日本时间）",walk:"车站附近（步行≤10分钟）",pk:n=>"可停 "+n+" 辆车",wk:m=>"步行 "+m+" 分钟到 ",car:"1.5 公里内没有车站，建议自驾或打车",est:"估算",wkend:h=>"周末假日 "+h+" 起",catNote:"依据各店官方列出的商品类别。名牌 / 珠宝 / 手表类别不显示。",lNote:"分色圆圈 = 同一地点有多家店。圆圈越大 = 店越多。专门店（含 Mode Off 名牌二手）需手动打开才会显示。",
- tHubs:"挑选城镇",helpB:"帮助",hT:"如何使用这张地图",hw1t:"挑选城镇",hw1:"选一个城镇，地图上就会显示那里的店铺。店铺最多的城镇排在最前面。",hw2t:"浏览或搜索",hw2:"在“店铺列表”里选都道府县，或搜索物品（相机、和服、吉他）、车站、城镇。打开“营业中”可隐藏已打烊的店。📍 按钮按离你的远近排序。",hw3t:"规划行程",hw3:"点店铺可“导航”（谷歌地图）或发 WhatsApp。把喜欢的加入收藏清单，或用“行程规划”把附近的店排成每天的路线。",hOk:"知道了",oN:t=>`营业中 · 至 ${t}（日本时间）`,oC:t=>`已打烊 · ${t} 开门（日本时间）`,oX:"已打烊（日本时间）",gDay:"在谷歌地图打开当天路线",footT:"非官方地图，与 Hard Off、Book Off 无任何关联。",aboutL:"关于与隐私",abT:"关于这张地图",abSrc:"源代码、数据与问题反馈（GitHub）↗",ab1:"这是一张免费、非商业、非官方的地图，与 Hard Off Corporation、Book Off 集团及 2nd Street 没有关联，也未获其认可。Hard Off、Off House、Book Off、2nd Street 是各自所有者的商标，此处仅用于说明所显示的是哪些店铺。",ab2:"店铺名称、位置和营业时间来自各公司公开的门店页面，收集于 2026 年 11 月。每张店铺卡片都链接到官方页面，请以官方页面的最新营业时间、假日和关店信息为准；地图上的定位可能有些偏差，发现问题请点店铺上的 ⚑ 反馈。",ab3:"隐私：没有账号、广告、统计分析或 Cookie。你的收藏、酒店、语言和位置只保存在你自己的浏览器里，不会发送给我们。反馈只包含店铺和你输入的文字，请不要填写个人信息。",ab4:"铁路线仅为大致位置：JR 线路来自 2017 年的数据，新干线为手工绘制。实际路线请用谷歌地图。门店数据最后更新于 2026 年 11 月 11 日；店铺会开关，远行前请先查看门店页面。",hotelSet:"在地图上标出我的酒店",hotelMove:"重新标酒店位置",hotelTap:"请点击地图上你酒店的位置",hotelSaved:"酒店已保存，行程将从酒店出发。",pDayBase:"这一天的出发点",rep:"位置不对？反馈",repT:"哪里有问题？（可不填）",repSend:"发送",repOk:"谢谢，已收到反馈。",repFail:"发送失败，请稍后再试。",tPlan:"行程规划",locNo:"此浏览器无法获取你的位置。",locDenied:"位置权限被关闭。请在浏览器设置中允许本页面使用位置。（如果在 WhatsApp 等聊天软件里打开，请先改用手机自带浏览器打开链接。）",locFail:"无法获取你的位置，请确认已开启定位后再试。",locFar:n=>"你似乎不在日本附近（最近的店约 "+n.toLocaleString()+" 公里），列表已按距离排序，但地图没有移动。",nearOn:"📍 由近到远（直线距离）",nearOff:"改回按地区排序",nearBack:"📍 按距离排序",myLoc:"📍 我的位置",planGuide:"选择住宿的城市和购物天数，系统会把相近的店分成每天的路线，并遵守你当前的筛选条件（品牌、物品、车站附近）。",pBase:"住在",pDays:"天数",pTrain:"🚆 电车+步行",pCar:"🚗 自驾/打车",pDay:n=>"第 "+n+" 天",pShopsN:n=>n+" 个地点",pShopT:"逛店",pTravelT:"路上",pShow:"在地图上看",pAddAll:"整天加入收藏",pPrint:"🖨 打印行程",pNote:"时间按直线距离粗略估算，出发前请确认营业时间和电车时间。地点按“同一地点店数多”和“彼此距离近”来挑选。",pNone:"当前筛选下这里没有合适的店。可以试试自驾模式、换一个住宿城市或清除部分筛选。",pBack:m=>"返回住处约 "+m+" 分钟",pStart:"从住处出发",tList:"店铺列表",dataNotes:"数据说明与来源",fOn:"已启用筛选，部分城镇被隐藏。",fClr:"显示全部",listHint:"选择都道府县，或在上方搜索框输入店名 / 城镇。",tShort:"收藏清单",search:"搜索城镇、店名、物品（如 相机）",allPref:"全部县",all:"全部",
+ nothing:"Nothing saved yet.<br>Tap a shop on the map and press Save.",remove:"remove",copy:"Copy list",copied:"Copied ✓",nocopy:"Copy not allowed here",clear:"Clear",
+ page:"store page ↗",hrs:"check hours",inone:n=>" · "+n+" shops in one stop",inS:"♥ Saved",addS:"♡ Save",gmaps:"Google Maps ↗",close:"Close",tExplore:"Explore",tTrip:"My trip",tSaved:"Saved",tDayPlan:"Day plan",done:"Done",gShops:"Shops",gWhere:"Where",gMore:"Options",taxF:"Tax-free",taxN:"Tax-free information is available for 2nd Street shops only.",sReset:"Reset",showN:n=>"Show "+n.toLocaleString()+" shops",homeT:"Where are you going?",homeS:"Pick a town, or choose what you want to buy.",popT:"Popular towns",allP:"All prefectures",bk:"Back",nearT:"Near you",shareL:"🔗 Share link",linkCopied:"Link copied ✓",offOk:"Saved for offline use. The map now opens without internet.",nbT:"Also within a 10-minute walk",hol:"Closing days vary: see the store page."},
+zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",bF:"Treasure Factory",lF:"Treasure Factory",lX:"专门店（默认关闭）",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street",filters:"筛选",rev:"照片与评价",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
+ lO:"Off House",lH:"Hard Off",lB:"Book Off",
+ hunt:"想买什么",openN:"现在营业",walk:"靠近车站",pk:n=>"可停 "+n+" 辆车",wk:m=>"步行 "+m+" 分钟到 ",car:"1.5 公里内没有车站，建议自驾或打车",est:"估算",wkend:h=>"周末假日 "+h+" 起",catNote:"依据各店官方列出的商品类别。名牌 / 珠宝 / 手表类别不显示。",lNote:"分色圆圈 = 同一地点有多家店。圆圈越大 = 店越多。专门店（含 Mode Off 名牌二手）需手动打开才会显示。",
+ tHubs:"挑选城镇",helpB:"帮助",hT:"如何使用这张地图",hw1t:"选城镇或搜索",hw1:"点一个城镇，或在搜索框输入店名、车站、物品（相机、和服、吉他）。",hw2t:"点一家店",hw2:"点地图上的圆点或列表里的一行。“导航”会打开谷歌地图，“收藏”会存进你的行程。",hw3t:"规划行程",hw3:"打开“我的行程”查看收藏的店，或让它按你住的地方排好每天的路线。",hOk:"知道了",oN:t=>`营业中 · 至 ${t}（日本时间）`,oC:t=>`已打烊 · ${t} 开门（日本时间）`,oX:"已打烊（日本时间）",gDay:"在谷歌地图打开当天路线",footT:"非官方地图，与 Hard Off、Book Off 无任何关联。",aboutL:"关于与隐私",abT:"关于这张地图",abSrc:"源代码、数据与问题反馈（GitHub）↗",ab1:"这是一张免费、非商业、非官方的地图，与 Hard Off Corporation、Book Off 集团及 2nd Street 没有关联，也未获其认可。Hard Off、Off House、Book Off、2nd Street 是各自所有者的商标，此处仅用于说明所显示的是哪些店铺。",ab2:"店铺名称、位置和营业时间来自各公司公开的门店页面，收集于 2026 年 11 月。每张店铺卡片都链接到官方页面，请以官方页面的最新营业时间、假日和关店信息为准；地图上的定位可能有些偏差，发现问题请点店铺上的 ⚑ 反馈。",ab3:"隐私：没有账号、广告、统计分析或 Cookie。你的收藏、酒店、语言和位置只保存在你自己的浏览器里，不会发送给我们。反馈只包含店铺和你输入的文字，请不要填写个人信息。",ab4:"铁路线仅为大致位置：JR 线路来自 2017 年的数据，新干线为手工绘制。实际路线请用谷歌地图。门店数据最后更新于 2026 年 11 月 11 日；店铺会开关，远行前请先查看门店页面。",hotelSet:"在地图上标出我的酒店",hotelMove:"重新标酒店位置",hotelTap:"请点击地图上你酒店的位置",hotelSaved:"酒店已保存，行程将从酒店出发。",pDayBase:"这一天的出发点",rep:"位置不对？反馈",repT:"哪里有问题？（可不填）",repSend:"发送",repOk:"谢谢，已收到反馈。",repFail:"发送失败，请稍后再试。",tPlan:"行程规划",locNo:"此浏览器无法获取你的位置。",locDenied:"位置权限被关闭。请在浏览器设置中允许本页面使用位置。（如果在 WhatsApp 等聊天软件里打开，请先改用手机自带浏览器打开链接。）",locFail:"无法获取你的位置，请确认已开启定位后再试。",locFar:n=>"你似乎不在日本附近（最近的店约 "+n.toLocaleString()+" 公里），列表已按距离排序，但地图没有移动。",nearOn:"📍 由近到远（直线距离）",nearOff:"改回按地区排序",nearBack:"📍 按距离排序",myLoc:"📍 我的位置",planGuide:"选择住的地方和天数，附近的店会排成每天的路线。",pBase:"住在",pDays:"天数",pTrain:"🚆 电车+步行",pCar:"🚗 自驾/打车",pDay:n=>"第 "+n+" 天",pShopsN:n=>n+" 个地点",pShopT:"逛店",pTravelT:"路上",pShow:"在地图上看",pAddAll:"收藏这一天",pPrint:"🖨 打印行程",pNote:"时间按直线距离粗略估算，出发前请确认营业时间和电车时间。地点按“同一地点店数多”和“彼此距离近”来挑选。",pNone:"当前筛选下这里没有合适的店。可以试试自驾模式、换一个住宿城市或清除部分筛选。",pBack:m=>"返回住处约 "+m+" 分钟",pStart:"从住处出发",tList:"店铺列表",dataNotes:"数据说明与来源",fOn:"已启用筛选，部分城镇被隐藏。",fClr:"显示全部",listHint:"选择都道府县，或在上方搜索框输入店名 / 城镇。",tShort:"收藏清单",search:"搜索城镇、店名或物品",allPref:"全部县",all:"全部",
  none:"没有符合条件的门店。",guide:"<b>时间花在哪里最划算。</b>每一行是一个门店集中的城镇——店越多，花在交通上的时间越少。点击即可放大。",
  rank:"排序",rStops:"店最多",rO:"Off House 最多",rC:"多店同址",rHs:"店铺集中的城镇，花在交通上的时间少。",rHO:"Off House（衣物、家具、家居用品）最多的城镇。",rHc:"同一栋楼里有多家店的地点最多的城镇。",mapS:"🗺 显示地图",mapH:"隐藏地图",stops:"个地点",shops:"家店",more:"显示更多",
  smaller:n=>"另有 "+n+" 个较小的城镇未列出——请搜索或按县筛选。",
  src:"位置数据来自 Hard Off、Book Off 与 Treasure Factory 官方门店查询（全日本约 2,340 家店，另有约 260 家专门店；Treasure Factory 目前仅收录综合店）。2nd Street 暂未收录北海道、东北大部分及关东北部，且只收录主要的服饰与综合店。数据收集于 2026 年 11 月，门店可能有变动，出发前请查看门店页面。标有 ≈ 的车站距离为直线估算（车站数据为 2017 年版）。本页为非官方指南，与 Hard Off、Book Off、2nd Street 无关联。",
- nothing:"还没有收藏。<br>点击地图上的圆点，再按“加入收藏”。",remove:"移除",copy:"复制清单",copied:"已复制 ✓",nocopy:"此处无法复制",clear:"清空",
- page:"门店页面 ↗",hrs:"请查看营业时间",inone:n=>" · 同一地点 "+n+" 家店",inS:"✓ 已收藏",addS:"+ 加入收藏",gmaps:"谷歌地图 ↗",close:"关闭"}
+ nothing:"还没有收藏。<br>点地图上的店，再按“收藏”。",remove:"移除",copy:"复制清单",copied:"已复制 ✓",nocopy:"此处无法复制",clear:"清空",
+ page:"门店页面 ↗",hrs:"请查看营业时间",inone:n=>" · 同一地点 "+n+" 家店",inS:"♥ 已收藏",addS:"♡ 收藏",gmaps:"谷歌地图 ↗",close:"关闭",tExplore:"探索",tTrip:"我的行程",tSaved:"已收藏",tDayPlan:"每日路线",done:"完成",gShops:"店铺类型",gWhere:"地区",gMore:"更多选项",taxF:"可退税",taxN:"仅 2nd Street 提供退税信息。",sReset:"重置",showN:n=>"查看 "+n.toLocaleString()+" 家店",homeT:"你要去哪里？",homeS:"选一个城镇，或选想买的东西。",popT:"热门城镇",allP:"全部都道府县",bk:"返回",nearT:"离你最近",shareL:"🔗 分享链接",linkCopied:"链接已复制 ✓",offOk:"已保存，没有网络时也能打开这张地图。",nbT:"步行 10 分钟内还有",hol:"休息日各店不同，请查看门店页面。"}
 };
 let LANG="zh";try{LANG=localStorage.getItem("hsm_lang")||"zh"}catch(e){}
 const tr=k=>TX[LANG][k];
@@ -366,7 +393,7 @@ spots.forEach(sp=>{sp.br=ORDER.filter(b=>sp.st.some(s=>s.b===b));const o=sp.st.f
 
 const CF={};stores.forEach(s=>(s.cat||"").split("").forEach(k=>CF[k]=(CF[k]||0)+1));
 // ---- state -------------------------------------------------------------
-const S={cat:new Set(),walk:false,open:false,br:new Set(["O","H","B","S","F"]),reg:-1,pref:-1,q:"",tab:"hubs",sel:null,sort:"spots",short:[],more:30};
+const S={cat:new Set(),walk:false,open:false,br:new Set(["O","H","B","S","F"]),reg:-1,pref:-1,q:"",tab:"hubs",sel:null,sort:"spots",short:[],more:30,town:null,pv:false,trip:"saved",tax:false};
 try{S.short=JSON.parse(localStorage.getItem("hsm_short")||"[]")}catch(e){}
 const $=id=>document.getElementById(id);
 const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
@@ -377,6 +404,7 @@ function match(sp){
   const p=PREF[sp.pi];
   if(S.reg>=0&&p[2]!==S.reg)return false;
   if(S.pref>=0&&sp.pi!==S.pref)return false;
+  if(S.town&&S.town!==sp.pi+"|"+(PREF[sp.pi][1]==="Tokyo"?"東京":sp.city))return false;
   if(S.q){const hs=hay(sp),h2=hs.replace(/[\s\-·・]/g,"");if(!S.q.toLowerCase().split(/\s+/).every(w=>hs.includes(w)||h2.includes(w.replace(/[\-·・]/g,""))))return false}
   return true;
 }
@@ -388,7 +416,7 @@ function hay(sp){
 }
 function view(){
   const out=[];
-  spots.forEach(sp=>{if(!match(sp))return;const st=sp.st.filter(s=>S.br.has(s.b)&&(!S.cat.size||[...S.cat].some(k=>s.cat.includes(k)))&&(!S.walk||(s.walk!=null&&s.walk<=10))&&(!S.open||(openSt({st:[s]})||{}).on));if(!st.length)return;out.push({sp,st,br:ORDER.filter(b=>st.some(s=>s.b===b))})});
+  spots.forEach(sp=>{if(!match(sp))return;const st=sp.st.filter(s=>S.br.has(s.b)&&(!S.cat.size||[...S.cat].some(k=>s.cat.includes(k)))&&(!S.walk||(s.walk!=null&&s.walk<=10))&&(!S.tax||s.tf)&&(!S.open||(openSt({st:[s]})||{}).on));if(!st.length)return;out.push({sp,st,br:ORDER.filter(b=>st.some(s=>s.b===b))})});
   return out;
 }
 function hubsOf(v){
@@ -550,13 +578,16 @@ function card0(){
   const tags=ck.length?`<div class="tags">${ck.slice(0,6).map(k=>`<span class="tag${hit.includes(k)?" hit":""}">${CAT[k][0]} ${cn(k)}</span>`).join("")}${ck.length>6?`<span class="tag more">+${ck.length-6}</span>`:""}</div>`:"";
   const f=[];if(sp.walk!=null)if(sp.walk==null)f.push(`<span>🚗 ${tr("car")}</span>`);if(sp.walk!=null)f.push(`<span>🚶 ${sp.ap?"≈ ":""}${tr("wk")(sp.walk)}${sp.stn}${sp.ap?" · "+tr("est"):""}</span>`);if(sp.pk)f.push(`<span>🅿️ ${tr("pk")(sp.pk)}</span>`);if(sp.late)f.push(`<span>🌙 ${tr("late")}</span>`);{const os=openSt(sp);if(os)f.unshift(os.on?`<span>🟢 ${tr("oN")(os.t)}</span>`:`<span>🔴 ${os.t?tr("oC")(os.t):tr("oX")}</span>`)}
   const facts=f.length?`<div class="facts">${f.join("")}</div>`:"";
-  c.innerHTML=`<button class="x" id="cx" aria-label="${tr('close')}">×</button><h3>${sp.name}</h3><div class="sub">${cityN(sp.city)} · ${pn(sp.pi)}${sp.st.length>1?tr("inone")(sp.st.length):""}</div>${rows}${facts}${tags}<div class="acts"><button class="btn pri" id="cadd">${inS?tr("inS"):tr("addS")}</button><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/${encodeURIComponent(BR[sp.st[0].b].j+" "+sp.name+" "+sp.city)}/@${sp.lat},${sp.lng},17z">${tr("rev")}</a><a class="btn" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${pinQ(sp)}">🧭 ${tr("nav")}</a><a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(BR[sp.st[0].b].n+" "+sp.name+" ("+sp.city+")\n📍 "+pinUrl(sp)+(baseUrl()?"\n🗺 "+baseUrl()+"#s="+sp.k+(LANG==="en"?"&l=en":""):""))}">💬 ${tr("wa")}</a>${CANREP?`<button class="btn" id="crep">⚑ ${tr("rep")}</button>`:""}</div><div class="rep" id="repbox" hidden><input id="repn" maxlength="200" placeholder="${tr("repT")}"><button class="btn pri" id="reps">${tr("repSend")}</button></div>`;
+  const nbs=spots.filter(q=>q!==sp&&q.st.some(s=>S.br.has(s.b))).map(q=>({q,d:hk(sp,q)})).filter(o=>o.d<=0.8).sort((a,b)=>a.d-b.d).slice(0,3);
+  const nbh=nbs.length?`<div class="nb"><b>${tr("nbT")}</b>${nbs.map(o=>`<a data-nb="${o.q.k}">${dotsHTML(o.q.br)} ${o.q.name} <small>${Math.round(o.d*1000/10)*10} m</small></a>`).join("")}</div>`:"";
+  c.innerHTML=`<button class="x" id="cx" aria-label="${tr('close')}">×</button><h3>${sp.name}</h3><div class="sub">${cityN(sp.city)} · ${pn(sp.pi)}${sp.st.length>1?tr("inone")(sp.st.length):""}</div>${rows}<div class="acts"><a class="btn pri" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=${pinQ(sp)}">🧭 ${tr("nav")}</a><button class="btn" id="cadd">${inS?tr("inS"):tr("addS")}</button></div>${facts}${tags}${nbh}<div class="acts2"><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/${encodeURIComponent(BR[sp.st[0].b].j+" "+sp.name+" "+sp.city)}/@${sp.lat},${sp.lng},17z">${tr("rev")}</a><a target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(BR[sp.st[0].b].n+" "+sp.name+" ("+sp.city+")\n📍 "+pinUrl(sp)+(baseUrl()?"\n🗺 "+baseUrl()+"#s="+sp.k+(LANG==="en"?"&l=en":""):""))}">${tr("wa")}</a>${CANREP?`<button id="crep">⚑ ${tr("rep")}</button>`:""}</div><div class="rep" id="repbox" hidden><input id="repn" maxlength="200" placeholder="${tr("repT")}"><button class="btn pri" id="reps">${tr("repSend")}</button></div>`;
   c.className="card on";
   if(CANREP){$("crep").onclick=()=>{$("repbox").hidden=!$("repbox").hidden;if(!$("repbox").hidden)$("repn").focus()};
     $("reps").onclick=()=>{const b=$("reps");b.disabled=true;const body=new URLSearchParams({"form-name":"report",store:sp.k+" "+BR[sp.st[0].b].j+" "+sp.name+" "+sp.city,coords:sp.lat+","+sp.lng,note:$("repn").value}).toString();
       fetch("/",{method:"POST",headers:{"Content-Type":"application/x-www-form-urlencoded"},body}).then(r=>{if(!r.ok)throw 0;toast(tr("repOk"));$("repbox").hidden=true}).catch(()=>toast(tr("repFail"))).finally(()=>{b.disabled=false})}}
   $("cx").onclick=()=>{S.sel=null;card();draw()};
   $("cadd").onclick=()=>toggleShort(sp.k);
+  c.querySelectorAll("[data-nb]").forEach(a=>a.onclick=()=>select(a.dataset.nb,true));
 }
 function jst(){const p={};new Intl.DateTimeFormat("en-US",{timeZone:"Asia/Tokyo",weekday:"short",hour:"2-digit",minute:"2-digit",hour12:false}).formatToParts(new Date()).forEach(x=>p[x.type]=x.value);return{wk:p.weekday==="Sat"||p.weekday==="Sun",m:(+p.hour%24)*60+ +p.minute}}
 function openSt(sp){const s=sp.st.find(s=>s.hrs);if(!s)return null;const m=s.hrs.match(/(\d{1,2}):(\d{2}).*?[–-]\s*(\d{1,2}):(\d{2})\s*$/);if(!m)return null;
@@ -597,7 +628,7 @@ function locate(){
   const b=$("loc");b.classList.add("busy");
   navigator.geolocation.getCurrentPosition(pos=>{
     b.classList.remove("busy");
-    S.me={lat:pos.coords.latitude,lng:pos.coords.longitude};S.near=true;S.tab="list";S.sel=null;card();
+    S.me={lat:pos.coords.latitude,lng:pos.coords.longitude};S.near=true;S.tab="hubs";S.sel=null;card();
     const ds=view().map(e=>({sp:e.sp,d:hk(S.me,e.sp)})).sort((a,b)=>a.d-b.d);
     if(ds.length&&ds[0].d>150)toast(tr("locFar")(Math.round(ds[0].d)));
     else if(ds.length)focusOn(ds.slice(0,5).map(o=>o.sp).concat([meXY()]),6);
@@ -642,7 +673,7 @@ function planBuild(){
 }
 function routeDraw(){
   const g=$("route");if(!g)return;
-  if(!S.route||S.tab!=="plan"){g.innerHTML="";return}
+  if(!S.route||!(S.tab==="trip"&&S.trip==="plan")){g.innerHTML="";return}
   const s=size(),u=VB.w/s.w,pts=S.route,B=S.routeBase;
   const full=B?[B].concat(pts,[B]):pts;
   const path=full.map((q,i)=>(i?"L":"M")+q.x+" "+q.y).join("");
@@ -665,7 +696,7 @@ function planPanel(el){
     d.ord.map((sp,j)=>`<div class="row" data-k="${sp.k}"><span class="t"><span class="num">${j+1}</span>${sp.name}</span>${dotsHTML(sp.br)}<span class="s">${j===0?tr("pStart")+" · ":""}${d.legs[j].km.toFixed(1)} km · ~${d.legs[j].min} min · ${cityN(sp.city)}</span><span class="s" style="text-align:right">${sp.walk!=null?"🚶"+(sp.ap?"≈":"")+sp.walk+"′ "+sp.stn:"🚗"}</span></div>`).join("")+
     `<div class="s" style="padding:2px 16px 6px">${tr("pBack")(d.backMin)}</div><div class="acts" style="padding:0 16px 12px"><button class="btn pri" data-show="${i}">${tr("pShow")}</button><a class="btn" target="_blank" rel="noopener" href="${dayGM(d)}">🗺 ${tr("gDay")}</a><button class="btn" data-addd="${i}">${tr("pAddAll")}</button><a class="btn" target="_blank" rel="noopener" href="https://wa.me/?text=${encodeURIComponent(dayText(d,i)+"\n\n"+dayGM(d))}">💬 ${tr("wa")}</a></div></div>`;
   });
-  h+=`<div class="note">${tr("pNote")}</div>`+(days.length?`<div class="acts" style="padding:0 16px 16px"><button class="btn" id="pp">${tr("pPrint")}</button></div>`:"");
+  h+=`<div class="note">${tr("pNote")}</div>`+(days.length?`<div class="acts" style="padding:0 16px 16px"><button class="btn pri" id="psh">${tr("shareL")}</button><button class="btn" id="pp">${tr("pPrint")}</button></div>`:"");
   el.innerHTML=h;
   $("pb").onchange=e=>{S.plan.b=+e.target.value;S.plan.db={};S.route=null;panel()};
   el.querySelectorAll("[data-dbs]").forEach(s=>s.onchange=e=>{S.plan.db[+s.dataset.dbs]=+e.target.value;S.route=null;panel()});
@@ -676,52 +707,70 @@ function planPanel(el){
   el.querySelectorAll("[data-show]").forEach(b=>b.onclick=()=>{const d=days[+b.dataset.show];{const Bb=BA()[d.bi]||BA()[0],q=meXY({lat:Bb[2],lng:Bb[3]});S.routeBase={x:q.x,y:q.y,n:bn(Bb)}}S.route=d.ord;S.sel=null;card();focusOn(d.ord.concat([S.routeBase]),26);if(matchMedia("(max-width:900px)").matches)$("mapwrap").scrollIntoView({behavior:"smooth",block:"start"})});
   el.querySelectorAll("[data-addd]").forEach(b=>b.onclick=()=>{days[+b.dataset.addd].ord.forEach(sp=>{if(!S.short.includes(sp.k))S.short.push(sp.k)});try{localStorage.setItem("hsm_short",JSON.stringify(S.short))}catch(e){}$("sc").textContent=`(${S.short.length})`;b.textContent="✓";draw()});
   const pp=$("pp");if(pp)pp.onclick=()=>window.print();
+  const psh=$("psh");if(psh)psh.onclick=()=>{const u=baseUrl();if(!u){toast(tr("nocopy"));return}shareLink(u+"#t=plan&pb="+(S.plan.b<BASES.length?S.plan.b:0)+"&pd="+S.plan.d+"&pc="+(S.plan.car?1:0)+(LANG==="en"?"&l=en":""),"")};
   routeDraw();
 }
 // ---- side panel --------------------------------------------------------
 function dotsHTML(br){return `<span class="dots">${br.map(b=>`<i style="background:var(${BR[b].v})"></i>`).join("")}</span>`}
+function townName(k){return cityN(k.split("|").slice(1).join("|"))}
+function resMode(){return !!(S.town||S.q||S.pref>=0||S.reg>=0||S.cat.size||(S.me&&S.near))}
+function clearSearch(){S.town=null;S.q="";$("q").value="";S.pref=-1;S.reg=-1;S.cat.clear();S.near=false;S.pv=false;buildReg();fillPref();buildCats();refresh(true)}
+function shareLink(url,text){
+  if(navigator.share){navigator.share({title:tr("h1t"),text:text||"",url}).catch(()=>{});return}
+  try{navigator.clipboard.writeText(url).then(()=>toast(tr("linkCopied")),()=>toast(url))}catch(e){toast(url)}
+}
+function exploreHome(el,v){
+  const hs=hubsOf(v).slice(0,12),mx=Math.max(1,...hs.map(h=>h.stores));
+  const buy="AGYMWCFE".split("").map(k=>`<button class="cat" data-buy="${k}">${CAT[k][0]} ${cn(k)}</button>`).join("");
+  el.innerHTML=`<div class="hero"><h2>${tr("homeT")}</h2><p>${tr("homeS")}</p></div><div class="lbl pad">${tr("hunt")}</div><div class="buy">${buy}</div><div class="lbl pad">${tr("popT")}</div>`+
+   (hs.length?hs.map(h=>`<div class="hub" data-h="${h.key}"><span class="t">${cityN(h.city)}<small>${pn(h.pi)}</small></span><span class="c">${h.stores} ${tr("shops")}</span><div class="bar" style="width:${Math.max(8,h.stores/mx*100)}%">${ORDER.map(b=>h.n[b]?`<span style="flex:${h.n[b]};background:var(${BR[b].v})"></span>`:"").join("")}</div></div>`).join(""):`<div class="empty">${tr("none")}</div>`)+
+   `<div class="row" id="allp"><span class="t">${tr("allP")}</span><span class="s" style="text-align:right">›</span></div><div class="fine">${tr("footT")} <a href="#about" data-about>${tr("aboutL")}</a></div>`;
+  el.querySelectorAll(".hub").forEach(r=>r.onclick=()=>{S.town=r.dataset.h;S.q="";$("q").value="";S.pv=false;showMap(true);refresh(true);if(NAR)try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}});
+  el.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{S.cat=new Set([b.dataset.buy]);buildCats();refresh(true)});
+  $("allp").onclick=()=>{S.pv=true;panel()};
+}
+function explorePrefs(el,v){
+  const cnt={};v.forEach(e=>cnt[e.sp.pi]=(cnt[e.sp.pi]||0)+1);
+  el.innerHTML=`<div class="rh"><button class="ghost" id="rback">‹ ${tr("bk")}</button><span><b>${tr("allP")}</b></span></div>`+Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]).map(pi=>`<div class="row" data-pf="${pi}"><span class="t">${pn(+pi)}</span><span class="s" style="text-align:right">${cnt[pi]} ${tr("stops")} ›</span></div>`).join("");
+  $("rback").onclick=()=>{S.pv=false;panel()};
+  el.querySelectorAll("[data-pf]").forEach(r=>r.onclick=()=>{S.pref=+r.dataset.pf;$("prefSel").value=S.pref;S.pv=false;refresh(true)});
+}
+function exploreResults(el,v){
+  if(S.me)v.forEach(e=>{e.d=hk(S.me,e.sp)});
+  const rows=v.slice().sort((a,b)=>S.me&&S.near?a.d-b.d:a.sp.pi-b.sp.pi||a.sp.city.localeCompare(b.sp.city,"ja"));
+  const n=v.reduce((t,e)=>t+e.st.length,0);
+  const title=S.town?townName(S.town):S.q?"“"+S.q+"”":S.cat.size?[...S.cat].map(cn).join(", "):S.pref>=0?pn(S.pref):S.reg>=0?(LANG==="zh"?REGZ:REG)[S.reg]:tr("nearT");
+  const head=`<div class="rh"><button class="ghost" id="rback">‹ ${tr("bk")}</button><span><b>${title}</b> · ${n.toLocaleString()} ${tr("shops")}</span></div>`;
+  if(!rows.length){el.innerHTML=head+'<div class="empty">'+tr("none")+'</div>';$("rback").onclick=clearSearch;return}
+  const bar=S.me&&S.near?`<div class="nearbar"><span>${tr("nearOn")}</span></div>`:"";
+  el.innerHTML=head+bar+rows.slice(0,S.more).map(e=>{const os=openSt(e.sp);return `<div class="row" data-k="${e.sp.k}"><span class="t">${os?(os.on?"🟢 ":"🔴 "):""}${e.sp.name}${e.sp.walk!=null&&e.sp.walk<=10?`<span class="badge">🚶${e.sp.walk}′</span>`:""}</span>${dotsHTML(e.br)}<span class="s">${cityN(e.sp.city)} · ${pn(e.sp.pi)}</span><span class="s" style="text-align:right">${S.me&&S.near?`<span class="dist">${fmtD(e.d)}</span> · `:""}${e.sp.hrs||""}</span></div>`}).join("")+(rows.length>S.more?`<button class="ghost more" id="more">${tr("more")} (${rows.length-S.more})</button>`:"");
+  $("rback").onclick=clearSearch;
+  el.querySelectorAll(".row").forEach(r=>r.onclick=()=>select(r.dataset.k,true));
+  const m=$("more");if(m)m.onclick=()=>{S.more+=40;panel()};
+}
+function savedPanel(el){
+  const sh=S.short.map(k=>spots.find(q=>q.k===k)).filter(Boolean);
+  if(!sh.length){el.innerHTML='<div class="empty">'+tr("nothing")+'</div>';return}
+  el.innerHTML=sh.map(sp=>`<div class="row" data-k="${sp.k}"><span class="t">${sp.name}</span>${dotsHTML(sp.br)}<span class="s">${cityN(sp.city)} · ${pn(sp.pi)}</span><span class="s" style="text-align:right"><a href="#" data-r="${sp.k}">${tr("remove")}</a></span></div>`).join("")+`<div class="acts" style="padding:12px 16px"><button class="btn pri" id="shshare">${tr("shareL")}</button><a class="btn" id="shwa" target="_blank" rel="noopener">💬 ${tr("wa")}</a><button class="btn" id="copy">${tr("copy")}</button><button class="btn" id="clr">${tr("clear")}</button></div>`;
+  el.querySelectorAll(".row").forEach(r=>r.onclick=e=>{if(e.target.dataset.r){e.preventDefault();toggleShort(e.target.dataset.r)}else select(r.dataset.k,true)});
+  const link=baseUrl()?baseUrl()+"#sl="+sh.map(q=>q.k).join(",")+(LANG==="en"?"&l=en":""):"";
+  $("shwa").href="https://wa.me/?text="+encodeURIComponent(sh.map((sp,i)=>`${i+1}. ${sp.name}（${sp.city}）\n   ${pinUrl(sp)}`).join("\n")+(link?"\n\n🗺 "+link:""));
+  $("shshare").onclick=()=>link?shareLink(link,sh.map(sp=>sp.name).join(", ")):toast(tr("nocopy"));
+  $("clr").onclick=()=>{S.short=[];try{localStorage.setItem("hsm_short","[]")}catch(e){}panel();draw()};
+  $("copy").onclick=()=>{const t=sh.map(sp=>`${sp.name}（${sp.city}, ${pn(sp.pi)}） ${sp.br.map(b=>BR[b].n).join("+")} ${pinUrl(sp)}`).join("\n");try{navigator.clipboard.writeText(t).then(()=>{$("copy").textContent=tr("copied")})}catch(e){$("copy").textContent=tr("nocopy")}};
+}
 function panel(){
   const v=view(),el=$("panel");
   $("sc").textContent=S.short.length?`(${S.short.length})`:"";
   document.querySelectorAll(".tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===S.tab));
-  document.documentElement.classList.toggle("pp",S.tab==="plan");if(S.tab!=="plan"&&S.route){S.route=null}routeDraw();
+  const inPlan=S.tab==="trip"&&S.trip==="plan";
+  document.documentElement.classList.toggle("pp",inPlan);if(!inPlan&&S.route){S.route=null}routeDraw();
   if(S.tab==="hubs"){
-    const hs=hubsOf(v);
-    if(!hs.length){el.innerHTML='<div class="empty">'+tr("none")+'</div>';return}
-    const top=hs.slice(0,40),mx=Math.max(...top.map(h=>h.stores));
-    el.innerHTML=`<div class="guide">${tr("guide")}</div>
-    <div class="sortrow">${tr("rank")}
-      <div class="seg" id="sortSeg"><button data-s="spots" aria-pressed="${S.sort==="spots"}">${tr("rStops")}</button><button data-s="O" aria-pressed="${S.sort==="O"}">${tr("rO")}</button><button data-s="combo" aria-pressed="${S.sort==="combo"}">${tr("rC")}</button></div></div><div class="note" style="border:0;padding:0 16px 8px">${tr(S.sort==="O"?"rHO":S.sort==="combo"?"rHc":"rHs")}</div>`+
-      top.map((h,i)=>`<div class="hub" data-h="${h.key}"><span class="n">${i+1}</span><span class="t">${cityN(h.city)}<small>${pn(h.pi)}</small></span><span class="c">${h.spots.length} ${tr("stops")} · ${h.stores} ${tr("shops")}</span><div class="bar" style="width:${Math.max(8,h.stores/mx*100)}%;grid-column:2/4">${ORDER.map(b=>h.n[b]?`<span style="flex:${h.n[b]};background:var(${BR[b].v})"></span>`:"").join("")}</div></div>`).join("")+
-      (hs.length>40?`<div class="note">${tr("smaller")(hs.length-40)}</div>`:"")+
-      `<details class="note"><summary>${tr("dataNotes")}</summary>${tr("src")} ${tr("catNote")}</details>`;
-    const fon=S.pref>=0||S.reg>=0||S.q||S.cat.size||S.walk||S.open||S.br.size!==5||S.br.has("X");
-    if(fon)el.insertAdjacentHTML("afterbegin",`<div class="fbar"><span>${tr("fOn")}</span><button class="ghost" id="fclr">${tr("fClr")}</button></div>`);
-    const fc=$("fclr");if(fc)fc.onclick=()=>{S.pref=-1;S.reg=-1;S.q="";$("q").value="";S.cat.clear();S.walk=false;S.open=false;S.br=new Set(["O","H","B","S","F"]);ORDER.forEach(b=>$("c"+b).setAttribute("aria-pressed",S.br.has(b)));$("walk").setAttribute("aria-pressed","false");$("openn").setAttribute("aria-pressed","false");$("prefSel").value=-1;applyLang();refresh(true)};
-    el.querySelectorAll(".hub").forEach(r=>r.onclick=()=>{const h=hs.find(x=>x.key===r.dataset.h);showMap(true);focusOn(h.spots.map(e=>e.sp),30);VB.w=Math.max(VB.w,W0/14);apply();if(NAR)try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}});
-    el.querySelectorAll("#sortSeg button").forEach(b=>b.onclick=()=>{S.sort=b.dataset.s;panel()});
-  }else if(S.tab==="plan"){planPanel(el)
-  }else if(S.tab==="list"){
-    if(S.me)v.forEach(e=>{e.d=hk(S.me,e.sp)});
-    const rows=v.slice().sort((a,b)=>S.me&&S.near?a.d-b.d:a.sp.pi-b.sp.pi||a.sp.city.localeCompare(b.sp.city,"ja"));
-    const bar=S.me?`<div class="nearbar"><span>${S.near?tr("nearOn"):""}</span><button class="ghost" id="nearbtn">${S.near?tr("nearOff"):tr("nearBack")}</button></div>`:"";
-    if(!rows.length){el.innerHTML='<div class="empty">'+tr("none")+'</div>';return}
-    if(!(S.q||S.pref>=0||S.reg>=0||(S.me&&S.near))){
-      const cnt={};rows.forEach(e=>cnt[e.sp.pi]=(cnt[e.sp.pi]||0)+1);
-      el.innerHTML=`<div class="empty" style="padding:10px 16px">${tr("listHint")}</div>`+Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]).map(pi=>`<div class="row" data-pf="${pi}"><span class="t">${pn(+pi)}</span><span class="s" style="text-align:right">${cnt[pi]} ${tr("stops")} ›</span></div>`).join("");
-      el.querySelectorAll("[data-pf]").forEach(r=>r.onclick=()=>{S.pref=+r.dataset.pf;$("prefSel").value=S.pref;refresh(true)});return}
-    el.innerHTML=bar+rows.slice(0,S.more).map(e=>`<div class="row" data-k="${e.sp.k}"><span class="t">${e.sp.name}${e.sp.walk!=null&&e.sp.walk<=10?`<span class="badge">🚶${e.sp.walk}′</span>`:""}</span>${dotsHTML(e.br)}<span class="s">${cityN(e.sp.city)} · ${pn(e.sp.pi)}</span><span class="s" style="text-align:right">${S.me&&S.near?`<span class="dist">${fmtD(e.d)}</span> · `:""}${e.sp.hrs||""}</span></div>`).join("")+(rows.length>S.more?`<button class="ghost more" id="more">${tr("more")} (${rows.length-S.more})</button>`:"");
-    el.querySelectorAll(".row").forEach(r=>r.onclick=()=>select(r.dataset.k,true));
-    const m=$("more");if(m)m.onclick=()=>{S.more+=40;panel()};
-    const nb=$("nearbtn");if(nb)nb.onclick=()=>{S.near=!S.near;panel()};
+    if(S.pv&&!resMode())explorePrefs(el,v);else if(resMode())exploreResults(el,v);else exploreHome(el,v);
   }else{
-    const sh=S.short.map(k=>spots.find(q=>q.k===k)).filter(Boolean);
-    if(!sh.length){el.innerHTML='<div class="empty">'+tr("nothing")+'</div>';return}
-    el.innerHTML=sh.map(sp=>`<div class="row" data-k="${sp.k}"><span class="t">${sp.name}</span>${dotsHTML(sp.br)}<span class="s">${cityN(sp.city)} · ${pn(sp.pi)}</span><span class="s" style="text-align:right"><a href="#" data-r="${sp.k}">${tr("remove")}</a></span></div>`).join("")+`<div class="acts" style="padding:12px 16px"><button class="btn pri" id="copy">${tr("copy")}</button><button class="btn" id="clr">${tr("clear")}</button><a class="btn" id="shwa" target="_blank" rel="noopener">💬 ${tr("wa")}</a></div>`;
-    el.querySelectorAll(".row").forEach(r=>r.onclick=e=>{if(e.target.dataset.r){e.preventDefault();toggleShort(e.target.dataset.r)}else select(r.dataset.k,true)});
-    $("shwa").href="https://wa.me/?text="+encodeURIComponent(sh.map((sp,i)=>`${i+1}. ${sp.name}（${sp.city}）\n   ${pinUrl(sp)}`).join("\n")+(baseUrl()?"\n\n🗺 "+baseUrl()+"#sl="+sh.map(q=>q.k).join(",")+(LANG==="en"?"&l=en":""):""));
-    $("clr").onclick=()=>{S.short=[];try{localStorage.setItem("hsm_short","[]")}catch(e){}panel();draw()};
-    $("copy").onclick=()=>{const t=sh.map(sp=>`${sp.name}（${sp.city}, ${pn(sp.pi)}） ${sp.br.map(b=>BR[b].n).join("+")} ${pinUrl(sp)}`).join("\n");try{navigator.clipboard.writeText(t).then(()=>{$("copy").textContent=tr("copied")})}catch(e){$("copy").textContent=tr("nocopy")}};
+    if(inPlan)planPanel(el);else savedPanel(el);
+    el.insertAdjacentHTML("afterbegin",`<div class="tripseg"><div class="seg" id="tseg"><button data-v="saved" aria-pressed="${S.trip==="saved"}">${tr("tSaved")}${S.short.length?" ("+S.short.length+")":""}</button><button data-v="plan" aria-pressed="${S.trip==="plan"}">${tr("tDayPlan")}</button></div></div>`);
+    el.querySelectorAll("#tseg button").forEach(b=>b.onclick=()=>{S.trip=b.dataset.v;S.route=null;panel()});
   }
 }
 document.querySelectorAll(".tabs button").forEach(b=>b.onclick=()=>{S.tab=b.dataset.tab;panel()});
@@ -740,8 +789,14 @@ function fillPref(){
   const sel=$("prefSel");sel.innerHTML=`<option value="-1">${tr("allPref")}</option>`+PREF.map((p,i)=>({p,i})).filter(o=>S.reg<0||o.p[2]===S.reg).sort((a,b)=>LANG==="zh"?a.i-b.i:a.p[1].localeCompare(b.p[1])).map(o=>`<option value="${o.i}">${LANG==="zh"?o.p[0]:o.p[1]+" "+o.p[0]}</option>`).join("");sel.value=S.pref;
 }
 $("prefSel").onchange=e=>{S.pref=+e.target.value;refresh(true)};
-$("ftog").onclick=()=>document.querySelector(".app").classList.toggle("fo");
-let qt;$("q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();refresh(true)},180)};
+$("ftog").onclick=()=>{$("sheet").hidden=false};
+const sheetClose=()=>{$("sheet").hidden=true};
+$("sclose").onclick=sheetClose;$("sdone").onclick=sheetClose;$("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))sheetClose()});
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)sheetClose()});
+$("taxf").onclick=()=>{S.tax=!S.tax;$("taxf").setAttribute("aria-pressed",S.tax);refresh(true)};
+$("sreset").onclick=()=>{S.pref=-1;S.reg=-1;S.cat.clear();S.walk=false;S.open=false;S.tax=false;S.br=new Set(["O","H","B","S","F"]);ORDER.forEach(b=>$("c"+b).setAttribute("aria-pressed",S.br.has(b)));["walk","openn","taxf"].forEach(i=>$(i).setAttribute("aria-pressed","false"));buildReg();fillPref();buildCats();refresh(true)};
+function fcount(){let n=0;if(S.br.size!==5||S.br.has("X"))n++;if(S.reg>=0||S.pref>=0)n++;n+=S.cat.size;if(S.walk)n++;if(S.open)n++;if(S.tax)n++;$("ftog").textContent=tr("filters")+(n?" · "+n:"");$("ftog").classList.toggle("on",n>0);}
+let qt;$("q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();S.pv=false;refresh(true)},180)};
 $("theme").onclick=()=>{
   const dark=(document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))==="dark";
   document.documentElement.dataset.theme=dark?"light":"dark";draw();
@@ -749,7 +804,7 @@ $("theme").onclick=()=>{
 function refresh(refit){
   const v=view();
   $("kS").textContent=v.reduce((t,e)=>t+e.st.length,0);$("kP").textContent=v.length;$("kC").textContent=v.filter(e=>e.br.length>1).length;$("kH").textContent=hubsOf(v).length;
-  S.more=30;
+  S.more=30;fcount();$("sdone").textContent=tr("showN")(v.reduce((t,e)=>t+e.st.length,0));
   if(S.sel&&!v.some(e=>e.sp.k===S.sel)){S.sel=null;card()}
   if(refit)resetView();else draw();
   panel();writeHash();
@@ -771,7 +826,7 @@ function applyLang(){
   $("h1s").textContent=tr("h1s");$("h1t").textContent=tr("h1t");
   document.querySelectorAll("[data-t]").forEach(e=>e.textContent=tr(e.dataset.t));
   $("q").placeholder=tr("search");$("lang").textContent=LANG==="zh"?"EN":"中文";
-  buildReg();fillPref();buildCats();
+  buildReg();fillPref();buildCats();fcount();
 }
 $("lang").onclick=()=>{LANG=LANG==="zh"?"en":"zh";try{localStorage.setItem("hsm_lang",LANG)}catch(e){}applyLang();card();refresh(false)};
 counts();
@@ -781,27 +836,29 @@ counts();
     if(p.has("r"))S.reg=+p.get("r");if(p.has("p"))S.pref=+p.get("p");if(p.has("q")){S.q=p.get("q");$("q").value=S.q}
     if(p.has("c"))S.cat=new Set(p.get("c").split("").filter(k=>CAT[k]));
     if(p.has("b")){const b=p.get("b").split("").filter(k=>ORDER.includes(k));if(b.length)S.br=new Set(b)}
-    if(p.get("w")==="1")S.walk=true;if(p.get("o")==="1")S.open=true;
-    if(p.has("sl")){p.get("sl").split(",").forEach(k=>{if(spots.some(q=>q.k===k)&&!S.short.includes(k))S.short.push(k)});S.tab="short"}
+    if(p.get("w")==="1")S.walk=true;if(p.get("o")==="1")S.open=true;if(p.get("x")==="1")S.tax=true;if(p.has("tw"))S.town=p.get("tw");
+    if(p.get("t")==="plan"){S.tab="trip";S.trip="plan";if(p.has("pb"))S.pb0=+p.get("pb");if(p.has("pd"))S.pd0=+p.get("pd");S.pc0=p.get("pc")==="1"}
+    if(p.has("sl")){p.get("sl").split(",").forEach(k=>{if(spots.some(q=>q.k===k)&&!S.short.includes(k))S.short.push(k)});S.tab="trip";S.trip="saved"}
     if(p.has("s")&&spots.some(q=>q.k===p.get("s")))S.sel=p.get("s");
   }catch(e){}
-  ORDER.forEach(b=>$("c"+b).setAttribute("aria-pressed",S.br.has(b)));$("walk").setAttribute("aria-pressed",S.walk);$("openn").setAttribute("aria-pressed",S.open);
+  ORDER.forEach(b=>$("c"+b).setAttribute("aria-pressed",S.br.has(b)));$("walk").setAttribute("aria-pressed",S.walk);$("openn").setAttribute("aria-pressed",S.open);$("taxf").setAttribute("aria-pressed",S.tax);
 })();
 function writeHash(){
   const p=new URLSearchParams();if(S.sel)p.set("s",S.sel);if(S.reg>=0)p.set("r",S.reg);if(S.pref>=0)p.set("p",S.pref);if(S.q)p.set("q",S.q);
-  if(S.cat.size)p.set("c",[...S.cat].join(""));if(S.br.size!==5||S.br.has("X"))p.set("b",[...S.br].join(""));if(S.walk)p.set("w","1");if(S.open)p.set("o","1");if(LANG==="en")p.set("l","en");
+  if(S.cat.size)p.set("c",[...S.cat].join(""));if(S.br.size!==5||S.br.has("X"))p.set("b",[...S.br].join(""));if(S.walk)p.set("w","1");if(S.open)p.set("o","1");if(LANG==="en")p.set("l","en");if(S.tax)p.set("x","1");if(S.town)p.set("tw",S.town);
   try{history.replaceState(null,"",location.pathname+location.search+(p.toString()?"#"+p:""))}catch(e){}
 }
 function baseUrl(){return /^https?:/.test(location.protocol)?location.origin+location.pathname:""}
+if(S.pb0!=null&&S.pb0>=0&&S.pb0<BASES.length)S.plan.b=S.pb0;if(S.pd0>=1&&S.pd0<=7)S.plan.d=S.pd0;if(S.pc0)S.plan.car=true;
 applyLang();
-(function(){const ab=$("about"),cl=()=>{ab.hidden=true};$("aboutb").onclick=e=>{e.preventDefault();ab.hidden=false};$("abok").onclick=cl;ab.addEventListener("click",e=>{if(e.target===ab)cl()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!ab.hidden)cl()})})();
+(function(){const ab=$("about"),cl=()=>{ab.hidden=true};document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("[data-about]");if(a){e.preventDefault();ab.hidden=false}});$("abok").onclick=cl;ab.addEventListener("click",e=>{if(e.target===ab)cl()});document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!ab.hidden)cl()})})();
 (function(){const hp=$("help");const close=()=>{hp.hidden=true;try{localStorage.setItem("hsm_seen","1")}catch(e){}};
 $("helpb").onclick=()=>{hp.hidden=false};$("hok").onclick=close;hp.addEventListener("click",e=>{if(e.target===hp)close()});
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!hp.hidden)close()});
 let seen=false;try{seen=!!localStorage.getItem("hsm_seen")}catch(e){}
 if(!seen&&!location.hash)hp.hidden=false})();
 fit(BB);W0=VB.w;refresh(true);if(S.sel){const k=S.sel;S.sel=null;select(k,true)}
-if("serviceWorker" in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register("sw.js").catch(()=>{});
+if("serviceWorker" in navigator&&/^https?:/.test(location.protocol))navigator.serviceWorker.register("sw.js").then(()=>navigator.serviceWorker.ready).then(()=>{let s=null;try{s=localStorage.getItem("hsm_off")}catch(e){}if(!s){try{localStorage.setItem("hsm_off","1")}catch(e){}toast(tr("offOk"))}}).catch(()=>{});
 </script>
 </body>
 </html>

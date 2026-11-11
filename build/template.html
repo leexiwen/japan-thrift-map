@@ -34,7 +34,7 @@
 html,body{margin:0;height:100%}
 body{background:var(--page);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
 button,select,input{font:inherit;color:inherit}
-.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto minmax(0,1fr);height:100vh;min-height:620px}
+.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);height:100vh;min-height:620px}
 .hctl{display:flex;gap:8px}
 .filters{display:contents}
 header{padding:18px 22px 12px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line)}
@@ -173,7 +173,6 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   aside{border-left:0;border-top:1px solid var(--line);max-height:70vh}
   .legend{display:none}
   main{grid-template-rows:46svh auto}
-  .sbar{padding:8px 12px}
   header{padding:10px 14px 8px;gap:8px 12px;align-items:center}
   h1{font-size:20px}h1 small{display:none}
   .kpis{display:none}
@@ -195,10 +194,10 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 }
 
 .kpis[hidden],#reset[hidden],#h1s{display:none}
-header{padding:12px 22px;align-items:center;flex-wrap:nowrap}
+header{padding:10px 18px;gap:14px;align-items:center;flex-wrap:nowrap;justify-content:flex-start}header h1{flex:none}header .hctl{flex:none;margin-left:auto}
 h1{font-size:22px}
-.sbar{display:flex;gap:8px;padding:10px 22px;border-bottom:1px solid var(--line);background:var(--surface);align-items:center}
-.sbar input[type=search]{flex:1;width:auto;max-width:620px;padding:10px 14px;border-radius:12px;font-size:15px}
+.sbar{display:flex;gap:8px;align-items:center;flex:1;min-width:0;max-width:760px}
+.sbar input[type=search]{flex:1;width:auto;padding:9px 14px;border-radius:12px;font-size:15px}
 #ftog{display:inline-block;padding:9px 14px;border-radius:12px;white-space:nowrap}
 #ftog.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
 .hero{padding:18px 16px 4px}.hero h2{margin:0 0 4px;font:700 24px/1.2 "Iowan Old Style",Georgia,serif}.hero p{margin:0;color:var(--muted);font-size:14px}
@@ -231,6 +230,7 @@ h1{font-size:22px}
 .sf{display:flex;gap:10px;padding:12px 18px 18px;border-top:1px solid var(--line)}.sf .pri{flex:1;padding:11px}
 @media (min-width:901px){.sheet{align-items:flex-start;justify-content:flex-end;padding:112px 22px 0}.sbox{border-radius:16px;max-height:calc(100vh - 140px)}}
 .legend p{display:none}
+@media (max-width:900px){header{flex-wrap:wrap;gap:8px 10px;padding:8px 12px}header h1{flex:1;font-size:20px}header .hctl{order:2;margin-left:0}.sbar{order:3;flex:1 1 100%;max-width:none}}
 @media print{html.pp .sbar,html.pp .tripseg,html.pp .sheet{display:none!important}}
 </style>
 </head>
@@ -239,6 +239,10 @@ h1{font-size:22px}
 <div class="app">
 <header>
   <h1><small id="h1s"></small><span id="h1t"></span></h1>
+  <div class="sbar">
+  <input type="search" id="q" aria-label="Search">
+  <button class="ghost" id="ftog" type="button"></button>
+</div>
   <div class="kpis" hidden><b id="kS">0</b><b id="kP">0</b><b id="kC">0</b><b id="kH">0</b></div>
   <div class="hctl">
     <button class="ghost" id="reset" hidden></button>
@@ -246,10 +250,7 @@ h1{font-size:22px}
     <button class="ghost" id="helpb" aria-label="Help" data-t="helpB"></button>
   </div>
 </header>
-<div class="sbar">
-  <input type="search" id="q" aria-label="Search">
-  <button class="ghost" id="ftog" type="button"></button>
-</div>
+
 <div class="sheet" id="sheet" hidden><div class="sbox" role="dialog" aria-modal="true">
   <div class="sh"><b data-t="filters"></b><button class="ghost" id="sclose" data-t="done"></button></div>
   <div class="sbody">

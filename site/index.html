@@ -34,9 +34,10 @@
 html,body{margin:0;height:100%}
 body{background:var(--page);color:var(--ink);font:14px/1.45 ui-sans-serif,system-ui,-apple-system,"Segoe UI","Hiragino Sans","Noto Sans JP",sans-serif;-webkit-font-smoothing:antialiased}
 button,select,input{font:inherit;color:inherit}
-.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);height:100vh;min-height:620px}
+.app{min-width:0;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto auto minmax(0,1fr);height:100vh;min-height:620px}
 .hctl{display:flex;gap:8px}
 .filters{display:contents}
+#ftog{display:none}
 header{padding:18px 22px 12px;display:flex;flex-wrap:wrap;gap:14px 28px;align-items:flex-end;justify-content:space-between;border-bottom:1px solid var(--line)}
 h1{margin:0;font:700 26px/1.1 "Iowan Old Style",Georgia,"Hiragino Mincho ProN",serif;letter-spacing:-.01em}
 h1 small{display:block;font:500 12px/1.4 ui-sans-serif,system-ui,sans-serif;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
@@ -173,6 +174,8 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   aside{border-left:0;border-top:1px solid var(--line);max-height:70vh}
   .legend{display:none}
   main{grid-template-rows:46svh auto}
+  .filters{display:none}.app.fo .filters{display:block}
+  #ftog{display:inline-block}.app.fo #ftog{background:var(--ink);color:var(--page)}
   header{padding:10px 14px 8px;gap:8px 12px;align-items:center}
   h1{font-size:20px}h1 small{display:none}
   .kpis{display:none}
@@ -187,19 +190,18 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   .card .tag{white-space:nowrap;flex:none}
   .card .acts{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:8px}
   .card .btn{text-align:center;padding:8px 6px;font-size:13px;min-height:38px;display:flex;align-items:center;justify-content:center}
+  .toolbar:not(.tb2) .chip{font-size:12px;padding:4px 6px;gap:5px}
+  .toolbar:not(.tb2) .chip{flex:1 1 calc(50% - 8px);font-size:13px;padding:4px 8px;min-width:0}
+  .toolbar:not(.tb2) .chip small{margin-left:auto}
+  .toolbar:not(.tb2) .sep{display:none}
+  #prefSel{flex:1 1 40%}#q{flex:1 1 50%}
   .btn{padding:9px 14px}
   input,select{font-size:16px}
+  .foot{padding:6px 14px 34px}
   #mapt{display:block;width:calc(100% - 24px);margin:8px 12px 0}
   .app.nomap .mapwrap{display:none}.app.nomap main{grid-template-rows:auto}.app.nomap aside{max-height:none;border-top:0}
 }
 
-.kpis[hidden],#reset[hidden],#h1s{display:none}
-header{padding:10px 18px;gap:14px;align-items:center;flex-wrap:nowrap;justify-content:flex-start}header h1{flex:none}header .hctl{flex:none;margin-left:auto}
-h1{font-size:22px}
-.sbar{display:flex;gap:8px;align-items:center;flex:1;min-width:0;max-width:760px}
-.sbar input[type=search]{flex:1;width:auto;padding:9px 14px;border-radius:12px;font-size:15px}
-#ftog{display:inline-block;padding:9px 14px;border-radius:12px;white-space:nowrap}
-#ftog.on{background:var(--ink);color:var(--page);border-color:var(--ink)}
 .hero{padding:18px 16px 4px}.hero h2{margin:0 0 4px;font:700 24px/1.2 "Iowan Old Style",Georgia,serif}.hero p{margin:0;color:var(--muted);font-size:14px}
 .lbl.pad{padding:14px 16px 6px}
 .buy{display:flex;flex-wrap:wrap;gap:8px;padding:0 16px 4px}
@@ -217,21 +219,8 @@ h1{font-size:22px}
 .nb b{display:block;margin-bottom:4px;color:var(--ink)}
 .nb a{display:block;padding:3px 0;color:var(--ink);cursor:pointer;text-decoration:none}
 .nb a small{color:var(--muted)}
-.sheet{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40;display:flex;align-items:flex-end;justify-content:center}
-.sheet[hidden]{display:none}
-.sbox{background:var(--page);width:100%;max-width:560px;max-height:88vh;border-radius:18px 18px 0 0;display:flex;flex-direction:column;box-shadow:0 -8px 40px rgba(0,0,0,.25)}
-.sh{display:flex;justify-content:space-between;align-items:center;padding:14px 18px 8px;font-size:18px}
-.sbody{overflow:auto;padding:4px 18px 10px;display:grid;grid-template-columns:minmax(0,1fr);gap:18px}
-.sg .lbl{margin-bottom:8px}
-.sg .chips{display:flex;flex-wrap:wrap;gap:8px}
-.sg .cats{flex-wrap:wrap;overflow:visible}
-.sg .seg{max-width:100%;overflow-x:auto}.sg select{margin-top:8px;width:100%}
-.sg .snote{margin-top:6px;color:var(--muted);font-size:12px}
-.sf{display:flex;gap:10px;padding:12px 18px 18px;border-top:1px solid var(--line)}.sf .pri{flex:1;padding:11px}
-@media (min-width:901px){.sheet{align-items:flex-start;justify-content:flex-end;padding:112px 22px 0}.sbox{border-radius:16px;max-height:calc(100vh - 140px)}}
 .legend p{display:none}
-@media (max-width:900px){header{flex-wrap:wrap;gap:8px 10px;padding:8px 12px}header h1{flex:1;font-size:20px}header .hctl{order:2;margin-left:0}.sbar{order:3;flex:1 1 100%;max-width:none}}
-@media print{html.pp .sbar,html.pp .tripseg,html.pp .sheet{display:none!important}}
+@media print{html.pp .tripseg{display:none!important}}
 </style>
 </head>
 <body>
@@ -239,40 +228,41 @@ h1{font-size:22px}
 <div class="app">
 <header>
   <h1><small id="h1s"></small><span id="h1t"></span></h1>
-  <div class="sbar">
-  <input type="search" id="q" aria-label="Search">
-  <button class="ghost" id="ftog" type="button"></button>
-</div>
-  <div class="kpis" hidden><b id="kS">0</b><b id="kP">0</b><b id="kC">0</b><b id="kH">0</b></div>
+  <div class="kpis">
+    <div class="kpi"><b id="kS">0</b><span data-t="kStores"></span></div>
+    <div class="kpi"><b id="kP">0</b><span data-t="kLoc"></span></div>
+    <div class="kpi"><b id="kC">0</b><span data-t="kCombo"></span></div>
+    <div class="kpi"><b id="kH">0</b><span data-t="kTown"></span></div>
+  </div>
   <div class="hctl">
-    <button class="ghost" id="reset" hidden></button>
+    <button class="ghost" id="ftog" data-t="filters"></button>
+    <button class="ghost" id="reset" data-t="reset"></button>
+    <button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button>
     <button class="ghost" id="lang" aria-label="Language">EN</button>
     <button class="ghost" id="helpb" aria-label="Help" data-t="helpB"></button>
   </div>
 </header>
-
-<div class="sheet" id="sheet" hidden><div class="sbox" role="dialog" aria-modal="true">
-  <div class="sh"><b data-t="filters"></b><button class="ghost" id="sclose" data-t="done"></button></div>
-  <div class="sbody">
-    <div class="sg"><div class="lbl" data-t="gShops"></div><div class="chips">
-      <button class="chip" id="cO" aria-pressed="true"><i style="background:var(--o)"></i><span data-t="bO"></span> <small id="nO"></small></button>
-      <button class="chip" id="cH" aria-pressed="true"><i style="background:var(--h)"></i><span data-t="bH"></span> <small id="nH"></small></button>
-      <button class="chip" id="cB" aria-pressed="true"><i style="background:var(--b)"></i><span data-t="bB"></span> <small id="nB"></small></button>
-      <button class="chip" id="cS" aria-pressed="true"><i style="background:var(--s)"></i><span data-t="bS"></span> <small id="nS"></small></button>
-      <button class="chip" id="cF" aria-pressed="true"><i style="background:var(--f)"></i><span data-t="bF"></span> <small id="nF"></small></button>
-      <button class="chip" id="cX" aria-pressed="false"><i style="background:var(--x)"></i><span data-t="bX"></span> <small id="nX"></small></button>
-    </div></div>
-    <div class="sg"><div class="lbl" data-t="gWhere"></div><div class="seg" id="regSeg"></div><select id="prefSel" aria-label="Prefecture"></select></div>
-    <div class="sg"><div class="lbl" data-t="hunt"></div><div class="cats" id="cats"></div></div>
-    <div class="sg"><div class="lbl" data-t="gMore"></div><div class="chips">
-      <button class="chip walk" id="openn" aria-pressed="false"><span>🕒</span><span data-t="openN"></span></button>
-      <button class="chip walk" id="walk" aria-pressed="false"><span>🚶</span><span data-t="walk"></span></button>
-      <button class="chip walk" id="taxf" aria-pressed="false"><span>🧾</span><span data-t="taxF"></span></button>
-    </div><div class="snote" data-t="taxN"></div></div>
-    <div class="sg"><button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button></div>
-  </div>
-  <div class="sf"><button class="ghost" id="sreset" data-t="sReset"></button><button class="btn pri" id="sdone"></button></div>
-</div></div>
+<div class="filters">
+<div class="toolbar">
+  <button class="chip" id="cO" aria-pressed="true"><i style="background:var(--o)"></i><span data-t="bO"></span> <small id="nO"></small></button>
+  <button class="chip" id="cH" aria-pressed="true"><i style="background:var(--h)"></i><span data-t="bH"></span> <small id="nH"></small></button>
+  <button class="chip" id="cB" aria-pressed="true"><i style="background:var(--b)"></i><span data-t="bB"></span> <small id="nB"></small></button>
+  <button class="chip" id="cS" aria-pressed="true"><i style="background:var(--s)"></i><span data-t="bS"></span> <small id="nS"></small></button>
+  <button class="chip" id="cF" aria-pressed="true"><i style="background:var(--f)"></i><span data-t="bF"></span> <small id="nF"></small></button>
+  <button class="chip" id="cX" aria-pressed="false"><i style="background:var(--x)"></i><span data-t="bX"></span> <small id="nX"></small></button>
+  <span class="sep"></span>
+  <div class="seg" id="regSeg"></div>
+  <select id="prefSel" aria-label="Prefecture"></select>
+  <input type="search" id="q" aria-label="Search">
+</div>
+<div class="toolbar tb2">
+  <span class="lbl" data-t="hunt"></span>
+  <div class="cats" id="cats"></div>
+  <button class="chip walk" id="walk" aria-pressed="false"><span>🚶</span><span data-t="walk"></span></button>
+  <button class="chip walk" id="openn" aria-pressed="false"><span>🕒</span><span data-t="openN"></span></button>
+  <button class="chip walk" id="taxf" aria-pressed="false"><span>🧾</span><span data-t="taxF"></span></button>
+</div>
+</div>
 <main>
   <div class="mapwrap" id="mapwrap">
     <svg id="map" role="img" aria-label="Map of Hard Off, Off House and Book Off stores across Japan">
@@ -5531,13 +5521,9 @@ function fillPref(){
   const sel=$("prefSel");sel.innerHTML=`<option value="-1">${tr("allPref")}</option>`+PREF.map((p,i)=>({p,i})).filter(o=>S.reg<0||o.p[2]===S.reg).sort((a,b)=>LANG==="zh"?a.i-b.i:a.p[1].localeCompare(b.p[1])).map(o=>`<option value="${o.i}">${LANG==="zh"?o.p[0]:o.p[1]+" "+o.p[0]}</option>`).join("");sel.value=S.pref;
 }
 $("prefSel").onchange=e=>{S.pref=+e.target.value;refresh(true)};
-$("ftog").onclick=()=>{$("sheet").hidden=false};
-const sheetClose=()=>{$("sheet").hidden=true};
-$("sclose").onclick=sheetClose;$("sdone").onclick=sheetClose;$("sheet").addEventListener("click",e=>{if(e.target===$("sheet"))sheetClose()});
-document.addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("sheet").hidden)sheetClose()});
+$("ftog").onclick=()=>document.querySelector(".app").classList.toggle("fo");
 $("taxf").onclick=()=>{S.tax=!S.tax;$("taxf").setAttribute("aria-pressed",S.tax);refresh(true)};
-$("sreset").onclick=()=>{S.pref=-1;S.reg=-1;S.cat.clear();S.walk=false;S.open=false;S.tax=false;S.br=new Set(["O","H","B","S","F"]);ORDER.forEach(b=>$("c"+b).setAttribute("aria-pressed",S.br.has(b)));["walk","openn","taxf"].forEach(i=>$(i).setAttribute("aria-pressed","false"));buildReg();fillPref();buildCats();refresh(true)};
-function fcount(){let n=0;if(S.br.size!==5||S.br.has("X"))n++;if(S.reg>=0||S.pref>=0)n++;n+=S.cat.size;if(S.walk)n++;if(S.open)n++;if(S.tax)n++;$("ftog").textContent=tr("filters")+(n?" · "+n:"");$("ftog").classList.toggle("on",n>0);}
+function fcount(){}
 let qt;$("q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();S.pv=false;refresh(true)},180)};
 $("theme").onclick=()=>{
   const dark=(document.documentElement.dataset.theme||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"))==="dark";
@@ -5546,7 +5532,7 @@ $("theme").onclick=()=>{
 function refresh(refit){
   const v=view();
   $("kS").textContent=v.reduce((t,e)=>t+e.st.length,0);$("kP").textContent=v.length;$("kC").textContent=v.filter(e=>e.br.length>1).length;$("kH").textContent=hubsOf(v).length;
-  S.more=30;fcount();$("sdone").textContent=tr("showN")(v.reduce((t,e)=>t+e.st.length,0));
+  S.more=30;fcount();
   if(S.sel&&!v.some(e=>e.sp.k===S.sel)){S.sel=null;card()}
   if(refit)resetView();else draw();
   panel();writeHash();

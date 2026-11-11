@@ -178,9 +178,8 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
   #ftog{display:inline-block}.app.fo #ftog{background:var(--ink);color:var(--page)}
   header{padding:10px 14px 8px;gap:8px 12px;align-items:center}
   h1{font-size:20px}h1 small{display:none}
-  .kpis{display:none}
+  .kpis,.kline{display:none}
   .hctl{gap:6px}.hctl .ghost{padding:5px 9px;font-size:13px}
-  #reset{display:none}
   .ctrl button{width:44px;height:44px;font-size:22px}
   .btn,.ghost,.chip,.cat,.seg button,.tabs button{min-height:40px}
   .card{left:8px;right:8px;bottom:8px;max-width:none;width:auto;max-height:54%;overflow:auto;padding:10px 14px}
@@ -220,6 +219,10 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 .nb a{display:block;padding:3px 0;color:var(--ink);cursor:pointer;text-decoration:none}
 .nb a small{color:var(--muted)}
 .legend p{display:none}
+.kline{flex:1;text-align:center;font-size:14px;color:var(--muted)}
+.hbtns{display:flex;gap:8px;margin:0 0 12px}
+.tb2 .lbl,.tb2 .cats{display:none}
+.catrow{display:flex;gap:6px;overflow-x:auto;padding:8px 16px;border-bottom:1px solid var(--line);scrollbar-width:none}.catrow::-webkit-scrollbar{display:none}.catrow .cat{flex:none;white-space:nowrap;font-size:13px;padding:5px 10px}
 @media print{html.pp .tripseg{display:none!important}}
 </style>
 </head>
@@ -228,16 +231,9 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 <div class="app">
 <header>
   <h1><small id="h1s"></small><span id="h1t"></span></h1>
-  <div class="kpis">
-    <div class="kpi"><b id="kS">0</b><span data-t="kStores"></span></div>
-    <div class="kpi"><b id="kP">0</b><span data-t="kLoc"></span></div>
-    <div class="kpi"><b id="kC">0</b><span data-t="kCombo"></span></div>
-    <div class="kpi"><b id="kH">0</b><span data-t="kTown"></span></div>
-  </div>
+  <div class="kline" id="kline"></div>
   <div class="hctl">
     <button class="ghost" id="ftog" data-t="filters"></button>
-    <button class="ghost" id="reset" data-t="reset"></button>
-    <button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button>
     <button class="ghost" id="lang" aria-label="Language">EN</button>
     <button class="ghost" id="helpb" aria-label="Help" data-t="helpB"></button>
   </div>
@@ -293,7 +289,7 @@ html.pp .app{display:block;height:auto;overflow:visible}html.pp main{display:blo
 </div>
 <div class="tip" id="tip"></div>
 
-<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><p class="fine" style="padding:0 0 12px"><a href="#about" data-about data-t="aboutL"></a></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
+<div class="help" id="help" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="hT"></h2><ol><li><b data-t="hw1t"></b><span data-t="hw1"></span></li><li><b data-t="hw2t"></b><span data-t="hw2"></span></li><li><b data-t="hw3t"></b><span data-t="hw3"></span></li></ol><p class="hleg"><span style="--c:var(--o)">Off House</span><span style="--c:var(--h)">Hard Off</span><span style="--c:var(--b)">Book Off</span><span style="--c:var(--s)">2nd Street</span><span style="--c:var(--f)">Treasure Factory</span></p><div class="hbtns"><button class="ghost" id="theme" aria-label="Toggle theme" data-t="theme"></button><button class="ghost" id="reset" data-t="reset"></button></div><p class="fine" style="padding:0 0 12px"><a href="#about" data-about data-t="aboutL"></a></p><button class="btn pri" id="hok" data-t="hOk"></button></div></div>
 <div class="help" id="about" hidden role="dialog" aria-modal="true"><div class="hbox"><h2 data-t="abT"></h2><div class="abody"><p data-t="ab1"></p><p data-t="ab2"></p><p data-t="ab3"></p><p data-t="ab4"></p><p><a href="https://github.com/leexiwen/japan-thrift-map" target="_blank" rel="noopener" data-t="abSrc"></a></p></div><button class="btn pri" id="abok" data-t="hOk"></button></div></div>
 <form name="report" method="POST" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="form-name" value="report"><input name="store"><input name="coords"><input name="note"><input name="bot-field"></form>
 <script>
@@ -317,7 +313,7 @@ const ORDER=["O","H","B","S","F","X"];
 const ZH=["群马","埼玉","千叶","东京","神奈川","青森","岩手","宫城","秋田","山形","福岛","茨城","栃木","新潟","富山","石川","福井","山梨","长野","岐阜","静冈","爱知","三重","滋贺","京都","大阪","兵库","奈良","和歌山","鸟取","岛根","冈山","广岛","山口","北海道","德岛","香川","爱媛","高知","福冈","佐贺","长崎","熊本","大分","宫崎","鹿儿岛","冲绳"];
 const REGZ=["关东","东北","北陆·甲信越","东海","近畿","中国","北海道","四国","九州","冲绳"];
 const TX={
-en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",bF:"Treasure Factory",lF:"Treasure Factory",lX:"Specialty (off by default)",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street",filters:"Filter",rev:"Photos & reviews",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
+en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kline:n=>n.toLocaleString()+" shops shown",kStores:"Stores",kLoc:"Locations",kCombo:"Combos",kTown:"Towns",bO:"Off House",bH:"Hard Off",bB:"Book Off",bS:"2nd Street",bX:"Specialty",bF:"Treasure Factory",lF:"Treasure Factory",lX:"Specialty (off by default)",xM:"Mode Off (luxury resale)",xG:"Garage Off (car & bike)",xY:"Hobby Off (toys, cards, figures)",xI:"Instruments",xT:"Tools",xP:"PC",xC:"Camera",xO:"Outdoor & sports",lS:"2nd Street",filters:"Filter",rev:"Photos & reviews",nav:"Navigate",wa:"WhatsApp",tf:"Tax-free",late:"Open late",tyT:"general",tyA:"clothing",reset:"Reset view",theme:"Light / Dark",
  lO:"Off House",lH:"Hard Off",lB:"Book Off",
  hunt:"What to buy",openN:"Open now",walk:"Near a station",pk:n=>"Parking for "+n+" cars",wk:m=>m+" min walk from ",car:"No station within 1.5 km — car or taxi advised",est:"estimated",wkend:h=>"Sat/Sun/holidays from "+h,catNote:"Based on each store's listed product categories. Luxury brand / jewelry / watch categories are not shown.",lNote:"Split circles = several shops under one roof. Bigger = more shops. Specialty shops (incl. Mode Off luxury resale) are hidden until you switch them on.",
  tHubs:"Pick a town",helpB:"Help",hT:"How to use this map",hw1t:"Pick a town or search",hw1:"Tap a town, or type a shop, station or item (camera, kimono, guitar) in the search box.",hw2t:"Tap a shop",hw2:"Tap a dot on the map or a row in the list. Navigate opens Google Maps. Save keeps it for your trip.",hw3t:"Plan your trip",hw3:"Open My trip to see saved shops, or let it build day routes from where you are staying.",hOk:"Got it",oN:t=>`Open now · until ${t} (Japan time)`,oC:t=>`Closed now · opens ${t} (Japan time)`,oX:"Closed now (Japan time)",gDay:"Open day in Google Maps",footT:"Unofficial map, not affiliated with Hard Off or Book Off.",aboutL:"About & privacy",abT:"About this map",abSrc:"Source code, data and problem reports on GitHub ↗",ab1:"A free, non-commercial and unofficial map. It is not affiliated with or endorsed by Hard Off Corporation, Book Off Group or 2nd Street. Hard Off, Off House, Book Off and 2nd Street are trademarks of their owners and are used only to say which shops are shown.",ab2:"Shop names, locations and opening hours come from the companies’ public store pages, collected in November 2026. Every shop card links to its official page. Please check it for current hours, holidays and closures, and note that map pins can be slightly off. Use the ⚑ button on a shop to report a problem.",ab3:"Privacy: no accounts, no ads, no analytics and no cookies. Your shortlist, hotel, language and location stay in your own browser and are not sent to us. A report contains only the shop and the note you type, so please do not put personal details in it.",ab4:"Train lines are approximate: JR lines come from 2017 data and the bullet trains are drawn by hand. Use Google Maps for real directions. Store data last collected 11 Nov 2026 — shops open and close, so check the store page before a long trip.",hotelSet:"Set my hotel on map",hotelMove:"Move my hotel",hotelTap:"Tap the map where your hotel is",hotelSaved:"Hotel saved. Plans now start from it.",pDayBase:"Starting point for this day",rep:"Wrong location? Report",repT:"What is wrong? (optional)",repSend:"Send",repOk:"Thanks. Report sent.",repFail:"Could not send. Try again later.",tPlan:"Trip plan",locNo:"This browser cannot share your location.",locDenied:"Location is blocked. Allow location for this page in your browser settings. (Inside WhatsApp or other chat apps, open the link in your normal browser first.)",locFail:"Could not get your location. Check that location services are on and try again.",locFar:n=>"You seem to be far from Japan (nearest shop ~"+n.toLocaleString()+" km away), so the list is sorted by distance but the map was not moved.",nearOn:"📍 Nearest first (straight-line distance)",nearOff:"Sort by region",nearBack:"📍 Sort by distance",myLoc:"📍 My location",planGuide:"Pick where you are staying and how many days. Nearby shops are grouped into day routes.",pBase:"Staying in",pDays:"Days",pTrain:"🚆 Train + walk",pCar:"🚗 Car / taxi",pDay:n=>"Day "+n,pShopsN:n=>n+(n===1?" stop":" stops"),pShopT:"shopping",pTravelT:"travel",pShow:"Show on map",pAddAll:"Save this day",pPrint:"🖨 Print plan",pNote:"Times are rough estimates from straight-line distances. Check store hours and train times before you go. Shops are chosen by how many stores share a stop and how close they are to each other.",pNone:"No shops fit here with the current filters. Try car mode, a different base, or clear some filters.",pBack:m=>"back to your base ~"+m+" min",pStart:"from your base",tList:"Shop list",dataNotes:"Data notes & sources",fOn:"Filters are on, so some towns are hidden.",fClr:"Show all",listHint:"Pick a prefecture, or type a shop or town in the search box above.",tShort:"Shortlist",search:"Search a town, shop or item",allPref:"All prefectures",all:"All",
@@ -326,8 +322,8 @@ en:{h1s:"Second-hand shops · Japan",h1t:"Thrift Map of Japan",kStores:"Stores",
  smaller:n=>n+" smaller towns not listed — search or filter by prefecture to find them.",
  src:"Locations come from the official Hard Off, Book Off and Treasure Factory store finders (about 2,340 shops across Japan, plus about 260 specialty shops). Treasure Factory shows only its general stores so far. 2nd Street does not yet include Hokkaido and most of Tohoku and north Kanto, and only its main clothing and general stores are shown. Hours are as listed on each store page when collected (Nov 2026); stores open and close, so check before going. Nearest-station distances marked ≈ are straight-line estimates from a 2017 station list. This is an unofficial guide, not affiliated with Hard Off, Book Off or 2nd Street.",
  nothing:"Nothing saved yet.<br>Tap a shop on the map and press Save.",remove:"remove",copy:"Copy list",copied:"Copied ✓",nocopy:"Copy not allowed here",clear:"Clear",
- page:"store page ↗",hrs:"check hours",inone:n=>" · "+n+" shops in one stop",inS:"♥ Saved",addS:"♡ Save",gmaps:"Google Maps ↗",close:"Close",tExplore:"Explore",tTrip:"My trip",tSaved:"Saved",tDayPlan:"Day plan",done:"Done",gShops:"Shops",gWhere:"Where",gMore:"Options",taxF:"Tax-free",taxN:"Tax-free information is available for 2nd Street shops only.",sReset:"Reset",showN:n=>"Show "+n.toLocaleString()+" shops",homeT:"Where are you going?",homeS:"Pick a town, or choose what you want to buy.",popT:"Popular towns",allP:"All prefectures",bk:"Back",nearT:"Near you",shareL:"🔗 Share link",linkCopied:"Link copied ✓",offOk:"Saved for offline use. The map now opens without internet.",nbT:"Also within a 10-minute walk",hol:"Closing days vary: see the store page."},
-zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",bF:"Treasure Factory",lF:"Treasure Factory",lX:"专门店（默认关闭）",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street",filters:"筛选",rev:"照片与评价",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
+ page:"store page ↗",hrs:"check hours",inone:n=>" · "+n+" shops in one stop",inS:"♥ Saved",addS:"♡ Save",gmaps:"Google Maps ↗",close:"Close",tExplore:"Explore",tTrip:"My trip",tSaved:"Saved",tDayPlan:"Day plan",done:"Done",gShops:"Shops",gWhere:"Where",gMore:"Options",taxF:"Tax-free",taxN:"Tax-free information is available for 2nd Street shops only.",sReset:"Reset",showN:n=>"Show "+n.toLocaleString()+" shops",allTokyo:"All of Tokyo",homeT:"Where are you going?",homeS:"Pick a town, or choose what you want to buy.",popT:"Popular towns",allP:"All prefectures",bk:"Back",nearT:"Near you",shareL:"🔗 Share link",linkCopied:"Link copied ✓",offOk:"Saved for offline use. The map now opens without internet.",nbT:"Also within a 10-minute walk",hol:"Closing days vary: see the store page."},
+zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kline:n=>"显示 "+n.toLocaleString()+" 家店",kStores:"门店",kLoc:"地点",kCombo:"多店合一",kTown:"城镇",bO:"Off House 综合二手",bH:"Hard Off 电器",bB:"Book Off 书籍",bS:"2nd Street 服饰",bX:"专门店",bF:"Treasure Factory",lF:"Treasure Factory",lX:"专门店（默认关闭）",xM:"Mode Off 名牌二手",xG:"Garage Off 汽车摩托",xY:"Hobby Off 玩具·卡牌·手办",xI:"乐器馆",xT:"工具馆",xP:"PC 馆",xC:"相机馆",xO:"户外运动馆",lS:"2nd Street",filters:"筛选",rev:"照片与评价",nav:"导航",wa:"发到 WhatsApp",tf:"可退税",late:"营业到较晚",tyT:"综合",tyA:"服饰",reset:"重置视图",theme:"浅色 / 深色",
  lO:"Off House",lH:"Hard Off",lB:"Book Off",
  hunt:"想买什么",openN:"现在营业",walk:"靠近车站",pk:n=>"可停 "+n+" 辆车",wk:m=>"步行 "+m+" 分钟到 ",car:"1.5 公里内没有车站，建议自驾或打车",est:"估算",wkend:h=>"周末假日 "+h+" 起",catNote:"依据各店官方列出的商品类别。名牌 / 珠宝 / 手表类别不显示。",lNote:"分色圆圈 = 同一地点有多家店。圆圈越大 = 店越多。专门店（含 Mode Off 名牌二手）需手动打开才会显示。",
  tHubs:"挑选城镇",helpB:"帮助",hT:"如何使用这张地图",hw1t:"选城镇或搜索",hw1:"点一个城镇，或在搜索框输入店名、车站、物品（相机、和服、吉他）。",hw2t:"点一家店",hw2:"点地图上的圆点或列表里的一行。“导航”会打开谷歌地图，“收藏”会存进你的行程。",hw3t:"规划行程",hw3:"打开“我的行程”查看收藏的店，或让它按你住的地方排好每天的路线。",hOk:"知道了",oN:t=>`营业中 · 至 ${t}（日本时间）`,oC:t=>`已打烊 · ${t} 开门（日本时间）`,oX:"已打烊（日本时间）",gDay:"在谷歌地图打开当天路线",footT:"非官方地图，与 Hard Off、Book Off 无任何关联。",aboutL:"关于与隐私",abT:"关于这张地图",abSrc:"源代码、数据与问题反馈（GitHub）↗",ab1:"这是一张免费、非商业、非官方的地图，与 Hard Off Corporation、Book Off 集团及 2nd Street 没有关联，也未获其认可。Hard Off、Off House、Book Off、2nd Street 是各自所有者的商标，此处仅用于说明所显示的是哪些店铺。",ab2:"店铺名称、位置和营业时间来自各公司公开的门店页面，收集于 2026 年 11 月。每张店铺卡片都链接到官方页面，请以官方页面的最新营业时间、假日和关店信息为准；地图上的定位可能有些偏差，发现问题请点店铺上的 ⚑ 反馈。",ab3:"隐私：没有账号、广告、统计分析或 Cookie。你的收藏、酒店、语言和位置只保存在你自己的浏览器里，不会发送给我们。反馈只包含店铺和你输入的文字，请不要填写个人信息。",ab4:"铁路线仅为大致位置：JR 线路来自 2017 年的数据，新干线为手工绘制。实际路线请用谷歌地图。门店数据最后更新于 2026 年 11 月 11 日；店铺会开关，远行前请先查看门店页面。",hotelSet:"在地图上标出我的酒店",hotelMove:"重新标酒店位置",hotelTap:"请点击地图上你酒店的位置",hotelSaved:"酒店已保存，行程将从酒店出发。",pDayBase:"这一天的出发点",rep:"位置不对？反馈",repT:"哪里有问题？（可不填）",repSend:"发送",repOk:"谢谢，已收到反馈。",repFail:"发送失败，请稍后再试。",tPlan:"行程规划",locNo:"此浏览器无法获取你的位置。",locDenied:"位置权限被关闭。请在浏览器设置中允许本页面使用位置。（如果在 WhatsApp 等聊天软件里打开，请先改用手机自带浏览器打开链接。）",locFail:"无法获取你的位置，请确认已开启定位后再试。",locFar:n=>"你似乎不在日本附近（最近的店约 "+n.toLocaleString()+" 公里），列表已按距离排序，但地图没有移动。",nearOn:"📍 由近到远（直线距离）",nearOff:"改回按地区排序",nearBack:"📍 按距离排序",myLoc:"📍 我的位置",planGuide:"选择住的地方和天数，附近的店会排成每天的路线。",pBase:"住在",pDays:"天数",pTrain:"🚆 电车+步行",pCar:"🚗 自驾/打车",pDay:n=>"第 "+n+" 天",pShopsN:n=>n+" 个地点",pShopT:"逛店",pTravelT:"路上",pShow:"在地图上看",pAddAll:"收藏这一天",pPrint:"🖨 打印行程",pNote:"时间按直线距离粗略估算，出发前请确认营业时间和电车时间。地点按“同一地点店数多”和“彼此距离近”来挑选。",pNone:"当前筛选下这里没有合适的店。可以试试自驾模式、换一个住宿城市或清除部分筛选。",pBack:m=>"返回住处约 "+m+" 分钟",pStart:"从住处出发",tList:"店铺列表",dataNotes:"数据说明与来源",fOn:"已启用筛选，部分城镇被隐藏。",fClr:"显示全部",listHint:"选择都道府县，或在上方搜索框输入店名 / 城镇。",tShort:"收藏清单",search:"搜索城镇、店名或物品",allPref:"全部县",all:"全部",
@@ -336,7 +332,7 @@ zh:{h1s:"二手店 · 日本",h1t:"日本二手店地图",kStores:"门店",kLoc:
  smaller:n=>"另有 "+n+" 个较小的城镇未列出——请搜索或按县筛选。",
  src:"位置数据来自 Hard Off、Book Off 与 Treasure Factory 官方门店查询（全日本约 2,340 家店，另有约 260 家专门店；Treasure Factory 目前仅收录综合店）。2nd Street 暂未收录北海道、东北大部分及关东北部，且只收录主要的服饰与综合店。数据收集于 2026 年 11 月，门店可能有变动，出发前请查看门店页面。标有 ≈ 的车站距离为直线估算（车站数据为 2017 年版）。本页为非官方指南，与 Hard Off、Book Off、2nd Street 无关联。",
  nothing:"还没有收藏。<br>点地图上的店，再按“收藏”。",remove:"移除",copy:"复制清单",copied:"已复制 ✓",nocopy:"此处无法复制",clear:"清空",
- page:"门店页面 ↗",hrs:"请查看营业时间",inone:n=>" · 同一地点 "+n+" 家店",inS:"♥ 已收藏",addS:"♡ 收藏",gmaps:"谷歌地图 ↗",close:"关闭",tExplore:"探索",tTrip:"我的行程",tSaved:"已收藏",tDayPlan:"每日路线",done:"完成",gShops:"店铺类型",gWhere:"地区",gMore:"更多选项",taxF:"可退税",taxN:"仅 2nd Street 提供退税信息。",sReset:"重置",showN:n=>"查看 "+n.toLocaleString()+" 家店",homeT:"你要去哪里？",homeS:"选一个城镇，或选想买的东西。",popT:"热门城镇",allP:"全部都道府县",bk:"返回",nearT:"离你最近",shareL:"🔗 分享链接",linkCopied:"链接已复制 ✓",offOk:"已保存，没有网络时也能打开这张地图。",nbT:"步行 10 分钟内还有",hol:"休息日各店不同，请查看门店页面。"}
+ page:"门店页面 ↗",hrs:"请查看营业时间",inone:n=>" · 同一地点 "+n+" 家店",inS:"♥ 已收藏",addS:"♡ 收藏",gmaps:"谷歌地图 ↗",close:"关闭",tExplore:"探索",tTrip:"我的行程",tSaved:"已收藏",tDayPlan:"每日路线",done:"完成",gShops:"店铺类型",gWhere:"地区",gMore:"更多选项",taxF:"可退税",taxN:"仅 2nd Street 提供退税信息。",sReset:"重置",showN:n=>"查看 "+n.toLocaleString()+" 家店",allTokyo:"整个东京",homeT:"你要去哪里？",homeS:"选一个城镇，或选想买的东西。",popT:"热门城镇",allP:"全部都道府县",bk:"返回",nearT:"离你最近",shareL:"🔗 分享链接",linkCopied:"链接已复制 ✓",offOk:"已保存，没有网络时也能打开这张地图。",nbT:"步行 10 分钟内还有",hol:"休息日各店不同，请查看门店页面。"}
 };
 let LANG="zh";try{LANG=localStorage.getItem("hsm_lang")||"zh"}catch(e){}
 const tr=k=>TX[LANG][k];
@@ -395,7 +391,7 @@ function match(sp){
   const p=PREF[sp.pi];
   if(S.reg>=0&&p[2]!==S.reg)return false;
   if(S.pref>=0&&sp.pi!==S.pref)return false;
-  if(S.town&&S.town!==sp.pi+"|"+(PREF[sp.pi][1]==="Tokyo"?"東京":sp.city))return false;
+  if(S.town&&(S.town.endsWith("|東京")?PREF[sp.pi][1]!=="Tokyo":S.town!==sp.pi+"|"+sp.city))return false;
   if(S.q){const hs=hay(sp),h2=hs.replace(/[\s\-·・]/g,"");if(!S.q.toLowerCase().split(/\s+/).every(w=>hs.includes(w)||h2.includes(w.replace(/[\-·・]/g,""))))return false}
   return true;
 }
@@ -703,8 +699,10 @@ function planPanel(el){
 }
 // ---- side panel --------------------------------------------------------
 function dotsHTML(br){return `<span class="dots">${br.map(b=>`<i style="background:var(${BR[b].v})"></i>`).join("")}</span>`}
+const BUYK="AGYMWCFE".split("");
 function townName(k){return cityN(k.split("|").slice(1).join("|"))}
 function resMode(){return !!(S.town||S.q||S.pref>=0||S.reg>=0||S.cat.size||(S.me&&S.near))}
+function backFromResults(){if(S.town&&!S.q&&!S.cat.size&&PREF[+S.town.split("|")[0]][1]==="Tokyo"&&!S.town.endsWith("|東京")){S.town=null;S.pv="tokyo";refresh(true)}else clearSearch()}
 function clearSearch(){S.town=null;S.q="";$("q").value="";S.pref=-1;S.reg=-1;S.cat.clear();S.near=false;S.pv=false;buildReg();fillPref();buildCats();refresh(true)}
 function shareLink(url,text){
   if(navigator.share){navigator.share({title:tr("h1t"),text:text||"",url}).catch(()=>{});return}
@@ -712,13 +710,21 @@ function shareLink(url,text){
 }
 function exploreHome(el,v){
   const hs=hubsOf(v).slice(0,12),mx=Math.max(1,...hs.map(h=>h.stores));
-  const buy="AGYMWCFE".split("").map(k=>`<button class="cat" data-buy="${k}">${CAT[k][0]} ${cn(k)}</button>`).join("");
+  const buy=BUYK.map(k=>`<button class="cat" data-buy="${k}">${CAT[k][0]} ${cn(k)}</button>`).join("");
   el.innerHTML=`<div class="hero"><h2>${tr("homeT")}</h2><p>${tr("homeS")}</p></div><div class="lbl pad">${tr("hunt")}</div><div class="buy">${buy}</div><div class="lbl pad">${tr("popT")}</div>`+
    (hs.length?hs.map(h=>`<div class="hub" data-h="${h.key}"><span class="t">${cityN(h.city)}<small>${pn(h.pi)}</small></span><span class="c">${h.stores} ${tr("shops")}</span><div class="bar" style="width:${Math.max(8,h.stores/mx*100)}%">${ORDER.map(b=>h.n[b]?`<span style="flex:${h.n[b]};background:var(${BR[b].v})"></span>`:"").join("")}</div></div>`).join(""):`<div class="empty">${tr("none")}</div>`)+
    `<div class="row" id="allp"><span class="t">${tr("allP")}</span><span class="s" style="text-align:right">›</span></div><div class="fine">${tr("footT")} <a href="#about" data-about>${tr("aboutL")}</a></div>`;
-  el.querySelectorAll(".hub").forEach(r=>r.onclick=()=>{S.town=r.dataset.h;S.q="";$("q").value="";S.pv=false;showMap(true);refresh(true);if(NAR)try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}});
+  el.querySelectorAll(".hub").forEach(r=>r.onclick=()=>{if(r.dataset.h.endsWith("|東京")){S.pv="tokyo";panel();return}S.town=r.dataset.h;S.q="";$("q").value="";S.pv=false;showMap(true);refresh(true);if(NAR)try{window.scrollTo({top:0,behavior:"smooth"})}catch(e){}});
   el.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{S.cat=new Set([b.dataset.buy]);buildCats();refresh(true)});
   $("allp").onclick=()=>{S.pv=true;panel()};
+}
+function exploreTokyo(el,v){
+  const tv=v.filter(e=>PREF[e.sp.pi][1]==="Tokyo"),pi=tv.length?tv[0].sp.pi:0,cnt={};
+  tv.forEach(e=>{cnt[e.sp.city]=(cnt[e.sp.city]||0)+e.st.length});
+  const all=tv.reduce((t,e)=>t+e.st.length,0);
+  el.innerHTML=`<div class="rh"><button class="ghost" id="rback">‹ ${tr("bk")}</button><span><b>${cityN("東京")}</b></span></div><div class="row" data-tk="all"><span class="t"><b>${tr("allTokyo")}</b></span><span class="s" style="text-align:right">${all} ${tr("shops")} ›</span></div>`+Object.keys(cnt).sort((a,b)=>cnt[b]-cnt[a]).map(c=>`<div class="row" data-tk="${c}"><span class="t">${cityN(c)}</span><span class="s" style="text-align:right">${cnt[c]} ${tr("shops")} ›</span></div>`).join("");
+  $("rback").onclick=()=>{S.pv=false;panel()};
+  el.querySelectorAll("[data-tk]").forEach(r=>r.onclick=()=>{S.town=pi+"|"+(r.dataset.tk==="all"?"東京":r.dataset.tk);S.pv=false;refresh(true)});
 }
 function explorePrefs(el,v){
   const cnt={};v.forEach(e=>cnt[e.sp.pi]=(cnt[e.sp.pi]||0)+1);
@@ -732,11 +738,13 @@ function exploreResults(el,v){
   const n=v.reduce((t,e)=>t+e.st.length,0);
   const title=S.town?townName(S.town):S.q?"“"+S.q+"”":S.cat.size?[...S.cat].map(cn).join(", "):S.pref>=0?pn(S.pref):S.reg>=0?(LANG==="zh"?REGZ:REG)[S.reg]:tr("nearT");
   const head=`<div class="rh"><button class="ghost" id="rback">‹ ${tr("bk")}</button><span><b>${title}</b> · ${n.toLocaleString()} ${tr("shops")}</span></div>`;
-  if(!rows.length){el.innerHTML=head+'<div class="empty">'+tr("none")+'</div>';$("rback").onclick=clearSearch;return}
+  if(!rows.length){el.innerHTML=head+'<div class="empty">'+tr("none")+'</div>';$("rback").onclick=backFromResults;return}
+  const catrow=`<div class="catrow">${BUYK.map(k=>`<button class="cat" data-buy="${k}" aria-pressed="${S.cat.has(k)}">${CAT[k][0]} ${cn(k)}</button>`).join("")}</div>`;
   const bar=S.me&&S.near?`<div class="nearbar"><span>${tr("nearOn")}</span></div>`:"";
-  el.innerHTML=head+bar+rows.slice(0,S.more).map(e=>{const os=openSt(e.sp);return `<div class="row" data-k="${e.sp.k}"><span class="t">${os?(os.on?"🟢 ":"🔴 "):""}${e.sp.name}${e.sp.walk!=null&&e.sp.walk<=10?`<span class="badge">🚶${e.sp.walk}′</span>`:""}</span>${dotsHTML(e.br)}<span class="s">${cityN(e.sp.city)} · ${pn(e.sp.pi)}</span><span class="s" style="text-align:right">${S.me&&S.near?`<span class="dist">${fmtD(e.d)}</span> · `:""}${e.sp.hrs||""}</span></div>`}).join("")+(rows.length>S.more?`<button class="ghost more" id="more">${tr("more")} (${rows.length-S.more})</button>`:"");
-  $("rback").onclick=clearSearch;
+  el.innerHTML=head+catrow+bar+rows.slice(0,S.more).map(e=>{const os=openSt(e.sp);return `<div class="row" data-k="${e.sp.k}"><span class="t">${os?(os.on?"🟢 ":"🔴 "):""}${e.sp.name}${e.sp.walk!=null&&e.sp.walk<=10?`<span class="badge">🚶${e.sp.walk}′</span>`:""}</span>${dotsHTML(e.br)}<span class="s">${cityN(e.sp.city)} · ${pn(e.sp.pi)}</span><span class="s" style="text-align:right">${S.me&&S.near?`<span class="dist">${fmtD(e.d)}</span> · `:""}${e.sp.hrs||""}</span></div>`}).join("")+(rows.length>S.more?`<button class="ghost more" id="more">${tr("more")} (${rows.length-S.more})</button>`:"");
+  $("rback").onclick=backFromResults;
   el.querySelectorAll(".row").forEach(r=>r.onclick=()=>select(r.dataset.k,true));
+  el.querySelectorAll("[data-buy]").forEach(b=>b.onclick=()=>{const k=b.dataset.buy;if(S.cat.has(k))S.cat.delete(k);else S.cat.add(k);buildCats();refresh(true)});
   const m=$("more");if(m)m.onclick=()=>{S.more+=40;panel()};
 }
 function savedPanel(el){
@@ -757,7 +765,7 @@ function panel(){
   const inPlan=S.tab==="trip"&&S.trip==="plan";
   document.documentElement.classList.toggle("pp",inPlan);if(!inPlan&&S.route){S.route=null}routeDraw();
   if(S.tab==="hubs"){
-    if(S.pv&&!resMode())explorePrefs(el,v);else if(resMode())exploreResults(el,v);else exploreHome(el,v);
+    if(S.pv==="tokyo"&&!resMode())exploreTokyo(el,v);else if(S.pv&&!resMode())explorePrefs(el,v);else if(resMode())exploreResults(el,v);else exploreHome(el,v);
   }else{
     if(inPlan)planPanel(el);else savedPanel(el);
     el.insertAdjacentHTML("afterbegin",`<div class="tripseg"><div class="seg" id="tseg"><button data-v="saved" aria-pressed="${S.trip==="saved"}">${tr("tSaved")}${S.short.length?" ("+S.short.length+")":""}</button><button data-v="plan" aria-pressed="${S.trip==="plan"}">${tr("tDayPlan")}</button></div></div>`);
@@ -781,6 +789,7 @@ function fillPref(){
 }
 $("prefSel").onchange=e=>{S.pref=+e.target.value;refresh(true)};
 $("ftog").onclick=()=>document.querySelector(".app").classList.toggle("fo");
+["reset"].forEach(i=>$(i).addEventListener("click",()=>{$("help").hidden=true}));
 $("taxf").onclick=()=>{S.tax=!S.tax;$("taxf").setAttribute("aria-pressed",S.tax);refresh(true)};
 function fcount(){}
 let qt;$("q").oninput=e=>{clearTimeout(qt);qt=setTimeout(()=>{S.q=e.target.value.trim();S.pv=false;refresh(true)},180)};
@@ -790,7 +799,7 @@ $("theme").onclick=()=>{
 };
 function refresh(refit){
   const v=view();
-  $("kS").textContent=v.reduce((t,e)=>t+e.st.length,0);$("kP").textContent=v.length;$("kC").textContent=v.filter(e=>e.br.length>1).length;$("kH").textContent=hubsOf(v).length;
+  $("kline").textContent=tr("kline")(v.reduce((t,e)=>t+e.st.length,0));
   S.more=30;fcount();
   if(S.sel&&!v.some(e=>e.sp.k===S.sel)){S.sel=null;card()}
   if(refit)resetView();else draw();

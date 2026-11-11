@@ -418,7 +418,7 @@ function wedge(cx,cy,r,a0,a1,col){
   const [x0,y0]=p(a0),[x1,y1]=p(a1);
   return `<path d="M${cx} ${cy}L${x0.toFixed(2)} ${y0.toFixed(2)}A${r} ${r} 0 ${a1-a0>Math.PI?1:0} 1 ${x1.toFixed(2)} ${y1.toFixed(2)}Z" fill="${col}"/>`;
 }
-let CL=[];const CZ=2.3;const NAR=matchMedia("(max-width:900px)").matches;
+let CL=[];const CZ=4.6;const NAR=matchMedia("(max-width:900px)").matches;
 function draw(){
   const s=size(),u=VB.w/s.w,zoom=W0/VB.w,h=VB.w*s.h/s.w;
   const x0=VB.cx-VB.w/2-30,x1=VB.cx+VB.w/2+30,y0=VB.cy-h/2-30,y1=VB.cy+h/2+30;
@@ -426,7 +426,7 @@ function draw(){
   const ring=css("--ring"),surf=css("--surface");
   const cols={O:css("--o"),H:css("--h"),B:css("--b"),S:css("--s"),F:css("--f"),X:css("--x")};
   CL=[];let items=v;
-  if(zoom<CZ){const cell=46*u,grid=new Map(),keep=[];
+  if(zoom<CZ){const cell=(zoom<2.3?46:zoom<3.4?34:26)*u,grid=new Map(),keep=[];
     v.forEach(e=>{const sp=e.sp;if(sp.x<x0||sp.x>x1||sp.y<y0||sp.y>y1)return;const k=Math.floor(sp.x/cell)+","+Math.floor(sp.y/cell);let a=grid.get(k);if(!a){a=[];grid.set(k,a)}a.push(e)});
     grid.forEach(a=>{if(a.length===1){keep.push(a[0]);return}
       const cx=a.reduce((t,e)=>t+e.sp.x,0)/a.length,cy=a.reduce((t,e)=>t+e.sp.y,0)/a.length,n=a.length,r=Math.min(19,9+1.9*Math.sqrt(n))*u,i=CL.length;

@@ -282,7 +282,7 @@ html.intro #intro{display:block}
 #intro.zh h2{font:800 clamp(40px,6.4vw,92px)/1.08 var(--cond);letter-spacing:.02em}
 #intro .imono{font:500 11px/1 var(--mono);letter-spacing:.2em;color:var(--accent);margin-bottom:16px;text-transform:uppercase}
 #intro h2{margin:0 0 14px;font:400 clamp(48px,7.4vw,104px)/.9 var(--cond);letter-spacing:.015em;text-transform:uppercase;color:#f1eee7}
-#intro .nw{white-space:nowrap}
+@media (min-width:901px){#intro .nw{white-space:nowrap}}
 #intro h2 em{font-style:normal;color:var(--accent);text-shadow:0 0 38px rgba(255,106,26,.45)}
 #intro p{margin:0 0 22px;max-width:46ch;color:var(--ink2);font-size:15px;line-height:1.55}
 #intro .ibtn{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px}
@@ -960,7 +960,7 @@ let seen=false;try{seen=!!localStorage.getItem("hsm_seen")}catch(e){}
 if(!seen&&!location.hash&&!window.__INTRO)hp.hidden=false})();
 fit(BB);W0=VB.w;refresh(true);if(S.sel){const k=S.sel;S.sel=null;select(k,true)}
 // ---- cinematic opening --------------------------------------------------
-const INTRO={en:{mono:n=>n.toLocaleString("en")+" SHOPS · UPDATED NOV 2026",h:"Japan’s <span class='nw'>second-hand shops,</span><br><em>first sight</em>",p:n=>n.toLocaleString("en")+" shops across Hard Off, Off House, Book Off, 2nd Street and Treasure Factory. No two stocked alike.",a:"Shinjuku",o:"Osaka",s:"Surprise me",x:"Explore the map →",l:"中文"},
+const INTRO={en:{mono:n=>n.toLocaleString("en")+" SHOPS · UPDATED NOV 2026",h:"Japan’s <span class='nw'>second-hand shops</span><br><em>Dig, and you shall find</em>",p:n=>n.toLocaleString("en")+" shops across Hard Off, Off House, Book Off, 2nd Street and Treasure Factory. No two stocked alike.",a:"Shinjuku",o:"Osaka",s:"Surprise me",x:"Explore the map →",l:"中文"},
  zh:{mono:n=>n.toLocaleString("en")+" 家店 · 更新于 2026 年 11 月",h:"日本二手店，<br><em>旧物新缘</em>",p:n=>"Hard Off、Off House、Book Off、2nd Street、Treasure Factory，"+n.toLocaleString("en")+" 家店，没有两家的货一样。",a:"新宿",o:"大阪",s:"随机一家",x:"进入地图 →",l:"EN"}};
 function introText(){const c=INTRO[LANG];$("intro").classList.toggle("zh",LANG==="zh");$("iMono").textContent=c.mono(+$("kS").textContent||0);$("iH").innerHTML=c.h;$("iP").textContent=c.p(+$("kS").textContent||0);$("iA").textContent=c.a;$("iO").textContent=c.o;$("iS").textContent=c.s;$("iX").textContent=c.x;$("iLang").textContent=c.l}
 function ll2xy(lat,lng){const R=1700,p=Math.PI/180,l0=138.5*p,f0=35.7*p,f=lat*p,l=lng*p-l0;const k=Math.sqrt(2/(1+Math.sin(f0)*Math.sin(f)+Math.cos(f0)*Math.cos(f)*Math.cos(l)));return{x:433.2+R*k*Math.cos(f)*Math.sin(l),y:311.4-R*k*(Math.cos(f0)*Math.sin(f)-Math.sin(f0)*Math.cos(f)*Math.cos(l))}}

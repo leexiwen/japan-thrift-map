@@ -301,7 +301,9 @@ h1{cursor:pointer}
   h1{font-size:26px}
   #intro .ibox{bottom:max(22px,env(safe-area-inset-bottom));}
   #intro h2{font-size:clamp(48px,17vw,84px)}
-  #intro p{font-size:14px;margin-bottom:16px}
+  #intro:not(.zh) h2{font-size:clamp(32px,10vw,52px);line-height:.98}
+  #intro p{display:none}
+  #intro .ibtn{margin-bottom:12px}
   #intro button{padding:11px 14px;font-size:11px}
 }
 </style>
